@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+ </head>
+ <body style="width: 100%; height: 800px">
+  <h1>Static</h1>
+  <svg id="canvas1" version="1.1" baseProfile="full" width="700" height="100" style="border: 1px solid blue;" xmlns="http://www.w3.org/2000/svg">
+   <text x="100" y="20">Static</text>
+  </svg>
+
+  <h1>innerHTML</h1>
+  <svg id="canvas2" version="1.1" baseProfile="full" width="700" height="100" style="border: 1px solid red;" xmlns="http://www.w3.org/2000/svg">
+  </svg>
+
+  <h1>createElement</h1>
+  <svg id="canvas3" version="1.1" baseProfile="full" width="700" height="100" style="border: 1px solid green;" xmlns="http://www.w3.org/2000/svg">
+  </svg>
+
+  <h1>createElementNS</h1>
+  <svg id="canvas4" version="1.1" baseProfile="full" width="700" height="100" style="border: 1px solid black;" xmlns="http://www.w3.org/2000/svg">
+  </svg>
+
+  <h1>DOMParser and importNode</h1>
+  <svg id="canvas5" version="1.1" baseProfile="full" width="700" height="100" style="border: 1px solid violet;" xmlns="http://www.w3.org/2000/svg">
+  </svg>
+
+  <script type="text/javascript">
+   var canvas2 = document.getElementById("canvas2"),
+       canvas3 = document.getElementById("canvas3"),
+       canvas4 = document.getElementById("canvas4"),
+       canvas5 = document.getElementById("canvas5"),
+       text3, text4,
+       domParser = new DOMParser();
+
+   function svgify(text) {
+    var prefix = '<svg xmlns="http://www.w3.org/2000/svg">',
+        suffix = '</svg>',
+        toParse = prefix + text + suffix,
+        parsed = domParser.parseFromString(toParse, 'application/xml');
+
+    return parsed.documentElement;
+   }
+
+   function setInnerSVG(node, text) {
+    var oldNode = svgify(text),
+        nodeDoc = node.ownerDocument,
+        newNode = nodeDoc.importNode(oldNode, true);
+
+    node.appendChild(newNode);
+   }
+
+   canvas2.innerHTML = '<text x="100" y="20">innerHTML</text>';
+
+   text3 = document.createElement('text');
+   text3.innerHTML = 'createElement';
+   text3.setAttribute('x', 100);
+   text3.setAttribute('y', 20);
+   canvas3.appendChild(text3);
+
+   text4 = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+   text4.innerHTML = 'createElementNS';
+   text4.setAttribute('x', 100);
+   text4.setAttribute('y', 20);
+   canvas4.appendChild(text4);
+
+   setInnerSVG(canvas5, '<text x="100" y="20">DOMParser and importNode</text>');
+  </script>
+ </body>
+</html>
