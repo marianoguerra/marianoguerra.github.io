@@ -25,11 +25,26 @@
   <svg id="canvas5" version="1.1" baseProfile="full" width="700" height="100" style="border: 1px solid violet;" xmlns="http://www.w3.org/2000/svg">
   </svg>
 
+  <h1>Static xmlns</h1>
+  <svg id="canvas6" version="1.1" baseProfile="full" width="700" height="100" style="border: 1px solid violet;" xmlns:s="http://www.w3.org/2000/svg">
+   <s:text x="100" y="20">Static</s:text>
+  </svg>
+
+  <h1>Static xmlns attr on node</h1>
+  <svg id="canvas7" version="1.1" baseProfile="full" width="700" height="100" style="border: 1px solid violet;" xmlns="http://www.w3.org/2000/svg">
+   <text xmlns="http://www.w3.org/2000/svg" x="100" y="20">Static xmlns attr</text>
+  </svg>
+
+  <h1>Dynamic xmlns attr on node</h1>
+  <svg id="canvas8" version="1.1" baseProfile="full" width="700" height="100" style="border: 1px solid violet;" xmlns="http://www.w3.org/2000/svg">
+  </svg>
+
   <script type="text/javascript">
    var canvas2 = document.getElementById("canvas2"),
        canvas3 = document.getElementById("canvas3"),
        canvas4 = document.getElementById("canvas4"),
        canvas5 = document.getElementById("canvas5"),
+       canvas8 = document.getElementById("canvas8"),
        text3, text4,
        domParser = new DOMParser();
 
@@ -65,6 +80,8 @@
    canvas4.appendChild(text4);
 
    setInnerSVG(canvas5, '<text x="100" y="20">DOMParser and importNode</text>');
+
+   canvas8.innerHTML = '<text xmlns="http://www.w3.org/2000/svg" x="100" y="20">Dynamic xmlns attr</text>';
   </script>
  </body>
 </html>
