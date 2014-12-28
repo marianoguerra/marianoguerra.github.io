@@ -1,0 +1,67 @@
+.app-title, .app-desc{
+ margin-bottom: 1em;
+ text-align: center;
+}
+
+.scale{
+ margin-bottom: 1em;
+}
+
+.scale>h2{
+ font-size: 1.5rem;
+}
+
+.guitar{
+ border-collapse: collapse;
+ border-spacing: 0;
+}
+
+.fret-notes .note-name{
+ border-bottom: 4px solid #333;
+ text-align: center;
+}
+
+.fret .note{
+ border-bottom: 2px solid #666;
+}
+
+.fret .note:last-child, .fret .row-index:first-child{
+ border-right: 1px solid #999;
+}
+
+.fret .note, .fret .note-name, .fret .row-index{
+ padding: 0 0.5em;
+}
+
+.dotted-fret{
+ background-color: #ddd;
+}
+
+.dotted-fret .row-index{
+ font-weight: bold;
+}
+
+.note>button{
+ color: #333;
+ min-width: 2em;
+ padding: 1em 0;
+ margin: 0;
+ border: 0;
+ background-color: #f0f0f0;
+ cursor: pointer;
+}
+
+.note>.class-selected{
+ background-color: #47A3DA;
+ color: #fefefe;
+}
+
+.note>.selected{
+ background-color: #93A644;
+ color: #fefefe;
+}
+
+.note>.last-selected{
+ background-color: #DC4634;
+ color: #fefefe;
+}
