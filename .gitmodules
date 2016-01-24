@@ -2,3 +2,6 @@
 	path = interfix
     branch = gh-pages
 	url = https://github.com/marianoguerra/interfix-site.git
+[submodule "erlplorer"]
+	path = erlplorer
+	url = https://github.com/marianoguerra/erlplorer.git
