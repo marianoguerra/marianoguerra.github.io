@@ -1,0 +1,11 @@
+@startuml
+
+hide footbox
+
+participant "1\neager {2,3}\nlazy {5}\nmsgs {}" as 1
+participant "2\neager {1,4}\nlazy {}\nmsgs {}" as 2 
+participant "3\neager {1,5}\nlazy {}\nmsgs {}" as 3 #e64a19
+participant "4\neager {2}\nlazy {5}\nmsgs {}" as 4
+participant "5\neager {3}\nlazy {1,4}\nmsgs {}" as 5
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+skinparam state {
+  StartColor #333333
+  EndColor #333333
+  BorderColor Gray
+  FontName Impact
+  BackgroundColor #eee
+}
+
+[*] --> prepare: 1) start
+prepare --> stop: timeout
+prepare --> stop: 2) lock -> error
+prepare --> stop: 3) remote_lock -> error
+
+prepare --> update: remote_lock -> ok
+update --> stop: timeout
+update --> stop: update_error
+update --> update: 4) tree_updated (build < 2)
+update --> exchange: 5) tree_updated (build = 2)
+exchange --> stop: update_error
+exchange --> stop: 6) finish exchange
+
+@enduml
+

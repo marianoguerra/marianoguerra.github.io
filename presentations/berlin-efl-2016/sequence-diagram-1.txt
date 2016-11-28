@@ -1,0 +1,31 @@
+@startuml
+skinparam sequence {
+    ParticipantBackgroundColor #eee
+}
+
+autonumber
+
+client -> metadata: put/3
+activate metadata
+...
+   metadata -> metadata : metadata:broadcast/2
+   activate metadata
+        metadata -> broadcast : broadcast:broadcast(Broadcast, riak_core_metadata_manager)
+        activate broadcast
+            broadcast -> broadcast : eager_push/4
+                activate broadcast
+                    broadcast -> broadcast : Peers = eager_peers/3
+                    broadcast -> broadcast : send({broadcast, MessageId, Message, ...}, Peers)
+                deactivate broadcast
+        
+            broadcast -> broadcast : schedule_lazy_push/3
+                activate broadcast
+                    broadcast -> broadcast : Peers = lazy_peers/3
+                    broadcast -> broadcast : add_all_outstanding/6
+                deactivate broadcast
+        deactivate broadcast
+   deactivate metadata
+
+deactivate metadata
+
+@enduml 

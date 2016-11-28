@@ -1,0 +1,34 @@
+riak_core_metadata:put/3
+
+    riak_core_metadata_manager:get/1
+        undefined -> riak_core_metadata_object:empty_context/0
+        Existing  -> riak_core_metadata_object:context/1
+
+    riak_core_metadata_manager:put/3
+        read_modify_write/3
+            Existing = read/1
+            Modified = riak_core_metadata_object:modify/4
+
+                undefined ->
+                     NewRecord = dvvset:new(Value)
+                     dvvset:update(NewRecord, ServerId)
+                Existing ->
+                     InsertRec = dvvset:new(Context, Value)
+                     dvvset:update(InsertRec, Existing, ServerId)
+
+            store/3
+                Hash = riak_core_metadata_object:hash(Metadata)
+                ets:insert(Tab, Obj)
+                riak_core_metadata_hashtree:insert(PKey, Hash)
+                dets_insert(DTab, Obj)
+
+    broadcast/2
+        Broadcast = #metadata_broadcast{pkey = PKey, obj  = Obj},
+        riak_core_broadcast:broadcast(Broadcast, riak_core_metadata_manager).
+            eager_push/4
+                Peers = eager_peers/3
+                send({broadcast, MessageId, Message, ...}, Peers)
+
+            schedule_lazy_push/3
+                Peers = lazy_peers/3
+                add_all_outstanding/6

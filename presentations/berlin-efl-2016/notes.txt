@@ -1,0 +1,154 @@
+https://www.youtube.com/watch?v=s4cCUTPU8GI
+
+Distributed Erlang
+------------------
+
+docs/erlang/doc/reference_manual/distributed.html
+
+The nodes in a distributed Erlang system are loosely connected. The first time
+the name of another node is used, for example, if spawn(Node,M,F,A) or
+net_adm:ping(Node) is called, a connection attempt to that node is made.
+
+Connections are by default transitive. If a node A connects to node B, and node
+B has a connection to node C, then node A also tries to connect to node C. This
+feature can be turned off by using the command-line flag -connect_all false,
+see the erl(1) manual page in ERTS.
+
+If a node goes down, all connections to that node are removed. Calling
+erlang:disconnect_node(Node) forces disconnection of a node.
+
+The list of (visible) nodes currently connected to is returned by nodes().
+
+The default when a connection is established between two nodes, is to
+immediately connect all other visible nodes as well. This way, there is always
+a **fully connected network**
+
+epmd
+....
+
+The Erlang Port Mapper Daemon epmd is automatically started at every host where
+an Erlang node is started. It is responsible for mapping the symbolic node
+names to machine addresses
+
+A node fetches the port number of another node through the EPMD (at the other
+host) to initiate a connection request.
+
+For each host, where a distributed Erlang node is running, also an EPMD is to
+be running. The EPMD can be started explicitly or automatically as a result of
+the Erlang node startup.
+
+By default the EPMD listens on port 4369.
+
+The connection created to the EPMD must be kept as long as the node is a
+distributed node. When the connection is closed, the node is automatically
+unregistered from the EPMD.
+
+A node unregisters itself from the EPMD by closing the TCP connection to EPMD
+established when the node was registered.
+
+When one node wants to connect to another node it starts with a
+PORT_PLEASE2_REQ request to the EPMD on the host where the node resides to get
+the distribution port that the node listens to.
+
+Hidden Nodes
+............
+
+In a distributed Erlang system, it is sometimes useful to connect to a node
+without also connecting to all other nodes. An example is some kind of O&M
+functionality used to inspect the status of a system, without disturbing it.
+For this purpose, a hidden node can be used.
+
+A hidden node is a node started with the command-line flag -hidden. Connections
+between hidden nodes and other nodes are not transitive, they must be set up
+explicitly. Also, hidden nodes does not show up in the list of nodes returned
+by nodes(). Instead, nodes(hidden) or nodes(connected) must be used. This
+means, for example, that the hidden node is not added to the set of nodes that
+global is keeping track of.
+
+Erlang Cluster
+--------------
+
+http://osdir.com/ml/erlang-questions-programming/2009-04/msg00350.html
+
+The global name server (with help of global_group server if global name
+space is partitioned into global groups) maintains the fully
+interconnected mesh of nodes. If you don't desire to have this
+functionality enabled, you can disable it by passing "-connect_all
+false" to the emulator at startup. However this will inhibit the global
+name registration functionality. If you have a large network (such as
+one of the networks we have with somewhat 400 nodes), and still would
+like to take advantage of global name registration, you can partition
+the global name space (via {kernel, [{global_group, [{GroupName,
+Nodes}]}]} option), so that only a handful of "master" nodes maintains a
+fully connected mesh, and other "auxiliary" nodes connect to one (or
+some) nodes in the "master" ring.
+
+https://m.reddit.com/r/erlang/comments/3bccmi/distributed_erlang
+
+fcesarini:
+
+Scalability of fully connected Erlang systems scales to about 50-100 nodes
+depending on your usage patterns, hardware and requirements. Upon adding a new
+node to the cluster, all visible (non hidden) nodes who share the secret cookie
+get told about it, connections are set up and monitoring kicks in. So with 100
+nodes, you get 5050 TCP/IP connections (100+99+...+2+1) and heart beats,
+creating overhead in both the node and the network. Other single process
+bottlenecks such as rex, which handles RPC calls, or the net kernel, whose
+responsibility is to coordinate operations in distributed Erlang. How far you
+are able to scale your fully meshed distributed Erlang cluster will depend on
+the characteristics of your system. The issue is not with Erlang, but with the
+overheads and tradeoffs you are willing to accept to have a completely
+transparent and fully connected system. No other language not built on the
+Erlang VM has built in distribution offering this level of transparency.
+
+Beyond 50-100 nodes, you need to reduce the number of fully connected nodes
+using hidden nodes, sharding or through frameworks such as Riak Core and SD
+Erlang. Or go down the AMQP, ZeroMQ or other service bus. These are generic
+scalability patterns which apply to all programming languages, Erlang being no
+exception. The reason you hear people rave about Erlang and distributed systems
+is because of asynchronous message passing (Which is the only way to scale
+distibuted systems), built in distribution and dedicated (asynchronous) error
+channels across nodes, and location transparency of the processes. This means
+that scaling becomes much easier and flexible, as a program written for a
+single node can easily be distributed to a cluster or nodes. But going beyond
+that cluster, the patterns I spoke of are needed.
+
+The whole thread is interesting:
+
+http://erlang-questions.erlang.narkive.com/dSufganP/massive-distribution
+
+
+SD Erlang
+---------
+
+http://www.dcs.gla.ac.uk/research/sd-erlang/
+
+Key goals in scaling the computation model are to provide mechanisms for
+controlling locality and reducing connectivity, and to provide performance
+portability. The reducing of connectivity is achieved by introducing s_groups.
+That is nodes in SD Erlang transitively share connections only with nodes that
+belong to the same s_group. In addition global name registration is replaced by
+s_group name registration, i.e. names are replicated only on nodes of the given
+s_group.
+
+Efficiency Guide
+----------------
+
+https://marianoguerra.github.io/otp/doc/efficiency_guide/advanced.html
+
+The maximum number of simultaneously connected nodes is limited by either the
+maximum number of simultaneously known remote nodes, the maximum number of
+(Erlang) ports available, or the maximum number of sockets available.
+
+The maximum number of simultaneously open Erlang ports is often by default
+16,384. This limit can be configured at startup.
+
+Riak Core
+---------
+
+riak_core_ring
+..............
+
+Riak nodes exchange instances of these records via gossip in order to converge
+on a common view of node/partition ownership.
+

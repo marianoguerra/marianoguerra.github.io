@@ -1,0 +1,469 @@
+39.868766 <0.659.0> 
+riak_core_broadcast:handle_cast({broadcast,
+    {{{<<"tanodb">>,<<"mymeta">>},my_key_1},[{'tanodb1@127.0.0.1',1}]},
+    {metadata,
+        {[{'tanodb1@127.0.0.1',1,
+              [{<<"my metadata value">>,{1479,668199,857241}}]}],
+         []}},
+    riak_core_metadata_manager,0,'tanodb1@127.0.0.1','tanodb1@127.0.0.1'}, {state,['tanodb3@127.0.0.1'],
+       ['tanodb1@127.0.0.1'],
+       [],[],[],
+       [riak_core_metadata_manager],
+       [],
+       ['tanodb1@127.0.0.1','tanodb2@127.0.0.1','tanodb3@127.0.0.1']})
+
+39.869327 <0.659.0> 
+riak_core_metadata_manager:merge({{{<<"tanodb">>,<<"mymeta">>},my_key_1},[{'tanodb1@127.0.0.1',1}]}, {metadata,{[{'tanodb1@127.0.0.1',1,
+                                 [{<<"my metadata value">>,
+                                   {1479,668199,857241}}]}],
+           []}})
+
+39.869792 <0.652.0> 
+riak_core_metadata_manager:handle_call({merge, {{<<"tanodb">>,<<"mymeta">>},my_key_1},
+    {metadata,
+        {[{'tanodb1@127.0.0.1',1, [{<<"my metadata value">>,{1479,668199,857241}}]}],
+         []}}}, {<0.659.0>,#Ref<0.0.3.309>}, {state,'tanodb2@127.0.0.1',"./data/cluster_meta",1310764})
+
+39.871952 <0.652.0> 
+riak_core_metadata_object:reconcile({metadata,{[{'tanodb1@127.0.0.1',1,
+                                 [{<<"my metadata value">>, {1479,668199,857241}}]}],
+           []}}, undefined)
+
+39.872408 <0.652.0> 
+riak_core_metadata_object:reconcile/2 --> 
+{true,
+ {metadata,
+  {[{'tanodb1@127.0.0.1', 1, [{<<"my metadata value">>, {1479, 668199, 857241}}]}],
+   []}}}
+
+39.880792 <0.652.0> 
+riak_core_metadata_object:hash({metadata,{[{'tanodb1@127.0.0.1',1,
+                                 [{<<"my metadata value">>,
+                                   {1479,668199,857241}}]}],
+           []}})
+
+39.881371 <0.652.0> 
+riak_core_metadata_object:hash/1 --> 
+<<14,207,166,59, 231,17,119,48, 194,3,140,154, 84,160,97,103, 3,213,100,247>>
+
+39.881728 <0.652.0> 
+riak_core_metadata_hashtree:insert({{<<"tanodb">>,<<"mymeta">>},my_key_1}, <<14,207,166,59,231,17,119,48,194,3,140,154,84,160,97,103,3,213,100,247>>)
+
+39.881994 <0.657.0> 
+riak_core_metadata_hashtree:handle_call({insert,{{<<"tanodb">>,<<"mymeta">>},my_key_1},
+        <<14,207,166,59,231,17,119,48,194,3,140,154,84,160,97,103,3,213,100,247>>,
+        false}, {<0.652.0>,#Ref<0.0.3.320>}, {state,{hashtree_tree,cluster_meta,"./data/cluster_meta/trees",2,1835056,
+                      13893697,
+                      {0,nil}},
+       true,undefined})
+
+39.882409 <0.657.0> 
+riak_core_metadata_hashtree:handle_call/3 --> 
+{reply,
+ ok,
+ {state,
+  {hashtree_tree,
+   cluster_meta,
+   "./data/cluster_meta/trees",
+   2,
+   1835056,
+   13893697,
+   {1, {[<<"mymeta">>, <<"tanodb">>], nil, nil}}},
+  true,
+  undefined}}
+
+39.882695 <0.652.0> 
+riak_core_metadata_hashtree:insert/2 --> 
+ok
+
+39.884328 <0.652.0> 
+riak_core_metadata_manager:handle_call/3 --> 
+{reply, true, {state, 'tanodb2@127.0.0.1', "./data/cluster_meta", 1310764}}
+
+39.884958 <0.659.0> 
+riak_core_metadata_manager:merge/2 --> 
+true
+
+39.885447 <0.659.0> 
+riak_core_broadcast:handle_cast/2 --> 
+{noreply,
+ {state,
+  ['tanodb3@127.0.0.1'],
+  ['tanodb1@127.0.0.1'],
+  [{'tanodb1@127.0.0.1', ['tanodb1@127.0.0.1', 'tanodb3@127.0.0.1']}],
+  [{'tanodb1@127.0.0.1', []}],
+  [],
+  [riak_core_metadata_manager],
+  [],
+  ['tanodb1@127.0.0.1',
+   'tanodb2@127.0.0.1',
+   'tanodb3@127.0.0.1']}}
+
+47.187088 <0.657.0> 
+riak_core_metadata_hashtree:handle_call({lock,<22186.1122.0>}, {<22186.1123.0>,#Ref<22186.0.2.1351>}, {state,{hashtree_tree,cluster_meta,"./data/cluster_meta/trees",2,1835056,
+                      13893697,
+                      {1,{[<<"mymeta">>,<<"tanodb">>],nil,nil}}},
+       true,undefined})
+
+47.187532 <0.657.0> 
+riak_core_metadata_hashtree:handle_call/3 --> 
+{reply,
+ ok,
+ {state,
+  {hashtree_tree,
+   cluster_meta,
+   "./data/cluster_meta/trees",
+   2,
+   1835056,
+   13893697,
+   {1, {[<<"mymeta">>, <<"tanodb">>], nil, nil}}},
+  true,
+  {external, #Ref<0.0.3.334>}}}
+
+47.189046 <0.657.0> 
+riak_core_metadata_hashtree:handle_call(update, {<22186.1125.0>,#Ref<22186.0.3.952>}, {state,{hashtree_tree,cluster_meta,"./data/cluster_meta/trees",2,1835056,
+                      13893697,
+                      {1,{[<<"mymeta">>,<<"tanodb">>],nil,nil}}},
+       true,
+       {external,#Ref<0.0.3.334>}})
+
+47.189389 <0.657.0> 
+riak_core_metadata_hashtree:handle_call/3 --> 
+{noreply,
+ {state,
+  {hashtree_tree,
+   cluster_meta,
+   "./data/cluster_meta/trees",
+   2,
+   1835056,
+   14417985,
+   {0, nil}},
+  true,
+  {external, #Ref<0.0.3.334>}}}
+
+47.191156 <0.657.0> 
+riak_core_metadata_hashtree:handle_call({get_bucket,[],1,0}, {<22186.1127.0>,#Ref<22186.0.2.1361>}, {state,{hashtree_tree,cluster_meta,"./data/cluster_meta/trees",2,1835056,
+                      14417985,
+                      {0,nil}},
+       true,
+       {external,#Ref<0.0.3.334>}})
+
+47.191431 <0.657.0> 
+riak_core_metadata_hashtree:handle_call/3 --> 
+{reply,
+ [{0,
+   <<132,43, 32,55, 239,194, 240,188, 130,50, 99,37, 131,27, 161,74, 33,158, 86,19>>}],
+ {state,
+  {hashtree_tree,
+   cluster_meta,
+   "./data/cluster_meta/trees",
+   2,
+   1835056,
+   14417985,
+   {0, nil}},
+  true,
+  {external, #Ref<0.0.3.334>}}}
+
+47.191837 <0.657.0> 
+riak_core_metadata_hashtree:handle_info({'DOWN',#Ref<0.0.3.334>,process,<22186.1122.0>,normal}, {state,{hashtree_tree,cluster_meta,"./data/cluster_meta/trees",2,1835056,
+                      14417985,
+                      {0,nil}},
+       true,
+       {external,#Ref<0.0.3.334>}})
+
+47.192034 <0.657.0> 
+riak_core_metadata_hashtree:handle_info/2 --> 
+{noreply,
+ {state,
+  {hashtree_tree,
+   cluster_meta,
+   "./data/cluster_meta/trees",
+   2,
+   1835056,
+   14417985,
+   {0, nil}},
+  true,
+  undefined}}
+
+49.744039 <0.657.0> 
+riak_core_metadata_hashtree:handle_info(tick, {state,{hashtree_tree,cluster_meta,"./data/cluster_meta/trees",2,1835056,
+                      14417985,
+                      {0,nil}},
+       true,undefined})
+
+49.744408 <0.657.0> 
+riak_core_metadata_hashtree:handle_info/2 --> 
+{noreply,
+ {state,
+  {hashtree_tree,
+   cluster_meta,
+   "./data/cluster_meta/trees",
+   2,
+   1835056,
+   14680129,
+   {0, nil}},
+  true,
+  {internal, #Ref<0.0.3.373>}}}
+
+49.744705 <0.657.0> 
+riak_core_metadata_hashtree:handle_info({'DOWN',#Ref<0.0.3.373>,process,<0.1072.0>,normal}, {state,{hashtree_tree,cluster_meta,"./data/cluster_meta/trees",2,1835056,
+                      14680129,
+                      {0,nil}},
+       true,
+       {internal,#Ref<0.0.3.373>}})
+
+49.744983 <0.657.0> 
+riak_core_metadata_hashtree:handle_info/2 --> 
+{noreply,
+ {state,
+  {hashtree_tree,
+   cluster_meta,
+   "./data/cluster_meta/trees",
+   2,
+   1835056,
+   14680129,
+   {0, nil}},
+  true,
+  undefined}}
+
+49.783070 <0.659.0> 
+riak_core_broadcast:handle_info(exchange_tick, {state,['tanodb3@127.0.0.1'],
+       ['tanodb1@127.0.0.1'],
+       [{'tanodb1@127.0.0.1',['tanodb1@127.0.0.1','tanodb3@127.0.0.1']}],
+       [{'tanodb1@127.0.0.1',[]}],
+       [],
+       [riak_core_metadata_manager],
+       [],
+       ['tanodb1@127.0.0.1','tanodb2@127.0.0.1','tanodb3@127.0.0.1']})
+
+49.783574 <0.659.0> 
+riak_core_metadata_manager:exchange('tanodb1@127.0.0.1')
+
+49.783773 <0.659.0> 
+riak_core_metadata_exchange_fsm:start('tanodb1@127.0.0.1', 60000)
+
+49.784006 <0.1073.0> 
+riak_core_metadata_exchange_fsm:init(['tanodb1@127.0.0.1',60000])
+
+49.784228 <0.1073.0> 
+riak_core_metadata_exchange_fsm:init/1 --> 
+{ok, prepare, {state, 'tanodb1@127.0.0.1', 0, 60000}}
+
+49.784509 <0.1073.0> 
+riak_core_metadata_exchange_fsm:prepare(start, {state,'tanodb1@127.0.0.1',0,60000})
+
+49.784856 <0.1073.0> 
+riak_core_metadata_hashtree:lock()
+
+49.784980 <0.659.0> 
+riak_core_metadata_exchange_fsm:start/2 --> 
+{ok, <0.1073.0>}
+
+49.785120 <0.659.0> 
+riak_core_metadata_manager:exchange/1 --> 
+{ok, <0.1073.0>}
+
+49.785254 <0.659.0> 
+riak_core_broadcast:handle_info/2 --> 
+{noreply,
+ {state,
+  ['tanodb3@127.0.0.1'],
+  ['tanodb1@127.0.0.1'],
+  [{'tanodb1@127.0.0.1', ['tanodb1@127.0.0.1', 'tanodb3@127.0.0.1']}],
+  [{'tanodb1@127.0.0.1', []}],
+  [],
+  [riak_core_metadata_manager],
+  [{riak_core_metadata_manager, 'tanodb1@127.0.0.1', #Ref<0.0.3.382>, <0.1073.0>}],
+  ['tanodb1@127.0.0.1',
+   'tanodb2@127.0.0.1',
+   'tanodb3@127.0.0.1']}}
+
+49.785624 <0.657.0> 
+riak_core_metadata_hashtree:handle_call({lock,<0.1073.0>}, {<0.1073.0>,#Ref<0.0.3.380>}, {state,{hashtree_tree,cluster_meta,"./data/cluster_meta/trees",2,1835056,
+                      14680129,
+                      {0,nil}},
+       true,undefined})
+
+49.785840 <0.657.0> 
+riak_core_metadata_hashtree:handle_call/3 --> 
+{reply,
+ ok,
+ {state,
+  {hashtree_tree,
+   cluster_meta,
+   "./data/cluster_meta/trees",
+   2,
+   1835056,
+   14680129,
+   {0, nil}},
+  true,
+  {external, #Ref<0.0.3.383>}}}
+
+49.786126 <0.1073.0> 
+riak_core_metadata_hashtree:lock/0 --> 
+ok
+
+49.786293 <0.1073.0> 
+riak_core_metadata_exchange_fsm:prepare/2 --> 
+{next_state, prepare, {state, 'tanodb1@127.0.0.1', 0, 60000}, 60000}
+
+49.786516 <0.1074.0> 
+riak_core_metadata_hashtree:lock('tanodb1@127.0.0.1', <0.1073.0>)
+
+49.786728 <0.1074.0> 
+riak_core_metadata_hashtree:lock/2 --> 
+ok
+
+49.786863 <0.1073.0> 
+riak_core_metadata_exchange_fsm:prepare({remote_lock,ok}, {state,'tanodb1@127.0.0.1',0,60000})
+
+49.787021 <0.1073.0> 
+riak_core_metadata_exchange_fsm:prepare/2 --> 
+{next_state, update, {state, 'tanodb1@127.0.0.1', 0, 60000}, 60000}
+
+49.787222 <0.1075.0> 
+riak_core_metadata_hashtree:update('tanodb2@127.0.0.1')
+
+49.787358 <0.1076.0> 
+riak_core_metadata_hashtree:update('tanodb1@127.0.0.1')
+
+49.787489 <0.657.0> 
+riak_core_metadata_hashtree:handle_call(update, {<0.1075.0>,#Ref<0.0.3.385>}, {state,{hashtree_tree,cluster_meta,"./data/cluster_meta/trees",2,1835056,
+                      14680129,
+                      {0,nil}},
+       true,
+       {external,#Ref<0.0.3.383>}})
+
+49.787710 <0.657.0> 
+riak_core_metadata_hashtree:handle_call/3 --> 
+{noreply,
+ {state,
+  {hashtree_tree,
+   cluster_meta,
+   "./data/cluster_meta/trees",
+   2,
+   1835056,
+   14942273,
+   {0, nil}},
+  true,
+  {external, #Ref<0.0.3.383>}}}
+
+49.788065 <0.1075.0> 
+riak_core_metadata_hashtree:update/1 --> 
+ok
+
+49.788187 <0.1073.0> 
+riak_core_metadata_exchange_fsm:update(tree_updated, {state,'tanodb1@127.0.0.1',0,60000})
+
+49.788331 <0.1073.0> 
+riak_core_metadata_exchange_fsm:update/2 --> 
+{next_state, update, {state, 'tanodb1@127.0.0.1', 1, 60000}}
+
+49.788508 <0.1076.0> 
+riak_core_metadata_hashtree:update/1 --> 
+ok
+
+49.788767 <0.1073.0> 
+riak_core_metadata_exchange_fsm:update(tree_updated, {state,'tanodb1@127.0.0.1',1,60000})
+
+49.789556 <0.1073.0> 
+riak_core_metadata_exchange_fsm:update/2 --> 
+{next_state, exchange, {state, 'tanodb1@127.0.0.1', 1, 60000}, 0}
+
+49.789927 <0.1073.0> 
+riak_core_metadata_exchange_fsm:exchange(timeout, {state,'tanodb1@127.0.0.1',1,60000})
+
+49.790245 <0.1073.0> 
+riak_core_metadata_hashtree:compare(#Fun<riak_core_metadata_exchange_fsm.2.22247028>, #Fun<riak_core_metadata_exchange_fsm.3.22247028>, {exchange,0,0,0})
+
+49.790426 <0.657.0> 
+riak_core_metadata_hashtree:handle_call({compare,#Fun<riak_core_metadata_exchange_fsm.2.22247028>,
+         #Fun<riak_core_metadata_exchange_fsm.3.22247028>,
+         {exchange,0,0,0}}, {<0.1073.0>,#Ref<0.0.3.387>}, {state,{hashtree_tree,cluster_meta,"./data/cluster_meta/trees",2,1835056,
+                      14942273,
+                      {0,nil}},
+       true,
+       {external,#Ref<0.0.3.383>}})
+
+49.790980 <0.657.0> 
+riak_core_metadata_hashtree:handle_call/3 --> 
+{noreply,
+ {state,
+  {hashtree_tree,
+   cluster_meta,
+   "./data/cluster_meta/trees",
+   2,
+   1835056,
+   14942273,
+   {0, nil}},
+  true,
+  {external, #Ref<0.0.3.383>}}}
+
+49.791291 <0.1078.0> 
+riak_core_metadata_hashtree:get_bucket('tanodb1@127.0.0.1', [], 1, 0)
+
+49.791457 <0.1078.0> 
+riak_core_metadata_hashtree:get_bucket/4 --> 
+[{0, <<132,43, 32,55, 239,194, 240,188, 130,50, 99,37, 131,27, 161,74, 33,158, 86,19>>}]
+
+49.791736 <0.1073.0> 
+riak_core_metadata_hashtree:compare/3 --> 
+{exchange, 0,0,0}
+
+49.791885 <0.1073.0> 
+riak_core_metadata_exchange_fsm:exchange/2 --> 
+{stop, normal, {state, 'tanodb1@127.0.0.1', 1, 60000}}
+
+49.792065 <0.1073.0> 
+riak_core_metadata_exchange_fsm:terminate(normal, exchange, {state,'tanodb1@127.0.0.1',1,60000})
+
+49.792210 <0.1073.0> 
+riak_core_metadata_exchange_fsm:terminate/3 --> 
+ok
+
+49.792320 <0.659.0> 
+riak_core_broadcast:handle_info({'DOWN',#Ref<0.0.3.382>,process,<0.1073.0>,normal}, {state,['tanodb3@127.0.0.1'],
+       ['tanodb1@127.0.0.1'],
+       [{'tanodb1@127.0.0.1',['tanodb1@127.0.0.1','tanodb3@127.0.0.1']}],
+       [{'tanodb1@127.0.0.1',[]}],
+       [],
+       [riak_core_metadata_manager],
+       [{riak_core_metadata_manager,'tanodb1@127.0.0.1',#Ref<0.0.3.382>,
+                                    <0.1073.0>}],
+       ['tanodb1@127.0.0.1','tanodb2@127.0.0.1','tanodb3@127.0.0.1']})
+
+49.792624 <0.659.0> 
+riak_core_broadcast:handle_info/2 --> 
+{noreply,
+ {state,
+  ['tanodb3@127.0.0.1'],
+  ['tanodb1@127.0.0.1'],
+  [{'tanodb1@127.0.0.1', ['tanodb1@127.0.0.1', 'tanodb3@127.0.0.1']}],
+  [{'tanodb1@127.0.0.1', []}],
+  [],
+  [riak_core_metadata_manager],
+  [],
+  ['tanodb1@127.0.0.1',
+   'tanodb2@127.0.0.1',
+   'tanodb3@127.0.0.1']}}
+
+49.792977 <0.657.0> 
+riak_core_metadata_hashtree:handle_info({'DOWN',#Ref<0.0.3.383>,process,<0.1073.0>,normal}, {state,{hashtree_tree,cluster_meta,"./data/cluster_meta/trees",2,1835056,
+                      14942273,
+                      {0,nil}},
+       true,
+       {external,#Ref<0.0.3.383>}})
+
+49.793224 <0.657.0> 
+riak_core_metadata_hashtree:handle_info/2 --> 
+{noreply,
+ {state,
+  {hashtree_tree,
+   cluster_meta,
+   "./data/cluster_meta/trees",
+   2,
+   1835056,
+   14942273,
+   {0, nil}},
+  true,
+  undefined}}

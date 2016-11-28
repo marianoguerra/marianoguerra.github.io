@@ -1,0 +1,73 @@
+@startuml
+skinparam sequence {
+    ParticipantBackgroundColor #eee
+}
+
+hide footbox
+autonumber
+
+client -> metadata: put/3
+activate metadata
+    metadata -> metadata_manager: metadata_manager:get/1
+    alt undefined
+        metadata_manager -> metadata_object: metadata_object:empty_context/0
+    else Existing
+        autonumber 3
+        metadata_manager -> metadata_object: metadata_object:context/1
+    end
+
+newpage
+
+    metadata -> metadata_manager: metadata_manager:put/3
+    metadata_manager -> metadata_manager: metadata_manager:read_modify_write/3
+    activate metadata_manager
+        metadata_manager -> metadata_manager: Existing = metadata_manager:read/1
+        metadata_manager -> metadata_object: Modified = riak_core_metadata_object:modify/4
+
+        alt undefined
+
+            metadata_object -> dvvset: NewRecord = dvvset:new(Value)
+            metadata_object -> dvvset: dvvset:update(NewRecord, ServerId)
+
+        else Existing
+
+            autonumber 9
+            metadata_object -> dvvset: InsertRec = dvvset:new(Context, Value)
+            metadata_object -> dvvset: dvvset:update(InsertRec, Existing, ServerId)
+
+        end
+
+        metadata_manager -> metadata_manager: store/3
+
+        activate metadata_manager
+            metadata_manager -> metadata_object: Hash = metadata_object:hash(Metadata)
+            metadata_manager -> ets: ets:insert(Tab, Obj)
+            metadata_manager -> metadata_hashtree: metadata_hashtree:insert(PKey, Hash)
+            metadata_manager -> dets: dets:insert(DTab, Obj)
+        deactivate metadata_manager
+
+    deactivate metadata_manager
+
+newpage
+
+   metadata -> metadata : metadata:broadcast/2
+   activate metadata
+        metadata -> broadcast : broadcast:broadcast(Broadcast, riak_core_metadata_manager)
+        activate broadcast
+            broadcast -> broadcast : eager_push/4
+                activate broadcast
+                    broadcast -> broadcast : Peers = eager_peers/3
+                    broadcast -> broadcast : send({broadcast, MessageId, Message, ...}, Peers)
+                deactivate broadcast
+        
+            broadcast -> broadcast : schedule_lazy_push/3
+                activate broadcast
+                    broadcast -> broadcast : Peers = lazy_peers/3
+                    broadcast -> broadcast : add_all_outstanding/6
+                deactivate broadcast
+        deactivate broadcast
+   deactivate metadata
+
+deactivate metadata
+
+@enduml 
