@@ -53,7 +53,10 @@
 
         function onAnimationFrame() {
             c += 1;
-            updateFrame(w, h, c, fn, ctx, imageData);
+            try {
+                updateFrame(w, h, c, fn, ctx, imageData);
+            } catch (err) {
+            }
             window.requestAnimationFrame(onAnimationFrame);
         }
 
