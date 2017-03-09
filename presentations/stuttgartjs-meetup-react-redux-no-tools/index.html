@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tools, Why and When</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 { font-family: 'Yanone Kaffeesatz'; font-weight: normal; }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display: none">
+
+class: center, middle
+
+# Tools, Why and When
+
+---
+
+class: center, middle
+
+# \*Record Scratch\*
+
+How I ended up here
+
+JS, Clojure[script], Erlang, some Scala/Java
+
+[Event Fabric](https://event-fabric)
+
+Developing [Instadeq](https://instadeq.com)
+
+---
+
+class: center, middle
+
+# Disclaimer
+
+I'm not a Redux specialist
+
+I'm not a Redux/JS/Tools hater
+
+I'm not a JS fatigue guy
+
+---
+
+class: center, middle
+
+# I like simple things
+# I like to understand what's going on
+
+---
+
+# React Hello World
+
+```
+    $ create-react-app hello-world
+
+    $ du -sh node_modules
+    128M    node_modules
+
+    $ ls -1 node_modules | wc -l
+    740
+```
+
+---
+
+# React Webpack Redux
+
+```
+    $ mkdir my-new-project && cd my-new-project
+    $ yo react-webpack-redux
+
+    $ du -sh node_modules
+    217M    node_modules
+
+    $ ls -1 node_modules | wc -l
+    812
+```
+
+---
+
+# Redux Stack
+
+```
+    $ mkdir app-name && cd app-name
+    $ yo redux-stack
+
+    $ du -sh node_modules
+    155M    node_modules
+
+    $ ls -1 node_modules | wc -l
+    887
+```
+
+---
+
+# React Web
+
+```
+$ yo react-web
+/usr/local/lib/node_modules/generator-react-web/app/index.js:13
+module.exports = class extends Generator {
+                 ^^^^^
+```
+
+I'm on ubuntu 16.04 O.o
+
+---
+
+class: center, middle
+
+# Demo I
+
+---
+
+class: center, middle
+
+# Demo II
+
+---
+
+class: center, middle
+
+# Project depends on
+
+React.DOM and ReactDOM.render
+
+rm
+cp
+mv
+cat
+wget
+
+cssmin
+requirejs*
+
+make (yeah, make)
+
+---
+
+    "Most software today is very much like an Egyptian pyramid with millions of
+    bricks piled on top of each other, with no structural integrity, but just
+    done by brute force and thousands of slaves."
+
+    -- ACM Queue A Conversation with Alan Kay Vol. 2, No. 9 - Dec/Jan 2004-2005
+
+---
+
+    "I will contend that Conceptual Integrity is the most important
+    consideration in system design. It is better to have a system omit certain
+    anomalous features and improvements, but to reflect one set of design
+    ideas, than to have one that contains many good but independent and
+    uncoordinated ideas."
+
+    -- Frederick Brooks
+
+---
+
+   "Duplication is far cheaper than the wrong abstraction"
+
+   -- @sandimetz
+
+---
+
+   Better some NIH syndrom than piling up unknown code and tools
+
+   -- me
+
+---
+
+class: center, middle
+
+The best code is the code that's not there
+
+The best tools are the tools that aren't needed
+
+Dependencies are a liability
+
+Remember when js people used to laugh at java frameworks, complexity and stack traces?
+
+---
+
+class: center, middle
+
+# Self Devil's Advocate
+
+   "A framework's power is 10% technical, & 90% organizational. It focuses your team by removing questions they'd spend time disagreeing on."
+
+[@sarahmei](https://twitter.com/sarahmei/status/819343874653126660)
+
+---
+
+# Problems
+
+
+* Redux doesn't go from simple to complex as you need it, it's full complex from day one
+
+* Shallow cloning
+
+  + Can introduce hard to track mutability bugs
+
+* Actions Dispatched
+
+  + imperative instead of declarative
+  + plain objects with a type field, can introduce bugs due to typos
+
+* Actions are dispatched throught the store?
+
+  + What does the store have to do with actions?
+
+* switch (action.type) :(
+
+  + premature optimizer me: string comparissons everywhere
+
+---
+
+# Problems
+
+* Centralized reducers don't allow to react to actions in other places
+
+  + I guess "there's a middleware for that"
+
+* If you use props and not state in redux, why do you use components and not just functions?
+
+* Stringly typed actions
+
+  + Don't have a centralized registry of all actions anywhere, can't introspect
+  + Silent failured when typos are introduced
+
+* reducers, I know naming is hard, but really?
+
+  + also, thunks...
+
+---
+
+# Problems
+
+* some middlewares (at least promise) introduces events that aren't named anywhere
+
+  + explicit is better than implicit
+
+* On code I've seen there are singleton stores returned from store modules
+  + singletons are bad
+
+* I've seen a pattern where actions are built and dispatched in their own functions
+
+  + Why not dynamically generate those? why code them
+
+* I've seen this: this.props.dispatch(fetchUser())
+
+  + why the component knows how to dispatch an action and not the action itself?
+  + I'm not the most OO guy in the world, but action looks like an object to me
+    and dispatch seems to make sense to be there
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
