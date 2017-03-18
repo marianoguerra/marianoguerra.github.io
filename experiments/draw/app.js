@@ -1,4 +1,4 @@
-/*globals console, document, window*/
+/*globals console, document, window, CodeMirror*/
 (function () {
     'use strict';
     var preamble = 'var c = $ctx$.c, w = $ctx$.w, h = $ctx$.h, ctx = $ctx$.ctx, $l = $ctx$.lib, clear = $l.clear, random = $l.random, pick = $l.pick, square = $l.square, circle = $l.circle, randomColor = $l.randomColor, text = $l.text, line = $l.line;',
@@ -212,6 +212,15 @@
             window.requestAnimationFrame(onAnimationFrame);
         }
 
+		var editor = CodeMirror.fromTextArea(code, {
+			lineNumbers: true,
+			mode: "application/javascript",
+			matchBrackets: true
+		});
+
+        editor.setSize('47%', '100%');
+        editor.getWrapperElement().style.float = 'left';
+        window.editor = editor;
 
         function onRunClick() {
             var newSkipFrames = parseInt(drawSpeed.value, 10);
@@ -220,7 +229,7 @@
                 skipFrames = newSkipFrames;
             }
 
-            updateCode(code.value);
+            updateCode(editor.getValue());
         }
 
         runBtn.addEventListener('click', onRunClick);
