@@ -8,6 +8,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/javascript/javascript.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/addon/lint/lint.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/addon/lint/javascript-lint.min.js"></script>
+  <script src="emoji.js"></script>
   <script src="app.js"></script>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css" media="all"/>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/addon/lint/lint.min.css" media="all"/>
@@ -23,6 +24,7 @@
 //  * w: canvas width
 //  * h: canvas height
 //  * c: counter that increments by one on each redraw
+// emojis are from http://emojione.com
 
 square({
  x: random(0, w),
@@ -81,6 +83,24 @@ text({
  text: '' + c,
  color: randomColor(true)
 });
+
+var size = random(16, 128);
+image({
+ path: 'imgs/emojis/1f914.svg',
+ x: random(0, w),
+ y: random(0, h),
+ width: size,
+ height: size
+});
+
+emoji({
+ name: pick(['heart', 'unicorn', 'poop']),
+ x: random(0, w),
+ y: random(0, h),
+ width: size,
+ height: size
+});
+
    </textarea>
    <canvas id="draw" style="width: 50%; height: 100%;float: right;"></canvas>
   </div>

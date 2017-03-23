@@ -1,8 +1,16 @@
-/*globals console, document, window, CodeMirror*/
+/*globals console, document, window, CodeMirror, EMOJIS*/
 (function () {
     'use strict';
-    var preamble = 'var c = $ctx$.c, w = $ctx$.w, h = $ctx$.h, ctx = $ctx$.ctx, $l = $ctx$.lib, clear = $l.clear, random = $l.random, pick = $l.pick, square = $l.square, circle = $l.circle, randomColor = $l.randomColor, text = $l.text, line = $l.line;',
+    var preamble = 'var c = $ctx$.c, w = $ctx$.w, h = $ctx$.h, ctx = $ctx$.ctx, $l = $ctx$.lib, clear = $l.clear, random = $l.random, pick = $l.pick, square = $l.square, image = $l.image, emoji = $l.emoji, circle = $l.circle, randomColor = $l.randomColor, text = $l.text, line = $l.line;',
         reportErrorD;
+
+    function drawImage(ctx, path, x, y, width, height) {
+        var img = new window.Image();
+        img.addEventListener('load', function() {
+            ctx.drawImage(img, x, y, width || img.width, height || img.height);
+        }, false);
+        img.src = path;
+    }
 
     function nullFn() {
     }
@@ -30,6 +38,10 @@
         return items[Math.floor(Math.random() * items.length)];
     }
 
+    function numberOr(val, defaultVal) {
+        return typeof val === 'number' ? val : defaultVal;
+    }
+
     function init() {
         var canvas = document.getElementById('draw'),
             code = document.getElementById('code'),
@@ -46,6 +58,23 @@
         ctx = canvas.getContext('2d');
         w = canvas.width;
         h = canvas.height;
+
+        function image(opts) {
+            opts = opts || {};
+            opts.path = opts.path || 'imgs/emojis/2764.svg';
+            drawImage(ctx, opts.path, numberOr(opts.x, 0), numberOr(opts.y, 0),
+                opts.width, opts.height);
+        }
+
+        function emoji(opts) {
+            opts = opts || {};
+            var name = opts.name || 'heart',
+                code = EMOJIS[name] || EMOJIS.heart,
+                path = 'imgs/emojis/' + code + '.svg';
+
+            opts.path = path;
+            return image(opts);
+        }
 
         function square(opts) {
             opts = opts || {};
@@ -179,8 +208,9 @@
             }
         }
 
-        lib = {clear: clear, square: square, circle: circle, random: random,
-            pick: pick, randomColor: randomColor, text: text, line: line};
+        lib = {clear: clear, square: square, emoji: emoji, image: image, circle: circle,
+            random: random, pick: pick, randomColor: randomColor, text: text,
+            line: line};
         fnCtx = {w: w, h: h, ctx: ctx, c: 0, lib: lib};
 
         console.log('init', canvas, code, ctx, w, h, fn);
