@@ -191,6 +191,8 @@
                 console.log('new fn', fn);
             } catch (err) {
                 console.error('bad code', err, fullCode);
+                window.alert("Error processing code at line " +
+                    (err.lineNumber - 2) + ": '" + err.message + "'");
             }
         }
 
