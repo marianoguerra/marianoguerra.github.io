@@ -79,7 +79,7 @@
             }
         }
 
-	    function line(opts) {
+        function line(opts) {
             opts = opts || {};
             var x0 = opts.x0 || opts.x || 10,
                 y0 = opts.y0 || opts.y || 10,
@@ -212,11 +212,13 @@
             window.requestAnimationFrame(onAnimationFrame);
         }
 
-		var editor = CodeMirror.fromTextArea(code, {
-			lineNumbers: true,
-			mode: "application/javascript",
-			matchBrackets: true
-		});
+        var editor = CodeMirror.fromTextArea(code, {
+            lineNumbers: true,
+            mode: "javascript",
+            matchBrackets: true,
+            gutters: ["CodeMirror-lint-markers"],
+            lint: true
+        });
 
         editor.setSize('47%', '100%');
         editor.getWrapperElement().style.float = 'left';
