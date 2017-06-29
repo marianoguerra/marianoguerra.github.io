@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sistemas Distribuidos: ¿Para Qué?</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+	  code{font-size: 1.3em !important;}
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 2em; background-color: white !important; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display: none">
+
+class: center, middle
+
+# Sistemas Distribuidos: ¿Para Qué?
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+Erlang Factory Light
+
+Buenos Aires 2017
+
+---
+
+class: center, middle
+
+![Hola! mi nombre es Troy](imgs/troy.gif)
+
+---
+
+class: center, middle
+
+![Design, not implement](imgs/design-not-implement.png)
+
+---
+
+class: center, middle
+
+# Disclaimer
+
+???
+
+Learning
+
+Index
+
+---
+
+class: center
+
+# New boring CRUD app, how can we make it exciting?
+
+---
+
+class: center, middle
+
+![Distribute ALL THE THINGS](imgs/distribute-all-the-things.jpg)
+
+---
+
+class: center
+
+# What could possibly go wrong?
+
+Well ... let's see
+
+---
+
+```python
+A = foo()
+B = bar(A)
+do_something(A, B)
+```
+
+---
+
+# Tracing/Metrics
+
+[Dapper, a Large-Scale Distributed Systems Tracing Infrastructure](https://research.google.com/pubs/pub36356.html)
+
+* [Open Tracing](http://opentracing.io/)/zipkin
+* Erlang [gh:project-fifo/otters](https://github.com/project-fifo/otters)
+
+---
+
+# Logs
+
+Collection, Centralization, Search, Correlation
+
+ELK/logstash, Splunk, flume, fluentd, "hadoop"
+
+???
+
+what was a grep now it's its own project
+
+---
+
+# Timeouts, Retries, Exponential Backoff
+
+[gh:Netflix/Histrix](https://github.com/Netflix/Hystrix)
+
+## Latency and Fault Tolerance
+
+Stop cascading failures.
+
+Fallbacks and graceful degradation.
+
+Circuit Breakers.
+
+???
+
+If you call a local function and it fails or takes too long you never have
+this kind of retry logic in place.
+
+---
+
+# Timeouts, Retries, Exponential Backoff
+
+[gh:Netflix/Histrix](https://github.com/Netflix/Hystrix)
+
+## Realtime Operations
+
+Realtime monitoring and configuration changes.
+
+Watch service and property changes take effect immediately.
+
+---
+
+# Timeouts, Retries, Exponential Backoff
+
+[gh:Netflix/Histrix](https://github.com/Netflix/Hystrix)
+
+## Concurrency
+
+Parallel execution.
+
+---
+
+# New Kinds of Errors
+
+Leaky Abstractions
+
+Timeouts
+
+Transport Errors
+
+Encoding/Parsing Errors
+
+API Versioning
+
+???
+
+is all your data serializable?
+
+are you sending a file descriptor as a parameter?
+
+---
+
+# Beware of the Distributed Monolith
+
+???
+
+Deploy Order, Upgrade at once, full coordination of new features
+
+---
+
+# [Fallacies of Distributed Computing](https://en.wikipedia.org/wiki/Fallacies_of_Distributed_Computing)
+
+* The network is reliable.
+* Latency is zero.
+* Bandwidth is infinite.
+* The network is secure.
+* Topology doesn't change.
+* There is one administrator.
+* Transport cost is zero.
+* The network is homogeneous.
+
+---
+
+# Partial Failure
+
+???
+
+in a single node system you don't code expecting some functions to not be there
+sometimes, to take much longer than expected or to not work with your current
+code
+
+---
+
+# [Gray Failure](https://blog.acolyer.org/2017/06/15/gray-failure-the-achilles-heel-of-cloud-scale-systems/)
+
+When at least one **app** makes the observation
+
+That the system is unhealthy
+
+But the **observer** observes
+
+That the system is healthy.
+
+---
+
+class: center, middle
+
+# Two Generals Problem
+
+Pitfalls and design challenges of attempting to coordinate an action by communicating over an unreliable link.
+
+---
+
+class: center, middle
+
+First computer communication problem to be proved to be **unsolvable**.
+
+---
+
+class: center, middle
+
+# [FLP Imposibility Result](http://the-paper-trail.org/blog/a-brief-tour-of-flp-impossibility/)
+
+In an asynchronous network
+
+--
+
+Where messages may be delayed but not lost
+
+--
+
+There is no consensus algorithm that is guaranteed to terminate in every execution for all starting conditions
+
+--
+
+If at least one node may fail-stop.
+
+---
+
+It's about consensus
+
+Deals with ‘faulty nodes’
+
+Nodes that aren’t receiving the messages that are being sent to them are failed (Exempt from having to achieve consensus)
+
+Partitioned node in FLP does not have to achieve consensus,
+
+Since it is considered failed, but the same node in CAP must
+
+---
+
+class: center, middle
+
+Therefore it’s not possible to say whether a processor has crashed or is simply taking a long time to respond.
+
+The FLP result shows that in an asynchronous setting, where only one processor might crash,
+
+There is no distributed algorithm that solves the consensus problem.
+
+---
+
+class: center, middle
+
+# CAP theorem
+
+![My other CAP is a theorem](imgs/cap.png "My other CAP is a theorem")
+
+---
+
+class: center, middle
+
+# CAP theorem
+
+![CAP Venn](imgs/cap-venn.png "CAP Venn")
+
+---
+
+# [Brewer’s Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.20.1495)
+
+In an asynchronous network
+
+Where messages may be lost
+
+It is impossible to implement a sequentially consistent atomic read/write register
+
+That responds eventually to every request under every pattern of message loss.
+
+---
+
+It's about serialized atomic objects (registers)
+
+Deals with ‘partitions’
+
+Nodes that aren’t receiving the messages that are being sent to them are only partitioned
+
+A CAP solution requires that any live node be able to correctly serve requests, even if it has not received any messages
+
+---
+
+# That A, it doesn't mean what you thing it means
+
+Availability refers to a liveness property of an algorithm where every request to a non-failing node must eventually return a valid response.
+
+Not Availability of the system, the system can fail for other reasons.
+
+[Don’t Settle For Eventual Consistency](https://yokota.blog/2017/02/17/dont-settle-for-eventual-consistency/)
+
+[The Limits of the CAP Theorem](https://www.cockroachlabs.com/blog/limits-of-the-cap-theorem/)
+
+
+???
+
+"In practice, most outages to an AP system are not due to network issues, which
+the algorithm can handle, but rather to implementation defects, user errors,
+misconfiguration, resource limits, and misbehaving clients."
+
+---
+
+class: center, middle
+
+# [Scalability! But at what COST?](https://blog.acolyer.org/2015/06/05/scalability-but-at-what-cost/)
+
+COST of distributed systems: the Configuration that Outperforms a Single Thread
+
+---
+
+class: center, middle
+
+# [Scalability! But at what COST?](https://blog.acolyer.org/2015/06/05/scalability-but-at-what-cost/)
+
+Many published systems have unbounded COST
+
+(They never outperform the best single threaded application)
+
+Others are orders of magnitude slower even when using hundreds of cores.
+
+---
+
+class: center, middle
+
+![This is fine](imgs/this-is-fine.png "This is fine")
+
+---
+
+Lord, grant me the strength to accept
+systems that can run in one node/process,
+
+--
+
+the courage to handle the distributed systems I have to,
+
+--
+
+and the wisdom to know the difference.
+
+???
+
+There are things that are inherently distributed systems, you can't escape that
+There are things that a given size aren't distributed systems, can escape that and should
+Still, learn about distributed systems because with time more things will become distributed systems
+
+---
+
+# But ...
+
+---
+
+# Cars are distributed systems
+
+"Analysts predict that the on-board computing power of a normal saloon will increase by 100x from 2016 to 2025, powering ADAS and IVI functions."
+
+"ADAS combines information from the many sensors dotted all over the car, feeding into a large processing unit that makes sense of the data, and makes decisions in real time. These sensors include radar, lidar, ultrasonic and cameras"
+
+[The future of automotive is coming faster than you think](https://community.arm.com/processors/b/blog/posts/the-future-of-automotive-is-coming-faster-than-you-think)
+
+---
+
+# What is this?
+
+"Each core has an integrated **network interface** and a **router**,
+with each router connected to the four routers around it ....
+There are algorithms designed to reduce **congestion**, ...
+but a basic system will have **buffers** and **queues**
+and will know how busy the **local network** congestion is."
+
+--
+
+Your new CPU
+
+[Intel Skylake-X: The New Core-to-Core Communication Paradigm](http://www.anandtech.com/show/11550/the-intel-skylakex-review-core-i9-7900x-i7-7820x-and-i7-7800x-tested/5)
+
+---
+
+# You need at least 2 computers for availability
+
+---
+
+# Other Distributed Systems
+
+* Data Store*
+* Mobile Apps
+* Data Processing Pipeline*
+* IoT
+* Microservices
+* Currency*
+* Games*
+
+---
+
+# What to do about those?
+
+* Who Does This?
+* Who Knows This?
+* When did This Happen?
+* Avoiding Problems
+
+---
+
+# Who Does This?
+
+???
+
+On single node systems this node does it
+
+---
+
+class: center, middle
+
+
+[Amazon's Dynamo Paper](http://s3.amazonaws.com/AllThingsDistributed/sosp/amazon-dynamo-sosp2007.pdf)
+
+![The Ring](imgs/the-ring.png "The Ring")
+
+---
+
+class: center, middle
+
+# Shameless Plug
+
+[The Little Riak Core Book](https://marianoguerra.github.io/little-riak-core-book/)
+
+---
+
+# Distributed Virtual Actors
+
+[Orleans - Virtual Actors](https://www.microsoft.com/en-us/research/project/orleans-virtual-actors/)
+
+Erlang: [gh:SpaceTime-IoT/erleans](https://github.com/SpaceTime-IoT/erleans)
+
+???
+
+Project “Orleans” invented the Virtual Actor abstraction, which provides a
+straightforward approach to building distributed interactive applications,
+without the need to learn complex programming patterns for handling
+concurrency, fault tolerance, and resource management. Orleans applications
+scale-up automatically and are meant to be deployed in the cloud. It has been
+used heavily by a number of high-scale cloud services at Microsoft, starting
+with cloud services for the Halo franchise running in production in Microsoft
+Azure since 2011.
+
+---
+
+class: center, middle
+
+# Distributed "Transactions"
+
+Sagas
+
+[gh:mrallen1/gisla](https://github.com/mrallen1/gisla)
+
+???
+
+Sagas are a technique described in a 1987 paper by Hector Garcia-Molina in the
+context of long-lived database transactions. Sagas provide a transactional
+abstraction across arbitrarily distributed services: either all of the
+operations in a Saga succeed or the operations are unwound back to the prior
+state. The idea never caught on in the world of databases, but 30 years later
+it is worth re-evaluating this idea when we need to provide transactional state
+changes across a variety of distributed microservices.
+
+---
+
+Spark - [Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing](https://people.csail.mit.edu/matei/papers/2012/nsdi_spark.pdf)
+
+Spark Streaming - [Discretized Streams: Fault-Tolerant Streaming Computation at Scale](https://people.csail.mit.edu/matei/papers/2013/sosp_spark_streaming.pdf)
+
+---
+
+# Who Knows This?
+
+???
+
+On single node systems this node knows it
+
+---
+
+class: center, middle
+
+# Consensus
+
+[Paxos](https://blog.acolyer.org/2015/03/03/the-part-time-parliament/)
+
+[ZAB](http://the-paper-trail.org/blog/a-brief-tour-of-flp-impossibility/)
+
+[Raft](https://raft.github.io/) ([Vis 1](http://thesecretlivesofdata.com/raft/), [Vis 2](https://raft.github.io/))
+
+[More](https://blog.acolyer.org/2015/03/01/cant-we-all-just-agree/)
+
+---
+
+class: center, middle
+
+
+[HyParView a membership protocol for reliable gossip-based broadcast](http://asc.di.fct.unl.pt/~jleitao/pdf/dsn07-leitao.pdf)
+
+Erlang: [lasp/partisan](https://github.com/lasp-lang/partisan)
+
+[Epidemic Broadcast Trees](http://www.gsd.inesc-id.pt/~jleitao/pdf/srds07-leitao.pdf)
+
+Erlang: [plumtree](https://github.com/helium/plumtree)
+
+---
+
+class: center, middle
+
+[Convergent and Commutative Replicated Data Types](https://blog.acolyer.org/2015/03/18/a-comprehensive-study-of-convergent-and-commutative-replicated-data-types/)
+
+![CRDTs](imgs/crdts.jpg)
+
+???
+
+a data structure which can be replicated across multiple computers in a
+network, where the replicas can be updated independently and concurrently
+without coordination between the replicas, and where it is always
+mathematically possible to resolve inconsistencies which might result.
+
+Development was initially motivated by collaborative text editing and mobile
+computing. CRDTs have also been used in online chat systems, online gambling,
+and in the SoundCloud audio distribution platform. The NoSQL distributed
+database Riak has CRDT data types.
+
+---
+
+class: center, middle
+
+[A Conflict-Free Replicated JSON Datatype](https://arxiv.org/abs/1608.03960)
+
+![Google Wave](imgs/alf.png)
+
+???
+
+Remember Google Wave?
+
+---
+
+[Lasp](http://lasp-lang.org/)
+
+Lasp is a suite of libraries aimed at providing a comprehensive programming
+system for planetary scale Elixir and Erlang applications.
+
+[@cmeik](https://twitter.com/cmeik)
+
+---
+
+class: center, middle
+
+# Merkle Trees
+
+Git, IPFS, riak_core_metadata AAE
+
+How does node 3 gets the values broadcasted while he was down?
+
+[Gossip protocols, Epidemic Broadcast and Eventual Consistency in Practice](http://marianoguerra.github.io/presentations/berlin-efl-2016/#/active-anti-entropy)
+
+---
+
+class: center, middle
+
+![New @xmal paper](imgs/xmal-new-paper.png)
+
+---
+
+class: center, middle
+
+Distributed Hash Tables
+
+Bittorrent, IPFS, Erlang global*
+
+Also: Consistent Hashing
+
+[gh:jlouis/dht](https://github.com/jlouis/dht)
+
+---
+
+# When did This Happen?
+
+???
+
+On single node systems the clock tells us
+
+---
+
+class: center, middle
+
+[Time, clocks and the ordering of events in a distributed system](http://research.microsoft.com/en-us/um/people/lamport/pubs/time-clocks.pdf)
+
+[Virtual Time and Global States of Distributed Systems](http://courses.csail.mit.edu/6.852/01/papers/VirtTime_GlobState.pdf)
+
+[Dotted Version Vectors: Efficient Causality Tracking for Distributed Key-Value Stores](http://gsd.di.uminho.pt/members/vff/dotted-version-vectors-2012.pdf)
+
+[ACM: Why Logical Clocks are Easy](http://queue.acm.org/detail.cfm?id=2917756)
+
+---
+
+class: center, middle
+
+# Atomic Clocks!
+
+[Inside Cloud Spanner and the CAP Theorem ](https://cloudplatform.googleblog.com/2017/02/inside-Cloud-Spanner-and-the-CAP-Theorem.html)
+
+???
+
+Spanner is Google's highly available global-scale distributed database. It
+provides strong consistency for all transactions. This combination of
+availability and consistency over the wide area is generally considered
+impossible due to the CAP Theorem. We show how Spanner achieves this
+combination and why it is consistent with CAP. We also explore the role that
+TrueTime, Google's globally synchronized clock, plays in consistency for reads
+and especially for snapshots that enable consistent and repeatable analytics. 
+
+---
+
+# Avoiding Problems
+
+???
+
+In a single node system, unit testing, generative testing are used, concuerror
+and TLA+ may be used, others don't apply
+
+---
+
+class: center, middle
+
+
+[Simple testing can prevent most critical failures](https://blog.acolyer.org/2016/10/06/simple-testing-can-prevent-most-critical-failures/)
+
+[Early detection of configuration errors to reduce failure damage](https://blog.acolyer.org/2016/11/29/early-detection-of-configuration-errors-to-reduce-failure-damage/)
+
+---
+
+class: center, middle
+
+[Quick Check](https://en.wikipedia.org/wiki/QuickCheck)
+
+[Concuerror](http://concuerror.com/)
+
+[TLA+](http://research.microsoft.com/en-us/um/people/lamport/tla/tla.html)
+
+[Lineage-driven Fault Injection](https://blog.acolyer.org/2015/03/26/lineage-driven-fault-injection/)
+
+[Jepsen](https://aphyr.com/tags/jepsen)
+
+[Simian Army](https://github.com/Netflix/SimianArmy)
+
+---
+
+[Learn TLA](https://www.learntla.com)
+
+[TLA+ in Practice and Theory Part 1: The Principles of TLA+](https://pron.github.io/posts/tlaplus_part1)
+
+---
+
+```python
+A = foo()
+B = bar(A)
+do_something(A, B)
+```
+
+Life was simpler, wasn't it?
+
+Let's enjoy single node systems... while we can :)
+
+---
+
+class: center, middle
+
+# Resources
+
+[Aphyr's Distributed Systems Class Notes](https://github.com/aphyr/distsys-class)
+
+[Designing Data-Intensive Applications](http://dataintensive.net/)
+
+---
+
+class: center
+
+# People
+
+[Adrian Colyer @adriancolyer](https://blog.acolyer.org)
+
+[Aphyr @aphyr](https://aphyr.com/)
+
+[Christopher Meiklejohn @cmeik](http://christophermeiklejohn.com/)
+
+[Eric Brewer @eric_brewer](http://research.google.com/pubs/EricBrewer.html)
+
+[Peter Alvaro @palvaro](https://people.ucsc.edu/~palvaro/)
+
+[Peter Bailis @pbailis](http://www.bailis.org/)
+
+---
+
+class: center, middle
+
+# Thanks
+
+---
+
+class: center, middle
+
+Swarm Intelligence: http://ncase.me/fireflies/
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({ratio: '16:9'});
+    </script>
+  </body>
+</html>
