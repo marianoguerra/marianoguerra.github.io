@@ -106,7 +106,7 @@ do_something(A, B)
 
 Collection, Centralization, Search, Correlation
 
-ELK/logstash, Splunk, flume, fluentd, "hadoop"
+ELK, Splunk, flume, fluentd, "hadoop"
 
 ???
 
@@ -223,6 +223,8 @@ class: center, middle
 # Two Generals Problem
 
 Pitfalls and design challenges of attempting to coordinate an action by communicating over an unreliable link.
+
+![Two Generals Problem](imgs/2-generals.png)
 
 ---
 
@@ -341,6 +343,18 @@ COST of distributed systems: the Configuration that Outperforms a Single Thread
 
 class: center, middle
 
+![COST Table](imgs/cost-table.png)
+
+---
+
+class: center, middle
+
+![COST Table](imgs/cost-table-2.png)
+
+---
+
+class: center, middle
+
 # [Scalability! But at what COST?](https://blog.acolyer.org/2015/06/05/scalability-but-at-what-cost/)
 
 Many published systems have unbounded COST
@@ -424,10 +438,13 @@ Your new CPU
 
 # What to do about those?
 
+We have to answer at least this questions:
+
 * Who Does This?
 * Who Knows This?
 * When did This Happen?
-* Avoiding Problems
+
+And detect problems as soon as posible
 
 ---
 
