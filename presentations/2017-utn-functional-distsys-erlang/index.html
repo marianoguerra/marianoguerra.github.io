@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ventajas del paradigma funcional en sistemas distribuidos - Erlang</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+	  code{font-size: 1.3em !important;}
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 2em; background-color: white !important; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display: none">
+
+class: center, middle
+
+# Ventajas del paradigma funcional en sistemas distribuidos - Erlang
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+UTN FRC
+
+Cordoba 2017
+
+---
+
+class: center, middle
+
+Sistemas Distribuidos, Para Que?
+
+---
+
+class: center, middle
+
+OOP es la solucion
+
+--
+
+Saquenme de contexto
+
+---
+
+class: center, middle
+
+Que conceptos definen OOP?
+
+---
+
+class: middle
+
+Just a gentle reminder that I took some pains at the last OOPSLA to try to
+remind everyone that **Smalltalk is not only NOT its syntax or the class
+library, it is not even about classes**.
+
+---
+
+class: middle
+
+**I'm sorry that I long ago coined the
+term "objects" for this topic because it gets many people to focus on the
+lesser idea.**
+
+---
+
+class: middle
+
+**The big idea is "messaging"** -- that is what the kernal of Smalltalk
+is all about.
+
+---
+
+class: middle
+
+The Japanese have a small word -- ma -- for "that which is in between".
+
+**The key in making great and growable systems is much more to design how its
+modules communicate rather than what their internal properties and
+behaviors should be.**
+
+Alan Kay ([Source](http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html))
+
+---
+
+class: center, middle
+
+    Actually I made up the term "object-oriented", and I can tell you I did not
+    have C++ in mind.
+
+    Alan Kay
+
+---
+
+class: center, middle
+
+Cual es el sistema mas escalable que conocemos?
+
+---
+
+class: center, middle
+
+Internet
+
+???
+
+En que version esta la internet?
+Cuando es el proximo upgrade, cuando la reinician?
+Porque hay cosas que pasan en software "chico" y no en internet?
+
+---
+
+class: center, middle
+
+Para que fue diseniada internet?
+
+--
+
+[Atomic] Fault Tolerance
+
+---
+
+class: center, middle
+
+Cual es la esencia de internet?
+
+--
+
+TCP/IP: Mensajes
+
+---
+
+class: center, middle
+
+![thinking](imgs/thinking.png)
+
+---
+
+Tandem's NonStop systems use a number of independent identical processors and
+redundant storage devices and controllers **to provide automatic high-speed
+"failover" in the case of a hardware or software failure**.
+
+---
+
+To **contain the scope of failures and of corrupted data**, these multi-computer
+systems have **no shared central components, not even main memory**. Conventional
+multi-computer systems all use shared memories and work directly on shared data
+objects. Instead, **NonStop processors cooperate by exchanging messages across a
+reliable fabric**, and software takes periodic snapshots for possible rollback of
+program memory state.
+
+---
+
+**Besides handling failures well, this "shared-nothing" messaging system design
+also scales extremely well** to the largest commercial workloads.
+
+---
+
+**NonStop systems have more often been bought to meet scaling requirements than
+for extreme fault tolerance.** They compete well against IBM's largest
+mainframes, despite being built from simpler minicomputer technology.
+
+---
+
+class: center, middle
+
+![thinking](imgs/thinking.png)
+
+---
+
+[Why Do Computers Stop and What Can Be Done About It?](http://www.hpl.hp.com/techreports/tandem/TR-85.7.pdf)
+
+```
+Fault-tolerant Execution                                    15
+
+Software Modularity Through Processes and Messages          16
+Fault Containment Through Fail-Stop Software Modules        16
+Software Faults Are Soft, the Bohrbug-Heisenbug Hypothesis  17
+Process-pairs For Fault-tolerant Execution                  20
+```
+
+---
+
+As with hardware, the key to software fault-tolerance is to **hierarchically
+decompose large systems** into modules, **each module being a unit of service
+and a unit of failure**.
+
+---
+
+A failure of a module does not propagate beyond the module
+
+---
+
+The process achieves fault containment by **sharing no state with other processes**;
+
+---
+
+Rather, its **only contact with other processes is via messages** carried by a kernel message system.
+
+---
+
+Most production software faults are soft.
+
+If the program state is reinitialized and the failed operation retried, the
+operation will usually not fail the second time.
+
+---
+
+The process approach to fault isolation advocates that the process software
+module be **fail-fast**, it should either function correctly or it should detect
+the fault, signal failure and stop operating.
+
+---
+
+class: center, middle
+
+# Unifiying Programming
+
+small --- large
+
+--
+
+"OOP" -&gt; CORBA
+
+--
+
+Actor &lt;- Computer
+
+???
+
+Don't scale the shared state up, scale the computer down
+(alan kay, each object is a computer)
+
+---
+
+class: center, middle
+
+Shared memory no escala
+
+---
+
+class: center, middle
+
+Leaky Abstraction: Network
+
+???
+
+networks and distribution leaks, so why don't consider them from the start
+ + falacies, timeouts, two generals etc
+
+---
+
+class: middle
+
+# Erlang
+
+Started with problems, built a solution
+
+---
+
+class: middle
+
+# Erlang: Needs
+
+* Fault Tolerant
+* Higly Available
+* Soft Real Time
+
+---
+
+class: middle
+
+# Fault Tolerant
+
+* Supervision Trees
+* Process Isolation
+* Lightweight Processes
+
+???
+
++ Supervision Trees
++ Immutability (because shared memory and mutability is hard, easier to reason about code all info is local to the function, no spooky action at a distance)
++ Copy on msg passing (because shared memory is hard)
++ Internal state per process (per proc GC, a proc crashing doesn't corrupt another process state)
++ Preemptive Scheduling (because a process running slow shouldn't slow other processes, compare to nodejs/akka/cooperative scheduling)
++ Lightweight Processes (each thing that looks like a process should be a process, lightweight, can have millions, fault isolation)
+
+---
+
+class: middle
+
+# Soft Real Time
+
+* Preemptive Scheduling
+* Per Process GC
+
+---
+
+class: middle
+
+# High Availability
+
+* Distribution
+
+  + Location Transparency
+  + Async Message Passing
+
+* Hot Code Reloading
+
+???
+
+Distribution: because only way to HA is to have at least two computers, space
+shuttle and apollo had everything 3 times usually
+
+Async Message Passing: because real world and networks are async, can't do
+distribution without
+
+---
+
+class: center, middle
+
+![thinking](imgs/thinking.png)
+
+---
+
+class: middle
+
+# Erlang: The Language
+
+* Prolog-like Syntax
+* Functional
+* Immutable
+* Dynamically Typed*
+* Actor Model
+
+---
+
+class: middle
+
+# Erlang: The Language
+
+* Modules
+* Functions
+* Pattern Matching
+* Tail Recursion
+
+---
+
+class: middle
+
+# Language Primitives
+
+* spawn/spawn_link
+* monitors
+* send
+* selective receive
+
+???
+
+process linking/monitoring to know when processes fail, for supervision, works
+over multiple servers
+
+---
+
+class: middle, center
+
+No shared memory, semaphores, mutexes, monitors, spin locks, critical regions, futures, locks, caches, threads, callbacks
+
+---
+
+class: middle
+
+# Erlang: The Platform
+
+* Erlang (Prolog)
+* Elixir (Ruby)
+* LFE (Lisp)
+* Efene (Python)
+* Alpaca (ML)
+
+* Erlog*
+* Luerl*
+
+---
+
+# Resources
+
+* Alan Kay
+* [Joe Armstrong's thesis: Making reliable distributed systems in the presence of software errors](http://erlang.org/download/armstrong_thesis_2003.pdf)
+* [History of Erlang](http://webcem01.cem.itesm.mx:8005/erlang/cd/downloads/hopl_erlang.pdf)
+
+---
+
+class: center, middle
+
+# Demo
+
+---
+
+class: center, middle
+
+# Gracias
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({ratio: '16:9'});
+    </script>
+  </body>
+</html>
