@@ -41,9 +41,11 @@ London 2018
 
 ---
 
-# 3 Questions
+# Questions
 
 * Who are we?
+
+* How do we share knowledge?
 
 * How do I communicate with someone?
 
@@ -88,14 +90,14 @@ Riak Core                           Partisan
 
 +-----------------------------+
 |                             |
-|            Gossip           |
-|                             |
+|            Gossip           | // Provides broadcast
+|                             | // communication
 +-----------------------------+
 
 +-----------------------------+
 |                             |
-|          Membership         |
-|                             |
+|          Membership         | // Provides point to point
+|                             | // communication
 +-----------------------------+
 ```
 
@@ -127,20 +129,114 @@ Riak Core                           Partisan
 
 # Who are we? (Membership)
 
-* Riak Core
-	+ Distributed Erlang
+---
 
-* Partisan: Configurable
-	+ Default (Distributed Erlang)
-	+ HyParView
-	+ Static
-	+ Client/Server
+# Membership: Riak Core
+
+Distributed Erlang
+
+* Nodes loosely connected
+
+* Connect on first usage
+
+  + spawn(Node,M,F,A)
+  + net_adm:ping(Node)
+
+* Transitive connections
+
+  + can be disabled with `-connect_all false`
+
+---
+
+# Membership: Riak Core (cont.)
+
+* Disconnection removes a node
+
+  + Node down
+  + erlang:disconnect_node(Node)
+
+* Nodes connect all to all (mesh)
+
+---
+
+# Membership: Riak Core (cont.)
+
+* Erlang Port Mapper (EPMD) started on each node
+
+  + Maps symbolic node names to host/port
+
+* List visible nodes()
+
+  + nodes(hidden) `-hidden` flag
+  + nodes(connected)
+
+---
+
+# Membership: Partisan
+
+Configurable
+
+* Default (Distributed Erlang)
+* HyParView
+* Static
+* Client/Server
 
 ---
 
 class: center, middle
 
 ![hyparview paper](imgs/hyparview.png)
+
+---
+
+# Membership: Partisan (HyParView)
+
+* Active View: size = log(n) + c
+* Passive View: k(log(n) + c)
+* Assumes reliable transport protocol like TCP
+
+For c = 1 and k = 6
+
+* Network of 10.000 nodes
+* Active views size is 5
+* Passive views size is 30
+
+---
+
+# Membership: Partisan (HyParView)
+
+* Active connection to every node on active view
+* On msg receive, forwards to nodes in active view
+* Tests connection on each broadcast
+* Removes from active view if connection fails
+* Promotes node from passive view
+* Periodic shuffle with random nodes
+
+  + Shares some nodes from active view, all from passive view
+
+---
+
+# Who is responsible for this?
+
+* Riak Core: "The Ring"
+
+* Partisan: BYO
+
+---
+
+class: center, middle
+
+# Riak Core "Dynamo"
+
+![dynamo paper](imgs/dynamo.png)
+
+---
+
+class: center, middle
+
+# Riak Core "Dynamo"
+
+![dynamo ring](imgs/riak_ring.png)
 
 ---
 
@@ -169,30 +265,6 @@ Partisan
 partisan_peer_service:forward_message(NodeName,
     RemotePidOrRegisteredName,
     Message).```
-
----
-
-# Who is responsible for this?
-
-* Riak Core: "The Ring"
-
-* Partisan: BYO
-
----
-
-class: center, middle
-
-# Riak Core "Dynamo"
-
-![dynamo paper](imgs/dynamo.png)
-
----
-
-class: center, middle
-
-# Riak Core "Dynamo"
-
-![dynamo ring](imgs/riak_ring.png)
 
 ---
 
@@ -386,7 +458,7 @@ values (in case of leaves) of its child nodes
 * IPFS
 * ZFS, Btrfs
 * BitTorrent
-* Bitcoin, Ethereum
+* Bitcoin
 * Cassandra, Riak
 
 ---
@@ -567,9 +639,11 @@ class: center
 
 # Thanks
 
-https://github.com/marianoguerra-atik/2018-london-erlang-meetup
+[github.com/marianoguerra-atik/2018-london-erlang-meetup](https://github.com/marianoguerra-atik/2018-london-erlang-meetup)
 
-https://github.com/marianoguerra-atik/riak_core_ring_on_partisans_plumtree
+[github.com/marianoguerra-atik/riak_core_ring_on_partisans_plumtree](https://github.com/marianoguerra-atik/riak_core_ring_on_partisans_plumtree)
+
+[marianoguerra.github.io/presentations/2018-london-erlang-meetup](https://marianoguerra.github.io/presentations/2018-london-erlang-meetup)
 
 Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
 
