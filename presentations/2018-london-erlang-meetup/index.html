@@ -51,8 +51,6 @@ London 2018
 
 * Who is responsible for this?
 
-  + Who has this?
-
 ---
 
 ```
@@ -129,6 +127,27 @@ Riak Core                           Partisan
 
 # Who are we? (Membership)
 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++-----------------------------+
+|                             |
+|          Membership         |
+|                             |
++-----------------------------+
+```
 ---
 
 # Membership: Riak Core
@@ -216,11 +235,49 @@ For c = 1 and k = 6
 
 ---
 
+# How do I communicate with someone?
+
+---
+
+# Riak Core
+
+! or OTP behaviors
+
+---
+
+# Partisan
+
+```erlang
+partisan_peer_service:forward_message(NodeName,
+    RemotePidOrRegisteredName,
+    Message).```
+
+---
+
 # Who is responsible for this?
 
-* Riak Core: "The Ring"
 
-* Partisan: BYO
+```
+
+
++--------------+ +------------+
+|              | |            |
+|   Metadata   | |   Routing  |
+|              | |            |
++--------------+ +------------+
+
+
+
+
+
+
+
+
+
+
+
+
+```
 
 ---
 
@@ -240,9 +297,7 @@ class: center, middle
 
 ---
 
-# How do I communicate with someone?
-
-Riak Core
+# Riak Core
 
 ```erlang
 DocIdx = riak_core_util:chash_key(Key),
@@ -257,18 +312,31 @@ riak_core_vnode_master:sync_spawn_command(IndexNode, Cmd,
 
 ---
 
-# How do I communicate with someone?
+# How do we share information?
 
-Partisan
+```
 
-```erlang
-partisan_peer_service:forward_message(NodeName,
-    RemotePidOrRegisteredName,
-    Message).```
+
+
+
+
+
+
+
++-----------------------------+
+|                             |
+|            Gossip           |
+|                             |
++-----------------------------+
+
+
+
+
+
+
+```
 
 ---
-
-# Cluster/App Metadata
 
 * Riak Core
 
@@ -651,7 +719,7 @@ Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
 
 
     </textarea>
-    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    <script src="remark-latest.min.js">
     </script>
     <script>
       var slideshow = remark.create({ratio: '16:9'});
