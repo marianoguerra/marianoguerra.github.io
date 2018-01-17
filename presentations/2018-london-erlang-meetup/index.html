@@ -54,28 +54,6 @@ London 2018
 ---
 
 ```
-    +--------------+ +------------+
-    |              | |            |
-    |   Metadata   | |   Routing  |
-    |              | |            |
-    +--------------+ +------------+
-
-    +-----------------------------+
-    |                             |
-    |            Gossip           |
-    |                             |
-    +-----------------------------+
-
-    +-----------------------------+
-    |                             |
-    |          Membership         |
-    |                             |
-    +-----------------------------+
-```
-
----
-
-```
 Riak Core                           Partisan
 
 +--------------+ +------------+     +-----------------------------+
@@ -95,6 +73,30 @@ Riak Core                           Partisan
 |     Distributed Erlang      |     |  Dist Erl/Static/HyParView  |
 |                             |     |                             |
 +-----------------------------+     +-----------------------------+
+```
+
+---
+
+```
+
+
++--------------+ +------------+
+|              | |            |
+|   Metadata   | |   Routing  |
+|              | |            |
++--------------+ +------------+
+
++-----------------------------+
+|                             |
+|            Gossip           |
+|                             |
++-----------------------------+
+
++-----------------------------+
+|                             |
+|          Membership         |
+|                             |
++-----------------------------+
 ```
 
 ---
@@ -136,6 +138,14 @@ Riak Core                           Partisan
 
 ---
 
+class: center, middle
+
+# Partisan
+
+![hyparview paper](imgs/hyparview.png)
+
+---
+
 # How do I communicate with someone?
 
 Riak Core
@@ -172,18 +182,6 @@ partisan_peer_service:forward_message(NodeName,
 
 ---
 
-# Cluster/App Metadata
-
-* Riak Core
-
-  + Plumtree (Riak Core Metadata)
-
-* Partisan:
-
- + Plumtree
-
----
-
 class: center, middle
 
 # Riak Core "Dynamo"
@@ -197,6 +195,18 @@ class: center, middle
 # Riak Core "Dynamo"
 
 ![dynamo ring](imgs/riak_ring.png)
+
+---
+
+# Cluster/App Metadata
+
+* Riak Core
+
+  + Plumtree (Riak Core Metadata)
+
+* Partisan:
+
+ + Plumtree
 
 ---
 
@@ -222,14 +232,6 @@ class: center, middle
 * On disk (DETS)
 
 * Local Read/Writes
-
----
-
-class: center, middle
-
-# Partisan
-
-![hyparview paper](imgs/hyparview.png)
 
 ---
 
