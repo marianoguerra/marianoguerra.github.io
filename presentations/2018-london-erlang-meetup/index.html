@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Building distributed applications: riak_core vs partisan</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+	  code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 2em; background-color: white !important; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display: none">
+
+class: center, middle
+
+# Building distributed applications: riak_core vs partisan
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+Erlang Meetup
+
+London 2018
+
+---
+
+# 3 Questions
+
+* Who are we?
+
+* How do I communicate with someone?
+
+* Who is responsible for this?
+
+  + Who has this?
+
+---
+
+```
+    +--------------+ +------------+
+    |              | |            |
+    |   Metadata   | |   Routing  |
+    |              | |            |
+    +--------------+ +------------+
+
+    +-----------------------------+
+    |                             |
+    |            Gossip           |
+    |                             |
+    +-----------------------------+
+
+    +-----------------------------+
+    |                             |
+    |          Membership         |
+    |                             |
+    +-----------------------------+
+```
+
+---
+
+```
+Riak Core                           Partisan
+
++--------------+ +------------+     +-----------------------------+
+|              | |            |     |                             |
+| RC Metadata  | | RC Ring    |     |       Bring Your Own        |
+|              | |            |     |                             |
++--------------+ +------------+     +-----------------------------+
+
++--------------+ +------------+     +-----------------------------+
+|              | |            |     |                             |
+|   Plumtree   | | RC Gossip  |     |          Plumtree           |
+|              | |            |     |                             |
++--------------+ +------------+     +-----------------------------+
+
++-----------------------------+     +-----------------------------+
+|                             |     |                             |
+|     Distributed Erlang      |     |  Dist Erl/Static/HyParView  |
+|                             |     |                             |
++-----------------------------+     +-----------------------------+
+```
+
+---
+
+```
+Riak Core                           Partisan
+
++--------------+ +------------+     +------------+ +--------------+
+|              | |            |     |            | |              |
+| RC Metadata  | | RC Ring    |     |  Metadata  | | RC Ring      |
+|              | |            |     |            | |              |
++--------------+ +------------+     +------------+ +--------------+
+
++-----------------------------+     +-----------------------------+
+|                             |     |                             |
+|          Plumtree           |     |          Plumtree           |
+|                             |     |                             |
++-----------------------------+     +-----------------------------+
+
++-----------------------------+     +-----------------------------+
+|                             |     |                             |
+|     Distributed Erlang      |     |     DistErl/HyParView       |
+|                             |     |                             |
++-----------------------------+     +-----------------------------+
+```
+
+---
+
+# Who are we? (Membership)
+
+* Riak Core
+	+ Distributed Erlang
+
+* Partisan: Configurable
+	+ Default (Distributed Erlang)
+	+ HyParView
+	+ Static
+	+ Client/Server
+
+---
+
+# How do I communicate with someone?
+
+Riak Core
+
+```erlang
+DocIdx = riak_core_util:chash_key(Key),
+
+PrefList = riak_core_apl:get_primary_apl(DocIdx, 1, sdb),
+
+[{IndexNode, _Type}] = PrefList,
+
+riak_core_vnode_master:sync_spawn_command(IndexNode, Cmd,
+	 sdb_vnode_master).
+```
+
+---
+
+# How do I communicate with someone?
+
+Partisan
+
+```erlang
+partisan_peer_service:forward_message(NodeName,
+    RemotePidOrRegisteredName,
+    Message).```
+
+---
+
+# Who is responsible for this?
+
+* Riak Core: "The Ring"
+
+* Partisan: BYO
+
+---
+
+# Cluster/App Metadata
+
+* Riak Core
+
+  + Plumtree (Riak Core Metadata)
+
+* Partisan:
+
+ + Plumtree
+
+---
+
+class: center, middle
+
+# Riak Core "Dynamo"
+
+![dynamo paper](imgs/dynamo.png)
+
+---
+
+class: center, middle
+
+# Riak Core "Dynamo"
+
+![dynamo ring](imgs/riak_ring.png)
+
+---
+
+class: center, middle
+
+# Riak Core Metadata
+
+![plumtree paper](imgs/plumtree.png)
+
+---
+
+# Riak Core Metadata
+
+* Namespaced Key-Value Store
+
+* Replicated to all nodes
+
+  + Eventually
+  + Asynchronously
+
+* In memory (ETS)
+
+* On disk (DETS)
+
+* Local Read/Writes
+
+---
+
+class: center, middle
+
+# Partisan
+
+![hyparview paper](imgs/hyparview.png)
+
+---
+
+class: center, middle
+
+# Partisan + Plumtree
+
+---
+
+# Plumtree Node State
+
+* Eager Set
+* Lazy Set
+* Seen Msgs
+
+---
+
+class: center
+
+# Eager Push
+
+![plumtree-0](imgs/plumtree-0.png)
+
+---
+
+class: center
+
+# Eager Push
+
+![plumtree-1](imgs/plumtree-1.png)
+
+---
+
+class: center
+
+# Eager Push
+
+![plumtree-2](imgs/plumtree-2.png)
+
+---
+
+class: center
+
+# Eager Push
+
+![plumtree-3](imgs/plumtree-3.png)
+
+---
+
+class: center
+
+# Eager Push
+
+![plumtree-4](imgs/plumtree-4.png)
+
+---
+
+class: center
+
+# Eager Push
+
+![plumtree-5](imgs/plumtree-5.png)
+
+---
+
+class: center
+
+# Eager Push
+
+![plumtree-6](imgs/plumtree-6.png)
+
+---
+
+class: center
+
+# Eager Push
+
+![plumtree-7](imgs/plumtree-7.png)
+
+---
+
+class: center
+
+# Lazy Push
+
+![plumtree-lazy-0](imgs/plumtree-lazy-0.png)
+
+---
+
+class: center
+
+# Lazy Push
+
+![plumtree-lazy-1](imgs/plumtree-lazy-1.png)
+
+---
+
+class: center
+
+# Lazy Push
+
+![plumtree-lazy-2](imgs/plumtree-lazy-2.png)
+
+---
+
+class: center
+
+# Lazy Push
+
+![plumtree-lazy-3](imgs/plumtree-lazy-3.png)
+
+---
+
+class: center
+
+# Lazy Push
+
+![plumtree-lazy-4](imgs/plumtree-lazy-4.png)
+
+---
+
+class: center
+
+# Lazy Push
+
+![plumtree-lazy-5](imgs/plumtree-lazy-5.png)
+
+---
+
+class: center
+
+# Lazy Push
+
+![plumtree-lazy-6](imgs/plumtree-lazy-6.png)
+
+---
+
+class: center
+
+# Lazy Push
+
+![plumtree-lazy-7](imgs/plumtree-lazy-7.png)
+
+---
+
+# Active Anti Entropy (AAE)
+
+How does node 3 gets the values broadcasted while it was down?
+
+---
+
+# Merkle Tree
+
+Tree in which every non-leaf node is labelled with the hash of the labels or
+values (in case of leaves) of its child nodes
+
+---
+
+# Merkle Tree
+
+* Git
+* IPFS
+* ZFS, Btrfs
+* BitTorrent
+* Bitcoin, Ethereum
+* Cassandra, Riak
+
+---
+
+class: center
+
+# Hash Tree
+
+![hashtree](imgs/hashtree.png)
+
+---
+
+class: center
+
+# Segments
+
+![hashtree-segments](imgs/hashtree-segments.png)
+
+---
+
+class: center
+
+# Segment Hashes
+
+![hashtree-segment-hashes](imgs/hashtree-segment-hashes.png)
+
+---
+
+class: center
+
+# Upper Hashes
+
+![hashtree-upper-hashes](imgs/hashtree-upper-hashes.png)
+
+---
+
+# Hash Tree Operations
+
+* Insert
+* Update
+* Compare
+
+---
+
+class: center
+
+# Insert
+
+![hashtree-insert-0](imgs/hashtree-insert-0.png)
+
+---
+
+class: center
+
+# Insert
+
+![hashtree-insert-1](imgs/hashtree-insert-1.png)
+
+---
+
+class: center
+
+# Insert
+
+![hashtree-insert-2](imgs/hashtree-insert-2.png)
+
+---
+
+class: center
+
+# Insert
+
+![hashtree-insert-3](imgs/hashtree-insert-3.png)
+
+---
+
+class: center
+
+# Insert
+
+![hashtree-insert-4](imgs/hashtree-insert-4.png)
+
+---
+
+class: center
+
+# Update
+
+![hashtree-insert-5](imgs/hashtree-insert-5.png)
+
+---
+
+class: center
+
+# Update
+
+![hashtree-insert-6](imgs/hashtree-insert-6.png)
+
+---
+
+class: center
+
+# Update
+
+![hashtree-insert-7](imgs/hashtree-insert-7.png)
+
+---
+
+class: center
+
+# Update
+
+![hashtree-insert-8](imgs/hashtree-insert-8.png)
+
+---
+
+class: center
+
+# Update
+
+![hashtree-insert-9](imgs/hashtree-insert-9.png)
+
+---
+
+class: center
+
+# Update
+
+![hashtree-insert-10](imgs/hashtree-insert-10.png)
+
+---
+
+class: center
+
+# Compare
+
+![hash-compare-1](imgs/hash-compare-1.png)
+
+---
+
+class: center
+
+# Compare
+
+![hash-compare-2](imgs/hash-compare-2.png)
+
+---
+
+class: center
+
+# Compare
+
+![hash-compare-3](imgs/hash-compare-3.png)
+
+---
+
+class: center
+
+# Compare
+
+![hash-compare-4](imgs/hash-compare-4.png)
+
+---
+
+class: center
+
+# Compare
+
+![hash-compare-5](imgs/hash-compare-5.png)
+
+---
+
+class: center
+
+# Demo Time
+
+---
+
+# Thanks
+
+https://github.com/marianoguerra-atik/2018-london-erlang-meetup
+
+https://github.com/marianoguerra-atik/riak_core_ring_on_partisans_plumtree
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({ratio: '16:9'});
+    </script>
+  </body>
+</html>
