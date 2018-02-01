@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>In praise of simplicity: instadeq one year later</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'Helvetica'; }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+	  code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-inline-code { font-family: 'monospace'; font-size: 2em; background-color: white !important; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display: none">
+
+class: center, middle
+
+# In praise of simplicity: instadeq one year later
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+Javascript Meetup
+
+Stuttgart 2018
+
+---
+
+class: center, middle
+
+# Why one year later?
+
+---
+
+class: center, middle
+
+# Let's Recap
+
+---
+
+class: center, middle
+
+# &lt; 1944
+
+Computer was a Job Title
+
+---
+
+class: middle
+
+![http://www.history.com/news/human-computers-women-at-nasa](imgs/computer-cluster.jpg)
+
+---
+
+# 1939 - Z1 Konrad Zuse
+
+World's first binary digital computer
+
+---
+
+# 1944 - Mark I (3,500 relays)
+
+# 1944 - Colossus (2,500 vacuum tubes)
+
+---
+
+class: center, middle
+
+![mark I](imgs/js-mark-I.jpg)
+
+Programs were physical, "programmed with wires"
+
+---
+
+# 1945 - Von Neumann architecture
+
+Outlines the architecture of a stored-program computer
+
+including electronic storage of programming information and data
+
+which eliminates the need for more clumsy methods of programming such as
+plugboards, punched cards and paper
+
+--
+
+Like a Virtual ... Machine
+
+---
+
+class: center
+
+![bug](imgs/bug.jpg)
+
+---
+
+class: center
+
+![bug](imgs/fortran-card.jpg)
+
+80 columns
+
+---
+
+class: center
+
+![patch](imgs/patch.jpg)
+
+---
+
+# 1946 - ENIAC  (18000 vacum tubes)
+
+Panel-to-panel wiring and switches for programming
+
+---
+
+# 1949 - EDSAC
+
+One major advance in programming was Wilkes' use of a **library** of short
+programs, called **subroutines**,
+stored on punched paper tapes and used for performing common repetitive
+calculations within a lager program.
+
+---
+
+# 1952 - Grace Hopper completes A-0
+
+A program that allows a computer user to use English-like words instead of
+numbers to give the computer instructions.
+
+---
+
+# 1956 - Keyboard Input
+
+Typically, computer users of the time fed their programs into a computer using
+punched cards or paper tape
+
+---
+
+# 1957 - Fortran (FORmula TRANslator)
+
+John Backus develops FORTRAN, a powerful scientific computing language that
+uses English-like statements.
+
+Some programmers were skeptical that FORTRAN could be as efficient as hand
+coding.
+
+If, Loops, Variables, Comments
+
+---
+
+# 1958 - LISP (LISt Processing)
+
+Homoiconicity
+
+----
+
+class: center
+
+![lisp-apply](imgs/lisp-apply.png)
+
+Lisp 1.5 Manual - Page 70
+
+---
+
+class: center
+
+![lisp-eval](imgs/lisp-eval.png)
+
+---
+
+# 1960 - COBOL
+
+Common Business-Oriented Language
+
+Readability
+
+---
+
+# 1962 - APL
+
+Kenneth Iverson’s book A Programming Language details a form of mathematical
+notation that he had developed in the late 1950s.
+
+IBM hired Iverson and it was there that APL evolved into a practical
+programming language.
+
+---
+
+class: center
+
+![apl-keyboard](imgs/tek-apl-1.jpg)
+
+---
+
+# 1963 - Sketchpad
+
+Ivan Sutherland publishes Sketchpad, an **interactive**, **real-time** computer
+drawing system, as his MIT doctoral thesis.
+
+Using a light pen and Sketchpad, a designer could draw and manipulate
+geometric figures on a computer screen
+
+https://www.youtube.com/watch?v=YB3saviItTI
+
+---
+
+# 1964 - BASIC
+
+Thomas Kurtz and John Kemeny create BASIC
+
+Beginner’s All-purpose Symbolic Instruction Code
+
+---
+
+# 1965 - Simula
+
+OOP
+
+---
+
+# 1967 - LOGO
+
+Learnability, Exploration
+
+---
+
+# 1968 - The Mother of All Demos
+
+For ninety minutes, the stunned audience of around a thousand witnesses
+**collaborative editing**, **videoconferencing**, **word processing**, and a strange
+pointing device jokingly referred to as a "**mouse**".
+
+Every paragraph or other element in the NLS system can be linked to other
+elements using **hypertext links**.
+
+https://www.youtube.com/watch?v=yJDv-zdhzMY
+
+---
+
+# 1969 - Unix
+# 1970 - Scheme
+# 1971 - First Microprocessor, Email
+# 1972 - C
+
+---
+
+class: center
+
+# 1972 - Dynabook
+
+![dynabook](imgs/dynabook.png)
+
+---
+
+# 1974 - Alto, Smalltalk
+
+It was based on a **graphical user interface** using **windows**, **icons**, and a **mouse**, and worked together with other Altos over a **local area network**.
+
+It could also **share files** and print out documents on an advanced Xerox **laser printer**.
+
+Applications were also highly innovative: a **WYSISYG word processor** known as “Bravo,” a paint program, a graphics editor, and **email** for example.
+
+---
+
+class: center
+
+![Alto](imgs/altost2.jpg)
+
+---
+
+# 1975: already have a computer and a language I can use to develop instadeq.
+
+I only need a faster computer (color display would be nice)
+
+---
+
+class: center
+
+![Pharo](imgs/pharo.png)
+
+---
+
+# 1976 - Vi
+
+**Vi**sual mode for ex, **ex**tended version of ed
+
+sed: s/ed/
+
+grep: g/re/p
+
+---
+
+class: center
+
+# 1978 - VT-100
+
+![vt-100](imgs/vt-100.jpg)
+
+---
+
+# 1978
+
+I have my unix, editor, makefiles and my terminal
+
+---
+
+# 1979 - Visicalc
+
+# 1987 - Hypercard, Self, Perl
+
+---
+
+# 1990 - WWW
+
+It features a server, HTML, URLs, and the first browser.
+
+That browser **also functions as an editor—like a word processor connected to
+the Internet** – which reflects his original vision that the Web also
+incorporate authoring and personal organization tools.
+
+---
+
+# 1991
+
+Viola and Midas are initially the most popular, eclipsed later by Mosaic.
+
+**All of them leave out editing features, which are trickier to implement** on
+machines other than the NeXT.
+
+---
+
+# 1993 - Mosaic
+# 1994 - Netscape
+# 1995 - Browser Wars II, Java 1.0, Javascript!
+# 1999 - Ecmascript 3
+
+---
+
+# 2017 - I give the talk "Tools, Why and When"
+
+```
+$ create-react-app hello-world
+$ du -sh node_modules
+128M    node_modules // 2018: 189M
+$ ls -1 node_modules | wc -l
+740 // 2018: 839```
+
+---
+
+# after eject
+
+```
+wc -l config/*.js config/**/*.js
+1764 total
+
+wc -l node_modules/**/*.js
+1745446 total
+```
+---
+
+![mods-size](imgs/science.png)
+
+311GB node_modules in 2038
+
+---
+
+![mods-size](imgs/science-mods.png)
+
+9116 dependencies in 2038
+
+---
+
+# 2017: Project depends on
+
+React.DOM and ReactDOM.render
+
+rm cp mv cat wget
+
+cssmin requirejs*
+
+make
+
+5 vendored dependencies (react, immutable, voca, echarts, bootstrap)
+
+---
+
+# 2018 - Instadeq 1.0
+
+React.DOM and ReactDOM.render
+
+rm cp mv cat wget
+
+tar sed // bloat!
+
+cssmin requirejs*
+
+make
+
+7 vendored dependencies (react, immutable, voca, d3-dsv, dateformat, echarts, bootstrap)
+
+---
+
+# Time machine experiment
+
+How much time would it take if we took someone from the netscape/js 1.0 era and
+got it up to speed 20 years later
+
+How much of the "up to speed" session would be accidental complexity
+
+---
+
+Accidental complexity relates to problems which engineers create and can fix
+
+---
+
+Essential complexity is caused by the problem to be solved, and nothing can
+remove it
+
+---
+
+# Build me a CRUD app
+
+---
+
+# How are we going to be programming in 2038?
+
+Someone from the future comes and takes you there and it's a browser,
+javascript, some new text editor that consumes 200GB of RAM per text file,
+makefiles reinvented for the 100th time and
+
+**9116 dependencies and 311GB node_modules** for hello world
+
+---
+
+In the 70s you could go to Parc and play with the future.
+
+Where do we go now to play with the future?
+
+hint: https://dynamicland.org/
+
+---
+
+class: center
+
+# In praise of simplicity
+
+---
+
+class: center
+
+# Demo Time
+
+---
+
+* Let's solve problems
+* Let's avoid accidental complexity
+* Let's keep making programming easier and simpler
+
+---
+
+# Thanks
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({ratio: '16:9'});
+    </script>
+  </body>
+</html>
