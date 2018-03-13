@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A Tour Through the Distributed System Zoo</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'Helvetica'; }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+	  code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-inline-code { font-family: 'monospace'; font-size: 2em; background-color: white !important; }
+      .remark-slide-content{padding: 0.5em 0 !important}
+      .remark-slide-content p,.remark-slide-content ul {margin-left: 2em; margin-right: 2em;}
+      .remark-container {background: none !important}
+      .remark-slide-scaler{box-shador: none; -webkit-box-shadow: none;}
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display: none">
+
+class: center, middle
+
+# A Tour Through the Distributed System Zoo
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+Code BEAM
+
+San Francisco 2018
+
+---
+
+class: center, middle
+
+# Tried many ideas
+
+---
+
+class: center
+
+![quadrant](imgs/quadrant.jpg)
+
+---
+
+background-image: url(imgs/evolution.jpg)
+
+---
+
+class: center
+
+![venn](imgs/venn-diagram-beaver-duck-platypus.png)
+
+---
+
+class: center
+
+![evolution](imgs/animal-exam.jpeg)
+
+---
+
+class: center
+
+# Disclaimer
+
+IANAZ
+
+Bad Analogies Ahead
+
+---
+
+class: center
+
+# The story so far
+
+<video src="imgs/dna-replication.mp4" loop autoplay><video>
+
+Single organism operating on private data
+
+[Source](https://www.youtube.com/watch?v=OjPcT1uUZiE)
+
+---
+
+class: center
+
+![Lamport](imgs/Lamport265.jpg)
+
+In 1978 Leslie Lamport tried to make two organisms agree on a value.
+
+This has made a lot of people very angry and been widely regarded as a bad move.
+
+---
+
+# Consensus Species
+
+Single Machine: Critical Section
+
+Network: Paxos, Zab, Raft
+
+All nodes have all the data and know about all the other nodes
+
+---
+
+# Tradeoff
+
+Scalability for consistency
+
+All nodes must apply ops in same order to ensure same state at all times
+
+---
+
+# Natural Predator
+
+* Byzantine Attack
+* Sybil Attack
+
+---
+
+# Evolution
+
+DLT/Blockchain with PoW
+
+* PoS, PoET
+
+All nodes have all the data but know about a subset of other nodes
+
+---
+
+# Tradeoff
+
+* Temporary Race Conditions
+* Energy Usage
+
+---
+
+About agreeing on shared state
+
+Temporary leaders
+
+Operations are local, on any member
+
+---
+
+# Behavior
+
+* Propose a value
+* Spread proposal
+* Accept proposal
+* New state
+
+---
+
+# Death of a member
+
+All others have whole view
+
+If it was a temp leader: leader election
+
+---
+
+# Core: shared serialized operation log
+
+---
+
+class: center
+
+background-image: url(imgs/intermission.png)
+
+# Nature Intermission
+
+---
+
+class: center
+
+<video src="imgs/ant-bridge.mp4" loop autoplay></video>
+
+[Source](https://www.quantamagazine.org/the-simple-algorithm-that-ants-use-to-build-bridges-20180226/)
+
+---
+
+class: center
+
+<video src="imgs/ant-colony.mp4" loop autoplay></video>
+
+[Source](https://www.youtube.com/watch?v=hXUCCRiNBOc)
+
+---
+
+# DHT Species
+
+Network: Specialize/Shard/Load Balance
+
+Dynamo, Orleans, Chord
+
+---
+
+# Natural Predator
+
+![Justing Bieber](imgs/bieber.png)
+
+[Source](https://twitter.com/dcurtis/status/23192425566)
+
+---
+
+About specializing different nodes on different parts of the problem space
+
+Operations are not local, must be routed to a specific node
+
+---
+
+# Behavior
+
+* Land in a node
+* Ask for directions
+* Find the right node
+* Deliver message
+
+---
+
+Not all nodes have all the data
+
+Depending on the system, not all nodes know all the other nodes
+
+---
+
+# Tradeoff
+
+Consistency for scalability
+
+---
+
+# Death of a member
+
+Subset of data may be lost
+
+Solved with replication (A new set of problems)
+
+---
+
+# Core: consistent hashing and 0/Log N hop routing table
+
+---
+
+DHT and dynamo are about distribution of same workload among equals,
+if specialization is needed it must be implemented on top of it.
+
+Orleans supports specialization with different actor types.
+
+---
+
+class: center
+
+background-image: url(imgs/intermission.png)
+
+# Nature Intermission
+
+---
+
+class: center
+
+<video src="imgs/mold-tokyo-railway.mp4" loop autoplay></video>
+
+[Source](https://youtu.be/GwKuFREOgmo)
+
+---
+
+background-image: url(imgs/flock-bird-800.jpg)
+
+---
+
+class: center
+
+<video src="imgs/starlings.mp4" loop autoplay></video>
+
+[Source](https://www.youtube.com/watch?v=L7CyMaOAqyo)
+
+---
+
+class: center
+
+# Commutative Species
+
+Operational Transformations, CRDTs, Lasp
+
+---
+
+# Natural Predator
+
+AWS bills
+
+---
+
+CRDT is like the behavior of an individual member
+
+Lasp is that member in a colony, how it communicates with others and spreads
+information.
+
+---
+
+About eventually but deterministically converging to the same shared view.
+
+Achieves this by restricting operations to allow applying them in different order.
+
+Can gossip and scale more than consensus,
+distant relatives that evolved under different constraints,
+DLT is a recent shared specimen since it accepts temporal divergence to scale.
+
+---
+
+All nodes have all the data*.
+
+Depending on the system, not all nodes know all the other nodes.
+
+---
+
+# Tradeoff
+
+Consistency for scalability
+
+---
+
+# Death of a member
+
+All others have whole view
+
+---
+
+# Core: The commutative operation
+
+---
+
+class: center
+
+background-image: url(imgs/intermission.png)
+
+# Nature Intermission
+
+---
+
+class: center
+
+<video src="imgs/fireflies.mp4" loop autoplay></video>
+
+[Source](http://ncase.me/fireflies/)
+
+---
+
+class: center, middle
+
+# Thanks
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({ratio: '4:3'});
+    </script>
+  </body>
+</html>
