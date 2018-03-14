@@ -106,13 +106,9 @@ This has made a lot of people very angry and been widely regarded as a bad move.
 
 # Consensus Species
 
-Single Node: Critical Section
-
 Cluster: Paxos, ZAB, Raft
 
 Internet Scale: DLT/Blockchain (PoW, PoS, PoET)
-* Temporary "Race Conditions"
-* Energy Usage
 
 ---
 
@@ -128,7 +124,13 @@ Network View DLT: Partial
 
 # Tradeoff
 
-Scalability for consistency
+Consistency over Scalability
+
+---
+
+# DLT/Blockchain Tradeoff
+
+* Temporary "Race Conditions"
 
 ---
 
@@ -136,6 +138,12 @@ Scalability for consistency
 
 * Byzantine Attack
 * Sybil Attack
+
+---
+
+# DLT/Blockchain Predator Defences
+
+* Energy Usage
 
 ---
 
@@ -257,8 +265,6 @@ include computer networks, and artificial intelligence simulations of workers.
 
 # Commutative Species
 
-Single Node: N/A
-
 Cluster/Internet Scale: Operational Transformations, CRDTs, Lasp
 
 ---
@@ -277,7 +283,7 @@ Lasp has Configurable backends for peer service
 
 # Tradeoff
 
-Consistency for scalability
+Scalability over Consistency
 
 ---
 
@@ -347,8 +353,6 @@ class: center
 
 # DHT Species
 
-Single Node: Worker Pool
-
 Cluster: Shard/Load Balance, Dynamo, Orleans
 
 Internet Scale: DHT, Chord
@@ -367,7 +371,7 @@ Network View DHT: Partial
 
 # Tradeoff
 
-Consistency for scalability
+Scalability over Consistency
 
 ---
 
