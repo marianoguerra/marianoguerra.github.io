@@ -48,6 +48,12 @@ class: center, middle
 
 class: center
 
+![evolution](imgs/animal-exam.jpeg)
+
+---
+
+class: center
+
 ![quadrant](imgs/quadrant.jpg)
 
 ---
@@ -59,12 +65,6 @@ background-image: url(imgs/evolution.jpg)
 class: center
 
 ![venn](imgs/venn-diagram-beaver-duck-platypus.png)
-
----
-
-class: center
-
-![evolution](imgs/animal-exam.jpeg)
 
 ---
 
@@ -110,7 +110,7 @@ Single Node: Critical Section
 
 Cluster: Paxos, ZAB, Raft
 
-Planetary Scale: DLT/Blockchain (PoW, PoS, PoET)
+Internet Scale: DLT/Blockchain (PoW, PoS, PoET)
 * Temporary "Race Conditions"
 * Energy Usage
 
@@ -198,6 +198,25 @@ class: center
 
 [Source](https://www.quantamagazine.org/the-simple-algorithm-that-ants-use-to-build-bridges-20180226/)
 
+???
+
+The first tells the ant that when it feels other ants walking on its back, it
+should freeze. “As long as someone walks over you, you stay put,” Garnier said.
+
+This same process repeats in the other ants: They step over the first ant, but
+— uh-oh — the gap is still there, so the next ant in line slows, gets trampled
+and freezes in place. In this way, the ants build a bridge long enough to span
+whatever gap is in front of them. The trailing ants in the colony then walk
+over it.
+
+There’s more to it than that, though. Bridges involve trade-offs. Imagine a
+colony of ants comes to a V-shaped gap in its path. The colony doesn’t want to
+go all the way around the gap — that would take too long — but it also doesn’t
+build a bridge across the widest part of the gap that would minimize how far
+the colony has to travel. The fact that army ants don’t always build the
+distance-minimizing bridge suggests there’s some other factor in their
+unconscious calculation.
+
 ---
 
 class: center
@@ -206,13 +225,41 @@ class: center
 
 [Source](https://www.youtube.com/watch?v=hXUCCRiNBOc)
 
+???
+
+http://mathworld.wolfram.com/AntColonyAlgorithm.html
+
+The ant colony algorithm is an algorithm for finding optimal paths that is
+based on the behavior of ants searching for food.
+
+At first, the ants wander randomly. When an ant finds a source of food, it
+walks back to the colony leaving "markers" (pheromones) that show the path has
+food. When other ants come across the markers, they are likely to follow the
+path with a certain probability. If they do, they then populate the path with
+their own markers as they bring the food back. As more ants find the path, it
+gets stronger until there are a couple streams of ants traveling to various
+food sources near the colony.
+
+Because the ants drop pheromones every time they bring food, shorter paths are
+more likely to be stronger, hence optimizing the "solution." In the meantime,
+some ants are still randomly scouting for closer food sources. A similar
+approach can be used find near-optimal solution to the traveling salesman
+problem.
+
+Once the food source is depleted, the route is no longer populated with
+pheromones and slowly decays.
+
+Because the ant-colony works on a very dynamic system, the ant colony algorithm
+works very well in graphs with changing topologies. Examples of such systems
+include computer networks, and artificial intelligence simulations of workers. 
+
 ---
 
 # Commutative Species
 
 Single Node: N/A
 
-Cluster/Planetary Scale: Operational Transformations, CRDTs, Lasp
+Cluster/Internet Scale: Operational Transformations, CRDTs, Lasp
 
 ---
 
@@ -221,6 +268,10 @@ Cluster/Planetary Scale: Operational Transformations, CRDTs, Lasp
 Data: All*
 
 Network View: Partial or Full
+
+???
+
+Lasp has Configurable backends for peer service
 
 ---
 
@@ -300,7 +351,7 @@ Single Node: Worker Pool
 
 Cluster: Shard/Load Balance, Dynamo, Orleans
 
-Planetary Scale: DHT, Chord
+Internet Scale: DHT, Chord
 
 ---
 
@@ -385,6 +436,15 @@ class: center
 <video src="imgs/mold-tokyo-railway.mp4" loop autoplay></video>
 
 [Source](https://youtu.be/GwKuFREOgmo)
+
+???
+
+When presented with oat flakes arranged in the pattern of Japanese cities
+around Tokyo, brainless, single-celled slime molds construct networks of
+nutrient-channeling tubes that are strikingly similar to the layout of the
+Japanese rail system
+
+https://www.wired.com/2010/01/slime-mold-grows-network-just-like-tokyo-rail-system/
 
 ---
 
