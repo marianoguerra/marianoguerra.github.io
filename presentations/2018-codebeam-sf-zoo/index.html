@@ -72,8 +72,6 @@ class: center
 
 # Disclaimer
 
-IANAZ
-
 Bad Analogies Ahead
 
 An attempt to map the territory
@@ -104,11 +102,23 @@ This has made a lot of people very angry and been widely regarded as a bad move.
 
 ---
 
-# Consensus Species
+# Strong Consensus Group
 
-Cluster: Paxos, ZAB, Raft
+Cluster: Paxos, ZAB, Raft, VR
 
 Internet Scale: DLT/Blockchain (PoW, PoS, PoET)
+
+---
+
+# Core Idea
+
+Shared serialized operation log
+
+Agreeing on shared state
+
+All members must apply ops in same order
+
+Temporary leaders
 
 ---
 
@@ -145,28 +155,6 @@ Consistency over Scalability
 
 * PoW
   + Energy Usage
-
----
-
-# Core Idea
-
-Shared serialized operation log
-
-Agreeing on shared state
-
-All members must apply ops in same order
-
-Temporary leaders
-
----
-
-# Algorithm tl;dr
-
-* Propose a value
-* Spread proposal
-* Accept proposal
-* Apply operation
-* New state
 
 ---
 
@@ -267,13 +255,27 @@ include computer networks, and artificial intelligence simulations of workers.
 
 ---
 
-# Commutative Species
+# Commutative Consensus Group
 
 Cluster/Internet Scale:
 
 * Operational Transformations
 * CRDTs
 * Lasp
+
+---
+
+# Core Idea
+
+Eventually but deterministically converging to the same shared view
+
+Achieved by restricting operations to allow applying them in any order (commutativity)
+
+Can gossip and scale more than consensus
+
+Distant relatives that evolved under different constraints
+
+DLT is a recent shared specimen since it accepts temporal divergence to scale
 
 ---
 
@@ -298,28 +300,6 @@ Scalability over Consistency
 # Natural Predator
 
 AWS bills
-
----
-
-# Core Idea
-
-Eventually but deterministically converging to the same shared view
-
-Achieved by restricting operations to allow applying them in any order (commutativity)
-
-Can gossip and scale more than consensus
-
-Distant relatives that evolved under different constraints
-
-DLT is a recent shared specimen since it accepts temporal divergence to scale
-
----
-
-# Algorithm tl;dr
-
-* Apply operation to data on any member
-* Spread state/operation changes
-* Apply on other members
 
 ---
 
@@ -359,11 +339,21 @@ class: center
 
 ---
 
-# Router Species
+# Router Group
 
 Cluster: Shard/Load Balance, Dynamo, Orleans
 
 Internet Scale: DHT, Chord
+
+---
+
+# Core Idea
+
+Consistent hashing
+
+0/Log N hop routing table
+
+Different members handle different parts of the problem space
 
 ---
 
@@ -388,25 +378,6 @@ Scalability over Consistency
 ![Justin Bieber](imgs/bieber.png)
 
 [Source](https://twitter.com/dcurtis/status/23192425566)
-
----
-
-# Core Idea
-
-Consistent hashing
-
-0/Log N hop routing table
-
-Different members handle different parts of the problem space
-
----
-
-# Algorithm tl;dr
-
-* Land in a member
-* Ask for directions
-* Find the right member
-* Deliver message
 
 ---
 
