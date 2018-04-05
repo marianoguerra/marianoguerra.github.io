@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A Tour Through the Distributed System Zoo</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'Helvetica'; }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+	  code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-inline-code { font-family: 'monospace'; font-size: 2em; background-color: white !important; }
+      .remark-slide-content{padding: 0.5em 0 !important}
+      .remark-slide-content p,.remark-slide-content ul {margin-left: 2em; margin-right: 2em;}
+      .remark-container {background: none !important}
+      .remark-slide-scaler{box-shador: none; -webkit-box-shadow: none;}
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display: none">
+
+class: center, middle
+
+# A Tour Through the Distributed System Zoo
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+Code BEAM
+
+San Francisco 2018
+
+???
+
+Keys:
+
+* p presentation mode
+* c new presentation window
+
+---
+
+class: center
+
+# Disclaimer
+
+Bad Analogies Ahead
+
+An attempt to map the territory
+
+A RFC
+
+---
+
+class: center
+
+# The story so far
+
+<video src="imgs/dna-replication.mp4" loop autoplay><video>
+
+Single organism operating on private data
+
+[Source](https://www.youtube.com/watch?v=OjPcT1uUZiE)
+
+---
+
+class: center
+
+![Lamport](imgs/Lamport265.jpg)
+
+In 1978 Leslie Lamport tried to make two organisms agree on a value.
+
+This has made a lot of people very angry and been widely regarded as a bad move.
+
+---
+
+# Strong Consensus Group
+
+Cluster (full membership, all data):
+
+* Viewstamped Replication (1988)
+* Paxos (1989)
+* ZAB (2011)
+* Raft (2014)
+* CASPaxos (2018)
+
+Internet Scale (partial membership, all data):
+
+* [DLT/Blockchain](https://cacm.acm.org/magazines/2017/12/223058-bitcoins-academic-pedigree/fulltext) (2008)
+  + (PoW, PoS, PoET)
+
+---
+
+# Core Idea
+
+Shared serialized operation log
+
+Agreeing on shared state
+
+All members must apply ops in same order
+
+Degrees of temporary leaders
+
+---
+
+# Tradeoff
+
+Consistency over Scalability
+
+---
+
+# DLT/Blockchain Tradeoff
+
+* Asymptotic confidence on agreed values
+
+---
+
+# Natural Predator
+
+* Byzantine Attack
+* Sybil Attack
+
+---
+
+# DLT/Blockchain Predator Defences
+
+* PoW
+  + Energy Usage
+
+---
+
+# On Member Join
+
+Data: Sync
+
+---
+
+# On Member Leave
+
+Data: No Change
+
+If it was leader: Leader Election
+
+---
+
+# Known Specimens
+
+* Zookeeper (ZAB)
+* Raft (Raft)
+  + [Elixir Implementation](https://github.com/toniqsystems/raft)
+* [riak_ensemble](https://github.com/basho/riak_ensemble) (Multi Paxos)
+* Bitcoin
+    + [Arweave](https://github.com/ArweaveTeam/arweave)
+    + [aeternity/elixir-node](https://github.com/aeternity/elixir-node)
+
+---
+
+class: center
+
+background-image: url(imgs/intermission.png)
+
+# Nature Intermission
+
+---
+
+class: center
+
+<video src="imgs/ant-bridge.mp4" loop autoplay></video>
+
+[Source](https://www.quantamagazine.org/the-simple-algorithm-that-ants-use-to-build-bridges-20180226/)
+
+???
+
+The first tells the ant that when it feels other ants walking on its back, it
+should freeze. “As long as someone walks over you, you stay put,” Garnier said.
+
+This same process repeats in the other ants: They step over the first ant, but
+— uh-oh — the gap is still there, so the next ant in line slows, gets trampled
+and freezes in place. In this way, the ants build a bridge long enough to span
+whatever gap is in front of them. The trailing ants in the colony then walk
+over it.
+
+There’s more to it than that, though. Bridges involve trade-offs. Imagine a
+colony of ants comes to a V-shaped gap in its path. The colony doesn’t want to
+go all the way around the gap — that would take too long — but it also doesn’t
+build a bridge across the widest part of the gap that would minimize how far
+the colony has to travel. The fact that army ants don’t always build the
+distance-minimizing bridge suggests there’s some other factor in their
+unconscious calculation.
+
+---
+
+class: center
+
+<video src="imgs/ant-colony.mp4" loop autoplay></video>
+
+[Source](https://www.youtube.com/watch?v=hXUCCRiNBOc)
+
+???
+
+http://mathworld.wolfram.com/AntColonyAlgorithm.html
+
+The ant colony algorithm is an algorithm for finding optimal paths that is
+based on the behavior of ants searching for food.
+
+At first, the ants wander randomly. When an ant finds a source of food, it
+walks back to the colony leaving "markers" (pheromones) that show the path has
+food. When other ants come across the markers, they are likely to follow the
+path with a certain probability. If they do, they then populate the path with
+their own markers as they bring the food back. As more ants find the path, it
+gets stronger until there are a couple streams of ants traveling to various
+food sources near the colony.
+
+Because the ants drop pheromones every time they bring food, shorter paths are
+more likely to be stronger, hence optimizing the "solution." In the meantime,
+some ants are still randomly scouting for closer food sources. A similar
+approach can be used find near-optimal solution to the traveling salesman
+problem.
+
+Once the food source is depleted, the route is no longer populated with
+pheromones and slowly decays.
+
+Because the ant-colony works on a very dynamic system, the ant colony algorithm
+works very well in graphs with changing topologies. Examples of such systems
+include computer networks, and artificial intelligence simulations of workers. 
+
+---
+
+# Commutative Consensus Group
+
+Cluster/Internet Scale (partial/full membership, all data):
+
+* Operational Transformations (1989)
+* CRDTs (2011)
+* Lasp (2015)
+
+---
+
+# Core Idea
+
+Eventually but deterministically converging to the same shared view
+
+Achieved by restricting operations to allow applying them in any order (commutativity)
+
+Can gossip and scale more than consensus
+
+---
+
+# Core Idea
+
+Distant relatives that evolved under different constraints
+
+DLT is a recent shared specimen since it accepts temporal divergence to scale
+
+---
+
+# Tradeoff
+
+Scalability over Consistency
+
+---
+
+# Natural Predator
+
+![AWS bills](imgs/aws-30min.png)
+
+AWS bills
+
+---
+
+# On Member Join
+
+Data: Sync
+
+---
+
+# On Member Leave
+
+Data: No Change
+
+---
+
+# Known Specimens
+
+* [Lasp](http://lasp-lang.org/)
+    + [Lasp CRDTs](https://github.com/lasp-lang/types/)
+* [automerge](https://github.com/automerge/automerge)
+* [CRDT-IMAP](https://github.com/go-pluto/pluto)
+  + Designing a Planetary-Scale IMAP Service with CRDTs
+
+---
+
+class: center
+
+background-image: url(imgs/intermission.png)
+
+# Nature Intermission
+
+---
+
+class: center
+
+<video src="imgs/ant-text-layout.mp4" loop autoplay></video>
+
+[Source](https://youtu.be/ubaX1Smg6pY?t=1h7m30s)
+
+---
+
+class: center
+
+<video src="imgs/fireflies.mp4" loop autoplay></video>
+
+[Source](http://ncase.me/fireflies/)
+
+---
+
+# Router Group
+
+Cluster (full membership, partial data):
+
+* Shard/Load Balance
+* Dynamo (2007)
+* Orleans (2010)
+
+Internet Scale (partial membership, partial data):
+
+* Chord (2001)
+  + CAN, Tapestry, Pastry
+
+---
+
+# Core Idea
+
+[Consistent hashing](https://medium.com/@dgryski/consistent-hashing-algorithmic-tradeoffs-ef6b8e2fcae8)
+
+0/Log N hop routing table
+
+Different members handle different parts of the problem space
+
+---
+
+# Tradeoff
+
+Scalability over Consistency
+
+---
+
+# Natural Predator
+
+![Justin Bieber](imgs/bieber.png)
+
+[Source](https://twitter.com/dcurtis/status/23192425566)
+
+---
+
+# On Member Join
+
+Data: Migration of a "slice"
+
+---
+
+# On Member Leave
+
+Data: Subset may be lost
+
+Solved with replication (A new set of problems)
+
+---
+
+# Known Specimens
+
+* [Riak](https://github.com/basho/riak) KV on top of dynamo [riak_core](https://hex.pm/packages/riak_core_ng)
+* [Orleans](https://dotnet.github.io/orleans/)
+    + [erleans](https://github.com/SpaceTime-IoT/erleans)
+
+---
+
+class: center
+
+background-image: url(imgs/intermission.png)
+
+# Nature Intermission
+
+---
+
+class: center
+
+<video src="imgs/mold-tokyo-railway.mp4" loop autoplay></video>
+
+[Source](https://youtu.be/GwKuFREOgmo)
+
+???
+
+When presented with oat flakes arranged in the pattern of Japanese cities
+around Tokyo, brainless, single-celled slime molds construct networks of
+nutrient-channeling tubes that are strikingly similar to the layout of the
+Japanese rail system
+
+https://www.wired.com/2010/01/slime-mold-grows-network-just-like-tokyo-rail-system/
+
+---
+
+background-image: url(imgs/flock-bird-800.jpg)
+
+---
+
+class: center
+
+<video src="imgs/starlings.mp4" loop autoplay></video>
+
+[Source](https://www.youtube.com/watch?v=L7CyMaOAqyo)
+
+---
+
+class: center
+
+<video src="imgs/roundabout.mp4" loop autoplay></video>
+
+[Source](https://www.youtube.com/watch?v=yITr127KZtQ)
+
+---
+
+class: center
+
+<video src="imgs/traffic-jam.mp4" loop controls></video>
+
+[Source](https://www.youtube.com/watch?v=7wm-pZp_mi0)
+
+---
+
+class: center, middle
+
+# Thanks
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({ratio: '4:3'});
+    </script>
+  </body>
+</html>
