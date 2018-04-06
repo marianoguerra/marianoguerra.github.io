@@ -59,25 +59,24 @@ A RFC
 
 ---
 
-class: center
+# Groups
 
-# The story so far
-
-<video src="imgs/dna-replication.mp4" loop autoplay><video>
-
-Single organism operating on private data
-
-[Source](https://www.youtube.com/watch?v=OjPcT1uUZiE)
-
----
-
-class: center
-
-![Lamport](imgs/Lamport265.jpg)
-
-In 1978 Leslie Lamport tried to make two organisms agree on a value.
-
-This has made a lot of people very angry and been widely regarded as a bad move.
+<pre style="font-family: monospace">
+ Partial Membership   Full Membership
++-------------------+--------------------+
+|                   |                    |
+|  Blockchain       |  VR, Paxos         |
+|                   |                    | All
+|  Lasp             |  ZAB, Raft         | Data
+|                   |                    |
++-------------------+--------------------+
+|                   |                    |
+| BitTorrent        | Dynamo             | Partial
+|                   |                    | Data
+| IPFS              | Orleans            |
+|                   |                    |
++-------------------+--------------------+
+</pre>
 
 ---
 
@@ -416,6 +415,14 @@ class: center
 <video src="imgs/starlings.mp4" loop autoplay></video>
 
 [Source](https://www.youtube.com/watch?v=L7CyMaOAqyo)
+
+---
+
+class: center
+
+![ZI Trader](imgs/zi-trader.png)
+
+[Source](https://www.journals.uchicago.edu/doi/abs/10.1086/261868)
 
 ---
 
