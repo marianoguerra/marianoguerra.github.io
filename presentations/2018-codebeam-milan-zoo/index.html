@@ -49,7 +49,11 @@ Keys:
 
 class: center
 
-# I came for the distributed systems, I stayed for the ants
+# Alternative Title
+
+I came for the distributed systems
+
+I stayed for the ants
 
 ---
 
@@ -60,27 +64,6 @@ class: center
 An attempt to map the territory
 
 A RFC
-
----
-
-# Groups
-
-<pre style="font-family: monospace">
- Partial Membership  Full Membership
-+-------------------+--------------------+
-|                   |                    |
-|  Blockchain       |  VR, Paxos         | All
-|                   |                    |
-|  Lasp             |  ZAB, Raft         | Data
-|                   |                    |
-+-------------------+--------------------+
-|                   |                    |
-| BitTorrent        | Dynamo             | Partial
-|                   |                    |
-| IPFS              | Orleans            | Data
-|                   |                    |
-+-------------------+--------------------+
-</pre>
 
 ---
 
@@ -98,6 +81,22 @@ Internet Scale (partial membership, all data):
 
 * [DLT/Blockchain](https://cacm.acm.org/magazines/2017/12/223058-bitcoins-academic-pedigree/fulltext) (2008)
   + (PoW, PoS, PoET)
+
+---
+
+## Strong Leader
+
+* Raft
+
+## Weak Leader
+
+* Viewstamped Replication
+* Paxos
+* ZAB
+
+## Leaderless:
+
+* CASPaxos
 
 ---
 
@@ -162,6 +161,25 @@ If it was leader: Leader Election
 * Bitcoin
     + [Arweave](https://github.com/ArweaveTeam/arweave)
     + [aeternity/elixir-node](https://github.com/aeternity/elixir-node)
+
+---
+
+<pre style="font-family: monospace">
+ Partial Membership  Full Membership
++-------------------+--------------------+
+|                   |                    |
+|  Blockchain       |  VR, Paxos         | All
+|                   |                    |
+|                   |  ZAB, Raft         | Data
+|                   |                    |
++-------------------+--------------------+
+|                   |                    |
+|                   |                    | Partial
+|                   |                    |
+|                   |                    | Data
+|                   |                    |
++-------------------+--------------------+
+</pre>
 
 ---
 
@@ -308,6 +326,25 @@ Data: No Change
 
 ---
 
+<div style="font-family: monospace; white-space: pre">
+ Partial Membership  Full Membership
++-------------------+--------------------+
+|                   |                    |
+|  <b style="font-family: monospace">Blockchain</b>       |  <b style="font-family: monospace">VR, Paxos</b>         | All
+|                   |                    |
+|  Lasp             |  <b style="font-family: monospace">ZAB, Raft</b>         | Data
+|                   |                    |
++-------------------+--------------------+
+|                   |                    |
+|                   |                    | Partial
+|                   |                    |
+|                   |                    | Data
+|                   |                    |
++-------------------+--------------------+
+</div>
+
+---
+
 class: center
 
 background-image: url(imgs/intermission.png)
@@ -391,6 +428,25 @@ Solved with replication (A new set of problems)
 * [Riak](https://github.com/basho/riak) KV on top of dynamo [riak_core](https://hex.pm/packages/riak_core_ng)
 * [Orleans](https://dotnet.github.io/orleans/)
     + [erleans](https://github.com/SpaceTime-IoT/erleans)
+
+---
+
+<div style="font-family: monospace; white-space: pre">
+ Partial Membership  Full Membership
++-------------------+--------------------+
+|                   |                    |
+|  <b style="font-family: monospace">Blockchain</b>       |  <b style="font-family: monospace">VR, Paxos</b>         | All
+|                   |                    |
+|  Lasp             |  <b style="font-family: monospace">ZAB, Raft</b>         | Data
+|                   |                    |
++-------------------+--------------------+
+|                   |                    |
+| BitTorrent        | Dynamo             | Partial
+|                   |                    |
+| IPFS              | Orleans            | Data
+|                   |                    |
++-------------------+--------------------+
+</div>
 
 ---
 
