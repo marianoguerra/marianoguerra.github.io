@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Slate PlaceholderPlugin Error Example</title>
+    <script src="https://unpkg.com/react@16.10.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.10.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.10.2/umd/react-dom-server.browser.development.js"></script>
+    <script src="https://unpkg.com/immutable/dist/immutable.js"></script>
+    <script src="https://unpkg.com/slate@0.47.8/dist/slate.js"></script>
+    <script src="https://unpkg.com/slate-react@0.22.8/dist/slate-react.js"></script>
+  </head>
+  <body>
+    <h1>Check console for error</h1>
+    <div id="root"></div>
+    <script>
+        var valueJSON = {
+          "object": "value",
+          "document": {
+            "object": "document",
+            "nodes": [
+              {
+                "object": "block",
+                "type": "paragraph",
+                "nodes": [
+                  {
+                    "object": "text",
+                    "text": "This is editable "
+                  }
+                ]
+              }
+            ]
+          }
+        }
+        ReactDOM.render(React.createElement(SlateReact.Editor, {value: Slate.Value.fromJSON(valueJSON)}), document.getElementById('root'));
+    </script>
+  </body>
+</html>
