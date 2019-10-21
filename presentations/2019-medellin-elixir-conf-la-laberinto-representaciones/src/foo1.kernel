@@ -1,0 +1,29 @@
+module 'foo1'
+export ['f1'/2,
+	'f2'/2,
+	'module_info'/0,
+	'module_info'/1]
+attributes []
+fdef 'f1'/2(_0, _1) =
+  match _0,_1
+    enter (local 'f2'/2)(_1, _0)
+  end >> <>
+fdef 'f2'/2(_0, _1) =
+  match _0,_1
+    do
+      bif (remote 'erlang':'*'/2)(_1, 2) >> <_2>
+    then
+    do
+      bif (remote 'erlang':'+'/2)(_0, _2) >> <_3>
+    then
+    <<_3>>
+  end >> <>
+fdef 'module_info'/0() =
+  match 
+    enter (remote 'erlang':'get_module_info'/1)('foo1')
+  end >> <>
+fdef 'module_info'/1(_0) =
+  match _0
+    enter (remote 'erlang':'get_module_info'/2)('foo1', _0)
+  end >> <>
+end

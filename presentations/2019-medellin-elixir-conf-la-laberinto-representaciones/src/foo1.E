@@ -1,0 +1,16 @@
+{attribute,1,file,{"foo1.erl",1}}.
+{attribute,1,module,foo1}.
+{attribute,2,export,[{f1,2},{f2,2}]}.
+{function,8,f1,2,
+          [{clause,8,
+                   [{var,8,'A'},{var,8,'B'}],
+                   [],
+                   [{call,8,{atom,8,f2},[{var,8,'B'},{var,8,'A'}]}]}]}.
+{function,9,f2,2,
+          [{clause,9,
+                   [{var,9,'A'},{var,9,'B'}],
+                   [],
+                   [{op,9,'+',
+                        {var,9,'A'},
+                        {op,9,'*',{var,9,'B'},{integer,9,2}}}]}]}.
+{eof,10}.

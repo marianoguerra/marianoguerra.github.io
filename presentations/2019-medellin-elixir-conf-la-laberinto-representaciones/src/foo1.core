@@ -1,0 +1,30 @@
+module 'foo1' ['f1'/2,
+	       'f2'/2,
+	       'module_info'/0,
+	       'module_info'/1]
+    attributes [%% Line 1
+		'file' =
+		    %% Line 1
+		    [{[102|[111|[111|[49|[46|[101|[114|[108]]]]]]]],1}]]
+'f1'/2 =
+    %% Line 8
+    fun (_0,_1) ->
+	apply 'f2'/2
+	    (_1, _0)
+'f2'/2 =
+    %% Line 9
+    fun (_0,_1) ->
+	let <_2> =
+	    call 'erlang':'*'
+		(_1, 2)
+	in  call 'erlang':'+'
+		(_0, _2)
+'module_info'/0 =
+    fun () ->
+	call 'erlang':'get_module_info'
+	    ('foo1')
+'module_info'/1 =
+    fun (_0) ->
+	call 'erlang':'get_module_info'
+	    ('foo1', _0)
+end

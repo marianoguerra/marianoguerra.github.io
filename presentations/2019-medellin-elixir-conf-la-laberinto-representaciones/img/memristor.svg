@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1024"
+   height="1024"
+   id="svg2987"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="Two-terminal non-linear circuit elements.svg">
+  <defs
+     id="defs2989" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.52148438"
+     inkscape:cx="512"
+     inkscape:cy="512"
+     inkscape:document-units="px"
+     inkscape:current-layer="svg2987"
+     showgrid="true"
+     inkscape:window-width="1364"
+     inkscape:window-height="698"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata2992">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     sodipodi:nodetypes="cccccccccccc"
+     inkscape:connector-curvature="0"
+     id="path3984"
+     d="m 896,128 0,320 48,0 0,32 -96,0 0,32 96,0 0,32 -96,0 0,32 48,0 0,320 -384,-384 z"
+     style="fill:#c3ffc3;fill-opacity:1;stroke:none" />
+  <text
+     transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+     sodipodi:linespacing="125%"
+     id="text3920"
+     y="-22.627417"
+     x="950.3515"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans"
+     xml:space="preserve"><tspan
+       y="-22.627417"
+       x="950.3515"
+       id="tspan3922"
+       sodipodi:role="line">d<tspan
+   id="tspan3924"
+   style="font-style:italic;text-align:center;text-anchor:middle">Φ</tspan> = <tspan
+   id="tspan3926"
+   style="font-style:italic;text-align:center;text-anchor:middle">v</tspan> d<tspan
+   id="tspan3928"
+   style="font-style:italic;text-align:center;text-anchor:middle">t</tspan></tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     id="text3942"
+     y="464"
+     x="720"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans"
+     xml:space="preserve"><tspan
+       y="464"
+       x="720"
+       id="tspan3944"
+       sodipodi:role="line">Memristor</tspan><tspan
+       id="tspan3946"
+       y="514"
+       x="720"
+       sodipodi:role="line">d<tspan
+   id="tspan3948"
+   style="font-style:italic;text-align:center;text-anchor:middle;fill:#000000">Φ</tspan> = <tspan
+   id="tspan3950"
+   style="font-style:italic;text-align:center;text-anchor:middle;fill:#000000">M</tspan> d<tspan
+   id="tspan3952"
+   style="font-style:italic;text-align:center;text-anchor:middle;fill:#000000">q</tspan></tspan></text>
+  <path
+     sodipodi:nodetypes="cscscscsc"
+     inkscape:connector-curvature="0"
+     id="path3982"
+     d="m 128,896 304,0 c 0,-11.0457 8.9543,-20 20,-20 11.0457,0 20,8.9543 20,20 0,-11.0457 8.9543,-20 20,-20 11.0457,0 20,8.9543 20,20 0,-11.0457 8.9543,-20 20,-20 11.0457,0 20,8.9543 20,20 0,-11.0457 8.9543,-20 20,-20 11.0457,0 20,8.9543 20,20 l 304,0 -384,-384 z"
+     style="fill:#c3c3ff;fill-opacity:1;stroke:none" />
+  <text
+     xml:space="preserve"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans"
+     x="512"
+     y="720"
+     id="text3966"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3968"
+       x="512"
+       y="720">Inductor</tspan><tspan
+       sodipodi:role="line"
+       x="512"
+       y="770"
+       id="tspan3970">d<tspan
+   style="font-style:italic;text-align:center;text-anchor:middle"
+   id="tspan3972">Φ</tspan> = <tspan
+   style="font-style:italic;text-align:center;text-anchor:middle"
+   id="tspan3974">L</tspan> d<tspan
+   style="font-style:italic;text-align:center;text-anchor:middle"
+   id="tspan3976">i</tspan></tspan></text>
+  <path
+     style="fill:#ffffc3;fill-opacity:1;stroke:none"
+     d="M 896,128 512,512 128,128 l 368,0 0,64 32,0 0,-64 z"
+     id="path3980"
+     inkscape:connector-curvature="0" />
+  <text
+     sodipodi:linespacing="125%"
+     id="text3954"
+     y="288"
+     x="512"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans"
+     xml:space="preserve"><tspan
+       y="288"
+       x="512"
+       id="tspan3956"
+       sodipodi:role="line">Capacitor</tspan><tspan
+       id="tspan3958"
+       y="338"
+       x="512"
+       sodipodi:role="line">d<tspan
+   id="tspan3960"
+   style="font-style:italic;text-align:center;text-anchor:middle">q</tspan> = <tspan
+   id="tspan3962"
+   style="font-style:italic;text-align:center;text-anchor:middle">C</tspan> d<tspan
+   id="tspan3964"
+   style="font-style:italic;text-align:center;text-anchor:middle">v</tspan></tspan></text>
+  <path
+     style="fill:#ffc3c3;fill-opacity:1;stroke:none"
+     d="M 128,896 512,512 128,128 l 0,304 32,0 0,160 -32,0 z"
+     id="path3978"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccccc" />
+  <text
+     xml:space="preserve"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans"
+     x="-226.27417"
+     y="701.44995"
+     id="text3910"
+     sodipodi:linespacing="125%"
+     transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,0,0)"><tspan
+       sodipodi:role="line"
+       id="tspan3912"
+       x="-226.27417"
+       y="701.44995">d<tspan
+   style="font-style:italic;text-align:center;text-anchor:middle"
+   id="tspan3914">q</tspan> = <tspan
+   style="font-style:italic;text-align:center;text-anchor:middle"
+   id="tspan3916">i</tspan> d<tspan
+   style="font-style:italic;text-align:center;text-anchor:middle"
+   id="tspan3918">t</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans"
+     x="288"
+     y="464"
+     id="text3930"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3932"
+       x="288"
+       y="464">Resistor</tspan><tspan
+       sodipodi:role="line"
+       x="288"
+       y="514"
+       id="tspan3934">d<tspan
+   style="font-style:italic;text-align:center;text-anchor:middle"
+   id="tspan3936">v</tspan> = <tspan
+   style="font-style:italic;text-align:center;text-anchor:middle"
+   id="tspan3938">R</tspan> d<tspan
+   style="font-style:italic;text-align:center;text-anchor:middle"
+   id="tspan3940">i</tspan></tspan></text>
+  <path
+     inkscape:connector-curvature="0"
+     id="path3903"
+     style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 896,128 0,320 48,0 0,32 -96,0 0,32 96,0 0,32 -96,0 0,32 48,0 0,320 m -768,-464 0,-304 768,768 -304,0 c 0,-11.0457 -8.9543,-20 -20,-20 -11.0457,0 -20,8.9543 -20,20 0,-11.0457 -8.9543,-20 -20,-20 -11.0457,0 -20,8.9543 -20,20 0,-11.0457 -8.9543,-20 -20,-20 -11.0457,0 -20,8.9543 -20,20 0,-11.0457 -8.9543,-20 -20,-20 -11.0457,0 -20,8.9543 -20,20 l -304,0 m -32,-464 64,0 0,160 -64,0 z m 432,-304 368,0 -768,768 0,-304 M 528,64.000006 528,192 M 496,64.000006 496,192 m -368,-64 368,0" />
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3009"
+     id="use3990"
+     transform="translate(768,0)"
+     width="1024"
+     height="1024" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     id="path3009"
+     sodipodi:cx="64"
+     sodipodi:cy="64"
+     sodipodi:rx="80"
+     sodipodi:ry="80"
+     d="m 144,64 a 80,80 0 1 1 -160,0 80,80 0 1 1 160,0 z"
+     transform="translate(64,64)" />
+  <text
+     xml:space="preserve"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans"
+     x="128"
+     y="124"
+     id="text3011"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3013"
+       x="128"
+       y="124"
+       style="font-weight:normal;-inkscape-font-specification:Liberation Sans Italic">voltage</tspan><tspan
+       sodipodi:role="line"
+       x="128"
+       y="174"
+       id="tspan3033"
+       style="font-style:italic;font-weight:normal;-inkscape-font-specification:Liberation Sans Italic">v</tspan></text>
+  <text
+     sodipodi:linespacing="125%"
+     id="text3035"
+     y="124"
+     x="896"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans"
+     xml:space="preserve"><tspan
+       y="124"
+       x="896"
+       id="tspan3037"
+       sodipodi:role="line">charge</tspan><tspan
+       style="font-style:italic;font-weight:normal;-inkscape-font-specification:Liberation Sans"
+       id="tspan3039"
+       y="174"
+       x="896"
+       sodipodi:role="line">q</tspan></text>
+  <use
+     x="0"
+     y="0"
+     xlink:href="#path3009"
+     id="use3986"
+     transform="translate(0,768)"
+     width="1024"
+     height="1024" />
+  <text
+     sodipodi:linespacing="125%"
+     id="text3041"
+     y="892"
+     x="128"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans"
+     xml:space="preserve"><tspan
+       y="892"
+       x="128"
+       id="tspan3043"
+       sodipodi:role="line">current</tspan><tspan
+       style="font-style:italic;font-weight:normal;-inkscape-font-specification:Liberation Sans"
+       id="tspan3045"
+       y="942"
+       x="128"
+       sodipodi:role="line">i</tspan></text>
+  <use
+     height="1024"
+     width="1024"
+     transform="translate(768,768)"
+     id="use3988"
+     xlink:href="#path3009"
+     y="0"
+     x="0" />
+  <text
+     xml:space="preserve"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Liberation Sans;-inkscape-font-specification:Liberation Sans"
+     x="896"
+     y="892"
+     id="text3047"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3049"
+       x="896"
+       y="892">flux</tspan><tspan
+       sodipodi:role="line"
+       x="896"
+       y="942"
+       id="tspan3051"
+       style="font-style:italic;font-weight:normal;-inkscape-font-specification:Liberation Sans">Φ</tspan></text>
+</svg>
