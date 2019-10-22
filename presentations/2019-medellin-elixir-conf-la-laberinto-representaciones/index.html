@@ -33,60 +33,36 @@ Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
 
 ---
 
-class: center, middle
-
-# Laberinto
-
----
-
-class: center, middle
-
-# Representaciones
-
----
-
 class: reverse, center
 background-image: url(img/rich-hickey.jpeg)
 
-# WWRHD (/ht @davecaos)
+# /ht @davecaos
 
 
 ---
 
-# WWRHD
+* Una imagen, **modelo** u otra representacion de alguien o algo
 
-2.2 Una imagen, **modelo** u otra representacion de alguien o algo.
-
-2.3 Un estado mental o concepto considerado correspondiente a la cosa percibida.
+* Un estado mental o concepto considerado correspondiente a la cosa percibida
 
 ---
 
-class: center
-
-# WWJFILBAD
-
-![borges](img/borges.jpg)
+background-image: url(img/borges.jpg)
 
 ---
 
 class: center
 
-# WWJFILBAD
-
-Diccionario: **esto** (vease *Diccionario*)
+ Diccionario: **esto** (vease *Diccionario*)
 
 ---
 
 class: center, middle
 background-image: url(img/alice.webp)
 
-# WWHDD
-
 ---
 
 class: center
-
-# WWHDD
 
 "Cuando uso una palabra", dijo Humpty Dumpty [..]
 
@@ -95,10 +71,10 @@ class: center
 ---
 
 class: center
+background-image: url(img/Ptolemaico.gif)
 
 # Un tal Claudio Ptolomeo
 
-![Sistema Ptolematico](img/Ptolemaico.gif)
 
 ---
 
@@ -147,29 +123,35 @@ class: center
 
 ---
 
+background-image: url(img/Pictionary.jpg)
+
+---
+
 class: center
+# Representacion Abstracta
 
-![definamos](img/Pictionary.jpg)
-
----
-
-Representacion Abstracta
-
- + "estado mental o concepto considerado correspondiente a la cosa **percibida**"
-
-Representacion Concreta
-
- + Numeros (base), Aritmetica, Geometria
+"estado mental o concepto considerado correspondiente a la cosa **percibida**"
 
 ---
 
-Complejidad Esencial
+class: center
+# Representacion Concreta
 
- + Del problema **real**
+Numeros (base), Aritmetica, Geometria
 
-Complejidad Accidental
+---
 
- + De las representaciones del problema
+class: center
+# Complejidad Esencial
+
+Del problema **real**
+
+---
+
+class: center
+# Complejidad Accidental
+
+De las representaciones del problema
 
 ---
 
@@ -217,7 +199,7 @@ Pone la representacion concreta al servicio de la representacion abstracta
 
 class: center
 
-# Una buena representacion abstracta
+# Una buena representacion **abstracta**
 
 Tiene "integridad conceptual"
 
@@ -228,7 +210,7 @@ Ej: Algebra Relacional, Lisp
 
 class: center
 
-# Una buena representacion concreta
+# Una buena representacion **concreta**
 
 Tiene "simpatia mecanica"
 
@@ -244,6 +226,7 @@ Let’s take something simple like writing a file to disk. Disks are random acce
 
 ---
 
+class: center
 # Y Elixir?
 
 ---
@@ -252,6 +235,7 @@ background-image: url(img/fellowkids.jpg)
 
 ---
 
+class: center
 # efe: Erlang Flavoured Elixir
 
 https://gitlab.com/marianoguerra/efe
@@ -278,7 +262,8 @@ f2(A, B) -&gt; A + B.
 
 ```elixir
 {:ok, code} = :file.read_file('foo.erl')
-{:ok, tokens, _} = :erl_scan.string(:erlang.binary_to_list(code))
+code_list = :erlang.binary_to_list(code)
+{:ok, tokens, _} = :erl_scan.string(code_list)
 ```
 
 ---
@@ -368,7 +353,8 @@ end
   {:function, 7, :f1, 2,
    [
      {:clause, 7, [{:var, 7, :A}, {:var, 7, :B}], [],
-      [{:call, 7, {:atom, 7, :f2}, [{:var, 7, :B}, {:var, 7, :A}]}]}
+      [{:call, 7, {:atom, 7, :f2},
+        [{:var, 7, :B}, {:var, 7, :A}]}]}
    ]},
   {:function, 8, :f2, 2,
    [
@@ -378,7 +364,6 @@ end
          {:op, 8, :*, {:var, 8, :B}, {:integer, 8, 2}}}
       ]}
    ]},
-  {:eof, 9}
 ```
 
 ---
@@ -404,7 +389,7 @@ f2(A, B) -&gt; A + B * 2.
 
 ---
 
-# Creando un pretty printer
+class: center
 
 ![PPrinter Paper](img/pprinter.png)
 
@@ -425,39 +410,39 @@ f2(A, B) -&gt; A + B * 2.
 
 # Representacion concreta
 
-[prettypr.erl](http://erlang.org/doc/man/prettypr.html)
-
 ```elixir
 doc = :prettypr.follow(:prettypr.text('a'),
                        :prettypr.text('b'))
 
-&gt; {:beside, {:sep, [text: [1, 97], text: [0]], 0, true},
-&gt;           {:text, [1, 98]}}
+👉🏾 {:beside, {:sep, [text: [1, 97], text: [0]], 0, true},
+👉🏾           {:text, [1, 98]}}
 
 paper = 80
 ribbon = 56
 
 :prettypr.format(doc, paper, ribbon)
 
-&gt; 'a b'
+👉🏾 'a b'
 ```
+
+[prettypr.erl](http://erlang.org/doc/man/prettypr.html)
 
 ---
 
 # Repasemos
 
 * Lexer
-  + foo1.erl -&gt; lista de tokens
+  + `foo1.erl` 👉🏾 Lista de tokens
 * epp
-  + tokens -&gt; tokens
+  + Tokens 👉🏾 Tokens
 * Parser
-  + tokens -&gt; AST erl
+  + Tokens 👉🏾 AST erl
 * Translator
-  + AST erl -&gt; AST ex
+  + AST erl 👉🏾 AST ex
 * Translator
-  + AST ex -&gt; AST doc
+  + AST ex 👉🏾 AST doc
 * Printer
-  + AST doc -&gt; foo1.ex
+  + AST doc 👉🏾 `foo1.ex`
 
 ---
 
@@ -478,12 +463,12 @@ end
 # Y Elixir?
 
 * Lexer
-  + foo1.ex -&gt; lista de tokens
+  + `foo1.ex` 👉🏾 Lista de tokens
 * Parser
-  + tokens -&gt; AST ex
+  + Tokens 👉🏾 AST ex
 * Translator
-  + AST ex -&gt; AST erl
-* Compilador de Erlang desde absform hasta el bytecode
+  + AST ex 👉🏾 AST erl
+* 👉🏾 Compilador de Erlang desde absform hasta el bytecode
 
 ---
 
@@ -517,22 +502,19 @@ erlc +to_asm foo1.erl
 # PP y Exp
 
 ```erlang
-{attribute,1,file,{"foo1.erl",1}}.
-{attribute,1,module,foo1}.
-{attribute,2,export,[{f1,2},{f2,2}]}.
 {function,8,f1,2,
-          [{clause,8,
-                   [{var,8,'A'},{var,8,'B'}],
-                   [],
-                   [{call,8,{atom,8,f2},[{var,8,'B'},{var,8,'A'}]}]}]}.
+    [{clause,8,
+       [{var,8,'A'},{var,8,'B'}],
+       [],
+       [{call,8,{atom,8,f2},[{var,8,'B'},{var,8,'A'}]}]}]}.
+
 {function,9,f2,2,
-          [{clause,9,
-                   [{var,9,'A'},{var,9,'B'}],
-                   [],
-                   [{op,9,'+',
-                        {var,9,'A'},
-                        {op,9,'*',{var,9,'B'},{integer,9,2}}}]}]}.
-{eof,10}.
+    [{clause,9,
+       [{var,9,'A'},{var,9,'B'}],
+       [],
+       [{op,9,'+',
+      {var,9,'A'},
+      {op,9,'*',{var,9,'B'},{integer,9,2}}}]}]}.
 ```
 
 ???
@@ -544,36 +526,19 @@ Iguales porque no hay records que expandir
 # Core Erlang
 
 ```erlang
-module 'foo1' ['f1'/2,
-	       'f2'/2,
-	       'module_info'/0,
-	       'module_info'/1]
-    attributes [%% Line 1
-		'file' =
-		    %% Line 1
-		    [{[102|[111|[111|[49|[46|[101|[114|[108]]]]]]]],1}]]
-'f1'/2 =
-    %% Line 8
-    fun (_0,_1) -&gt;
-	apply 'f2'/2
-	    (_1, _0)
-'f2'/2 =
-    %% Line 9
-    fun (_0,_1) -&gt;
+'f1'/2 = fun (_0,_1) -&gt;
+	apply 'f2'/2 (_1, _0)
+
+'f2'/2 = fun (_0,_1) -&gt;
 	let &lt;_2&gt; =
-	    call 'erlang':'*'
-		(_1, 2)
-	in  call 'erlang':'+'
-		(_0, _2)
-'module_info'/0 =
-    fun () -&gt;
-	call 'erlang':'get_module_info'
-	    ('foo1')
-'module_info'/1 =
-    fun (_0) -&gt;
-	call 'erlang':'get_module_info'
-	    ('foo1', _0)
-end
+	    call 'erlang':'*' (_1, 2)
+	in  call 'erlang':'+' (_0, _2)
+
+'module_info'/0 = fun () -&gt;
+	call 'erlang':'get_module_info' ('foo1')
+
+'module_info'/1 = fun (_0) -&gt;
+	call 'erlang':'get_module_info' ('foo1', _0)
 ```
 
 ---
@@ -581,30 +546,24 @@ end
 # Kernel Erlang
 
 ``` erlang
-module 'foo1'
-export ['f1'/2,
-	'f2'/2,
-	'module_info'/0,
-	'module_info'/1]
-attributes []
 fdef 'f1'/2(_0, _1) =
   match _0,_1
     enter (local 'f2'/2)(_1, _0)
   end &gt;&gt; &lt;&gt;
+
 fdef 'f2'/2(_0, _1) =
-  match _0,_1
-    do
+  match _0,_1 do
       bif (remote 'erlang':'*'/2)(_1, 2) &gt;&gt; &lt;_2&gt;
-    then
-    do
+    then do
       bif (remote 'erlang':'+'/2)(_0, _2) &gt;&gt; &lt;_3&gt;
-    then
-    &lt;&lt;_3&gt;&gt;
+    then &lt;&lt;_3&gt;&gt;
   end &gt;&gt; &lt;&gt;
+
 fdef 'module_info'/0() =
   match 
     enter (remote 'erlang':'get_module_info'/1)('foo1')
   end &gt;&gt; &lt;&gt;
+
 fdef 'module_info'/1(_0) =
   match _0
     enter (remote 'erlang':'get_module_info'/2)('foo1', _0)
@@ -616,88 +575,45 @@ end
 
 # SSA
 
-
 ```erlang
-module foo1.
-exports [{f1,2},{f2,2},{module_info,0},{module_info,1}].
-attributes [].
-
-%% foo1.erl:8
-%% Counter = 4
 function foo1:f1(_0, _1) {
-0:
-  %% foo1.erl:8
-  @ssa_ret:3 = call local literal f2/2, _1, _0
-  ret @ssa_ret:3
-
-%% Unreachable blocks
-
-1:
-  @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
-  ret @ssa_ret
+0: @ssa_ret:3 = call local literal f2/2, _1, _0
+   ret @ssa_ret:3
+1: @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
+   ret @ssa_ret
 }
-
-%% foo1.erl:9
-%% Counter = 6
 function foo1:f2(_0, _1) {
-0:
-  %% foo1.erl:9
-  _2 = bif:'*' _1, literal 2
-  @ssa_bool = succeeded _2
-  br @ssa_bool, label 3, label 1
-
-3:
-  %% foo1.erl:9
-  _3 = bif:'+' _0, _2
-  @ssa_bool:4 = succeeded _3
-  br @ssa_bool:4, label 5, label 1
-
-5:
-  ret _3
-
-1:
-  @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
-  ret @ssa_ret
+0: _2 = bif:'*' _1, literal 2
+   @ssa_bool = succeeded _2
+   br @ssa_bool, label 3, label 1
+3: _3 = bif:'+' _0, _2
+   @ssa_bool:4 = succeeded _3
+   br @ssa_bool:4, label 5, label 1
+5: ret _3
+1: @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
+   ret @ssa_ret
 }
 
-%% Counter = 4
 function foo1:module_info() {
-0:
-  @ssa_ret:3 = call remote (literal erlang):(literal get_module_info)/1, literal foo1
-  ret @ssa_ret:3
-
-%% Unreachable blocks
-
-1:
-  @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
-  ret @ssa_ret
+0: @ssa_ret:3 = call remote (literal erlang):(literal get_module_info)/1, literal foo1
+   ret @ssa_ret:3
+1: @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
+   ret @ssa_ret
 }
 
-%% Counter = 4
 function foo1:module_info(_0) {
-0:
-  @ssa_ret:3 = call remote (literal erlang):(literal get_module_info)/2, literal foo1, _0
-  ret @ssa_ret:3
-
-%% Unreachable blocks
-
-1:
-  @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
-  ret @ssa_ret
+0: @ssa_ret:3 = call remote (literal erlang):(literal get_module_info)/2, literal foo1, _0
+   ret @ssa_ret:3
+1: @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
+   ret @ssa_ret
 }
 ```
 
 ---
 
-# Codegen (asm)
+# Codegen
 
 ```erlang
-{module, foo1}.  %% version = 0
-{exports, [{f1,2},{f2,2},{module_info,0},{module_info,1}]}.
-{attributes, []}.
-{labels, 9}.
-
-
 {function, f1, 2, 2}.
   {label,1}.
     {line,[{location,"foo1.erl",8}]}.
@@ -707,7 +623,13 @@ function foo1:module_info(_0) {
     {move,{x,0},{x,1}}.
     {move,{x,2},{x,0}}.
     {call_only,2,{f,4}}.
+```
 
+---
+
+# Codegen
+
+```erlang
 {function, f2, 2, 4}.
   {label,3}.
     {line,[{location,"foo1.erl",9}]}.
@@ -718,26 +640,6 @@ function foo1:module_info(_0) {
     {line,[{location,"foo1.erl",9}]}.
     {gc_bif,'+',{f,0},2,[{x,0},{x,1}],{x,0}}.
     return.
-
-{function, module_info, 0, 6}.
-  {label,5}.
-    {line,[]}.
-    {func_info,{atom,foo1},{atom,module_info},0}.
-  {label,6}.
-    {move,{atom,foo1},{x,0}}.
-    {line,[]}.
-    {call_ext_only,1,{extfunc,erlang,get_module_info,1}}.
-
-
-{function, module_info, 1, 8}.
-  {label,7}.
-    {line,[]}.
-    {func_info,{atom,foo1},{atom,module_info},1}.
-  {label,8}.
-    {move,{x,0},{x,1}}.
-    {move,{atom,foo1},{x,0}}.
-    {line,[]}.
-    {call_ext_only,2,{extfunc,erlang,get_module_info,2}}.
 ```
 
 ---
@@ -778,33 +680,7 @@ Chez scheme: 58 fases
 
 ---
 
-class: center
-
-<video src="img/gol.mp4" loop autoplay controls width="100%"></video>
-
----
-
-class: center
-
-# APL
-
-`life←{↑1 ω∨.∧3 4=+/,¯1 0 1∘.⊖¯1 0 1∘.⌽⊂ω}`
-
-[Explanation](https://www.youtube.com/watch?v=a9xAKttWgP4)
-
----
-
-class: center
-
-# APL
-
-Kenneth Iverson’s book A Programming Language details a mathematical notation.
-
-![This is your keyboard on APL](img/APL_keyboard.jpg)
-
----
-
-# Code *is* Data
+# Code **is** Data
 
 * [Von Neumann Architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture)
 
@@ -813,11 +689,11 @@ Kenneth Iverson’s book A Programming Language details a mathematical notation.
 
 ---
 
-background-image: url(img/Von_Neumann_Architecture.svg)
+background-image: url(img/Von_Neumann_Architecture_1.svg)
 
 ---
 
-# Code *is* Data
+# Code "is" Data
 
 * [Harvard Architecture](https://en.wikipedia.org/wiki/Harvard_architecture)
 
@@ -830,7 +706,45 @@ background-image: url(img/Harvard_Architecture.svg)
 
 ---
 
+class: center
+
 # Un tal Claudio Ptolomeo
+
+---
+
+class: center
+
+# Unconventional Programming Paradigms
+
+![book](img/unconventional.png)
+
+---
+
+# Unconventional Programming Paradigms
+
+* Chemical Computing
+* Amorphous Computing
+* Bio-insired Computing
+* Autonomic Computing
+* Generative Computing
+
+---
+
+class: center
+
+# Organic Computing
+
+![book](img/organic.png)
+
+---
+
+class: center
+
+# Robust-first Computing
+
+![screenshot](img/robust.png)
+
+[Dave Ackley Youtube Channel](https://www.youtube.com/channel/UClOeW4P8ekXaKxJaZU_LK6w)
 
 ---
 
@@ -872,46 +786,29 @@ nombres para las mismas variables sin generar ningun conflicto.
 
 class: center
 
-# Unconventional Programming Paradigms
-
-![book](img/unconventional.png)
-
----
-
-# Unconventional Programming Paradigms
-
-* Chemical Computing
-* Amorphous Computing
-* Bio-insired Computing
-* Autonomic Computing
-* Generative Computing
+<video src="img/gol.mp4" loop autoplay controls width="100%"></video>
 
 ---
 
 class: center
 
-# Organic Computing
+# APL
 
-![book](img/organic.png)
+`life←{↑1 ω∨.∧3 4=+/,¯1 0 1∘.⊖¯1 0 1∘.⌽⊂ω}`
+
+![This is your keyboard on APL](img/APL_keyboard.jpg)
+
+[Explicacion](https://www.youtube.com/watch?v=a9xAKttWgP4)
 
 ---
 
 class: center
-
-# Robust-first Computing
-
-![screenshot](img/robust.png)
-
-[Dave Ackley Youtube Channel](https://www.youtube.com/channel/UClOeW4P8ekXaKxJaZU_LK6w)
-
----
 
 # Gracias
 
 Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
 
 [instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
-
 
     </textarea>
     <script src="remark-latest.min.js">
