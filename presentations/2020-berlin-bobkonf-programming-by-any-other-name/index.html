@@ -588,6 +588,11 @@ Conflict holes (roadmap)
 - Semantic navigation
 - Context-sensitive tree transformations (refactorings)
 - Environment inspector
+
+---
+
+<video src="img/hazel-basic.webm" controls autoplay="false" style="width:100%"></video>
+
 ---
 
 class: center, middle
@@ -698,27 +703,29 @@ class: center, middle
 
 ---
 
-# Unconventional Paradigms
+<video src="img/instadeq/idq-short-demo.webm" controls autoplay="false" style="width:100%"></video>
 
-* Chemical Computing
-* Amorphous Computing
-* Bio-insired Computing
-* Autonomic Computing
-* Generative Computing
+---
+
+<video src="img/instadeq/idq-short-concat-demo.webm" controls autoplay="false" style="width:100%"></video>
+
+---
+
+background-image: url(img/unconventional.png)
 
 ---
 
 # Chemical Computing
 
-Chemical programming encompassed then the definition of molecules, reaction
-rules, and the topology and dynamics of the reaction space.
+Encompassed the **definition of molecules, reaction
+rules, and the topology and dynamics of the reaction space**.
 
 This kind of chemical information processing is known to be **robust,
 self-organizing, adaptive, decentralized, asynchronous, fault-tolerant, and
 evolvable**.
 
-Computation emerges out of an orchestrated interplay of many decentralized
-relatively simple components (molecules).
+Computation **emerges** out of an orchestrated interplay of **many decentralized
+relatively simple components** (molecules).
 
 ---
 
@@ -730,7 +737,7 @@ If we suppose that each cell is a computing element whose program is encoded in
 DNA, then an embryo would be a massively distributed system that runs a single
 program on all its elements and produces a globally coherent result.
 
-The study of amorphous computing seeks to identify and ap- ply the engineering
+The study of amorphous computing seeks to identify and apply the engineering
 principles behind the coordination of such a multitudinous distributed system.
 
 ???
@@ -750,14 +757,15 @@ behaviour.
 
 # Autonomic Computing
 
-The Autonomic Computing Paradigm has been inspired by the human autonomic
-nervous system. Its overarching goal is to realize computer and software
-systems and applications that can manage themselves in accordance with
-high-level guidance from humans.
+**Inspired by the human autonomic nervous system**. Its goal is to realize computer and software systems that can manage themselves in accordance with high-level guidance from humans.
 
-A homeostatic system is an open system that maintains its structure and
-functions by means of a multiplicity of dynamic equilibriums that are
-rigorously controlled by interdependent regulation mechanisms.
+A **homeostatic system** is an open system that maintains its structure and
+functions by means of a **multiplicity of dynamic equilibriums** that are
+rigorously controlled by **interdependent regulation mechanisms**.
+
+---
+
+# Autonomic Computing
 
 Such a system reacts to every change in the environment, or to every random
 disturbance, through a series of modifications that are equal in size and
@@ -782,21 +790,6 @@ equilibrium state within the new environment.
 
 ---
 
-# Generative Programming
-
-Generative Programming (GP) is an attempt to manufacture software components in
-an automated way by developing programs that synthesize other programs.
-
-The transition to automated manufacturing in software requires two steps.
-
-First, we need to move our focus from engineering single systems to engineering
-families of systems - this will allow us to come up with the “right”
-implementation components.
-
-Second, we need to automate the assembly of the implementation components using generators.
-
----
-
 # Robust-first Computing
 
 > Deterministic machines will crash, seize-up, or otherwise misbehave when virtually anything goes wrong inside them; living organisms, by contrast, can suffer grievous injury and yet survive, handle the immediate situation, and get away long enough to heal up and live on.
@@ -805,11 +798,54 @@ Second, we need to automate the assembly of the implementation components using 
 
 [T2 Tile Project](https://www.youtube.com/channel/UC1M91QuLZfCzHjBMEKvIc-A)
 
+???
+
+A system is robust if it tends to do something sensible even when it's design assumtions are under stress or violated
+
+A lot of computer science is about using computer hardware efficiently
+
+Efficiency and robustness are at odds over redundancy
+* robustness requires
+* efficiency eliminates
+
+We should put robustness first and view maximizing efficiency not as an inherent virtue, but more as a regrettable sometimes necessity
+
+The world has changed, hardware is much cheaper, more powerful than we need for a given task
+
+And there are bugs everywhere
+
+But we are still carrying the Correctness and Efficienty Only attitude
+
+We should change the attitude and put robustness first and see what that would mean
+
+- Movable Feast Machine (MFM)
+    - Indefinite scalability
+    - Inherent robustness
+    - 2D grid of individual sites
+        - Each site can hold dozens of bits or hundreds
+        - Each site has processing power
+        - Many things going on at once
+        - Each site can be empty of have an atom
+            - DReg: dynamic regulator
+            - There's no global origin
+            - From the POV of the given atom it is the center, everything is relative to the self (indexing), short ranged
+            - Event window: the limit of number of sites that can be accessed by a given atom (4 in any direction, 41 total)
+            - Can read and write to the event window arbitrarily when executing
+            - MFM can be executing many events simultaneously as long of no event windows overlap
+
+---
+
+background-image: url(img/t2tiles.jpg)
+
+---
+
+background-image: url(img/robust.png)
+
 ---
 
 class: center, middle
 
-# The best way to predict the future...
+# A way to predict the future...
 
 ## is to find it in the present and promote it
 
