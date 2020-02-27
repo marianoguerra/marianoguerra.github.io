@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Programming by any other name - Bob 2020 - Berlin</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'sans'; }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+      .remark-slide-content.reverse{color:white;}
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display: none">
+
+class: center, middle
+
+# Programming by any other name
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+[Slides @ marianoguerra.github.io](https://marianoguerra.github.io)
+
+---
+
+# Hypernormalization
+
+Everyone in the Soviet Union knew the system was failing
+
+--
+
+But no one could imagine an alternative to the status quo
+
+--
+
+Politicians and citizens were resigned to maintaining the pretense of a functioning society
+
+--
+
+Over time, this delusion became a self-fulfilling prophecy
+
+--
+
+The fakeness was accepted by everyone as real
+
+---
+
+class: center, middle
+
+# It is difficult to make predictions
+
+## especially about the future
+
+---
+
+class: center, middle
+
+# The future is already here
+
+## it’s just not evenly distributed
+
+---
+
+background-image: url(img/they-code.jpeg)
+
+---
+
+background-image: url(img/lenses-off.png)
+
+---
+
+class: center, middle
+
+![HN Orange](img/hn-orange.png)
+
+---
+
+background-image: url(img/lenses-on.png)
+
+---
+
+class: center, middle
+
+![HN Gray](img/hn-gray.png)
+
+---
+
+class: center, middle
+
+# Glamorous Toolkit
+
+The **moldable** development environment.
+
+--
+
+A live notebook.
+
+--
+
+A flexible search interface.
+
+--
+
+https://gtoolkit.com/
+
+???
+
+SmallTalk, Object Oriented, Programming Environment
+
+---
+
+class: center, middle
+
+# Glamorous Toolkit
+
+A fancy code editor.
+
+--
+
+A software analysis platform.
+
+--
+
+A data visualization engine.
+
+--
+
+All in one.
+
+---
+
+background-image: url(img/gtoolkit/gtr-playground-two-snippets.png)
+
+???
+
+The Inspector lets you define **custom presentations for any object**.
+
+The **Playground** powers up the inspector and makes the code part of the live inspection flow.
+
+---
+
+background-image: url(img/gtoolkit/gtr-coder-example-object.png)
+
+???
+
+**Define examples** throughout the code and use them **for documentation or testing**.
+
+A developer can **switch from static code to a live environment** and
+program in the presence of objects.
+
+It **enables example-driven development**.
+
+---
+
+background-image: url(img/gtoolkit/gtr-spotter-object.png)
+
+???
+
+Every object can say how it can be searched.
+
+---
+
+background-image: url(img/gtoolkit/gtr-debugger-preview.png)
+
+???
+
+Debugger lets you **build custom debuggers** that can be used when debugging
+
+---
+
+background-image: url(img/gtoolkit/gtr-presenter-one-rendering-tree-slide.png)
+
+???
+
+Live slide shows are another way to **construct interactive narratives that
+complements documents**.
+
+---
+
+background-image: url(img/gtoolkit/gtr-visualizer-treemap.png)
+
+???
+
+**Visualization is a first-class citizen in the environment**.
+
+It contains a few programmable engines including Mondrian, for **drawing graphs**,
+and Connector, for identifying connections between various objects.
+
+---
+
+background-image: url(img/gtoolkit/gtr-bloc-tree-highlight.png)
+
+???
+
+Built on top of the Bloc vector-based graphical framework.
+
+It relies on **exactly one rendering tree at all times** without the need of an intermediate canvas.
+
+---
+
+background-image: url(img/gtoolkit/gtr-documenter-baseline-gt.png)
+
+???
+
+Create and consume code **documentation and tutorials directly in the environment**.
+
+It transforms the environment into a data science tool.
+
+---
+
+background-image: url(img/gtoolkit/gtr-releaser-release-gt.png)
+
+???
+
+Release workflow built-in
+
+---
+
+class: center, middle
+
+# Darklang
+
+ML/Elm like
+
+--
+
+Structured editor
+
+--
+
+Web Based
+
+--
+
+Private Beta
+
+
+???
+
+Implemented in OCaml?
+
+---
+
+class: center
+
+background-image: url(img/darklang/helloworld.gif)
+
+---
+
+class: center
+
+background-image: url(img/darklang/canvas-cells.png)
+
+???
+
+Canvas Cell Types
+
+---
+
+background-image: url(img/darklang/structured-editor.png)
+
+???
+
+Structured Editor
+
+---
+
+class: center
+
+background-image: url(img/darklang/autocomplete.png)
+
+???
+
+Pervasive Autocomplete
+
+---
+
+class: center
+
+background-image: url(img/darklang/command-palette.png)
+
+???
+
+Command Palette
+
+---
+
+class: center
+
+background-image: url(img/darklang/run-http-req.png)
+
+???
+
+Run HTTP Requests
+
+---
+
+class: center
+
+background-image: url(img/darklang/new-handler-trace-autoconfig.png)
+
+???
+
+New handler autoconfigures with trace contents
+
+---
+
+class: center
+
+background-image: url(img/darklang/404-section.png)
+
+???
+
+Requests without handlers go to the 404 section
+
+Inspect and create new handler for those requests
+
+---
+
+class: center
+
+background-image: url(img/darklang/builtin-data-store.png)
+
+???
+
+Builtin data store
+
+---
+
+class: center
+
+background-image: url(img/darklang/incomplete-evaluation.png)
+
+???
+
+Incomplete evaluation
+
+---
+
+class: center, middle
+
+# Unison
+
+Open Source
+
+--
+
+Distributed programming language
+
+--
+
+Always live, never broken code bases
+
+---
+
+class: center, middle
+
+# Unison
+
+Supports algebraic effects ('abilities'), replace monads 🌯
+
+--
+
+Programs are not text
+
+--
+
+Content-Addressed Code
+
+--
+
+Names are metadata
+
+--
+
+Codebase is append only
+
+???
+
+Implemented in Haskell
+
+Influences: Haskell, Erlang, [Frank](https://arxiv.org/abs/1611.09259)
+
+Statically Typed
+
+Decomplect Names
+
+---
+
+background-image: url(img/unison/mapreduce.jpeg)
+
+???
+
+A unison program can describe an entire elastic distributed system that deploys itself at runtime
+
+---
+
+class: center, middle
+
+> This particular API is also "serverless" in the sense that nodes are not part of the programming model; instead it's **up to the handler to decide how the forked computations get scheduled onto actual machines**.
+
+---
+
+# Unison Properties
+
+No Builds
+
+--
+
+Rename Trivialy
+
+--
+
+Cache unit test results
+
+--
+
+No dependency conflicts
+
+--
+
+Automatic Serialization
+
+---
+
+# Unison UX
+
+* Scracth file and a REPL
+
+--
+
+* Use your favorite text editor
+
+--
+
+* Search for definitions by name, by type
+
+--
+
+* REPL watches for changes on the scratch files
+
+--
+
+* Once definitions are committed they can be removed from the scratch files
+
+--
+
+* Definitions can be loaded into the scratch file to continue working
+
+---
+
+class: center, middle
+
+# Netlogo
+
+What do ants, bees, traffic jams, slime mold, forest fires, segregation, fireflies, birds and kevin bacon have in common?
+
+---
+
+# Fireflies
+
+https://ncase.me/fireflies/
+
+---
+
+<video src="img/netlogo/netlogo-ants.webm" controls autoplay="false" style="width:100%"></video>
+
+---
+
+<video src="img/netlogo/netlogo-bees.webm" controls autoplay="false" style="width:100%"></video>
+
+---
+
+<video src="img/netlogo/netlogo-boids.webm" controls autoplay="false" style="width:100%"></video>
+
+---
+
+<video src="img/netlogo/netlogo-fire.webm" controls autoplay="false" style="width:100%"></video>
+
+---
+
+<video src="img/netlogo/netlogo-segregation.webm" controls autoplay="false" style="width:100%"></video>
+
+---
+
+<video src="img/netlogo/netlogo-small-world.webm" controls autoplay="false" style="width:100%"></video>
+
+---
+
+<video src="img/netlogo/netlogo-traffic-jam.webm" controls autoplay="false" style="width:100%"></video>
+
+---
+
+class: center, middle
+
+# Hazel
+
+["Hazel: A Live Functional Programming Environment with Typed Holes"  by Cyrus Omar](https://www.youtube.com/watch?v=UkDSL0U9ndQ&feature=emb_title)
+
+[hazel.org](https://hazel.org)
+
+[Play with Hazel](https://hazel.org/build/master/index.html)
+
+An experimental programming **environment**
+
+---
+
+class: center, middle
+
+# Hazel
+
+Every incomplete program that you can construct
+
+--
+
+Using Hazel's language of type-aware edit actions
+
+--
+
+Is both statically and dynamically well-defined
+
+--
+
+It has a (possibly incomplete) type
+
+--
+
+Can run it to produce a (possibly incomplete) result
+
+---
+
+class: center, middle
+
+# Hazel
+
+Structural, type-aware edit actions (Automatic hole insertion)
+
+--
+
+A structural/projectional editor
+
+Tries to feel like editing text
+
+--
+
+Execution doesn't stop on holes
+
+---
+
+class: center, middle
+
+# Hazel: Types of holes
+
+Empty holes for partial expressions
+
+--
+
+Non empty holes for errors (like dynamic type errors)
+
+--
+
+Free variable holes for binding errors
+
+--
+
+Conflict holes (roadmap)
+
+???
+
+**A structural/projectional editor**
+
+- syntax highlighting
+- autoformatting
+- context-free tree transformations
+- Type and context inspection
+- Semantic navigation
+- Context-sensitive tree transformations (refactorings)
+- Environment inspector
+---
+
+class: center, middle
+
+# Dynamic Land
+
+https://dynamicland.org/
+
+[The Humane Representation of Thought](https://vimeo.com/115154289)
+
+--
+
+Dynamicland is a **communal computer**
+
+--
+
+Designed for **agency, not apps**
+
+--
+
+Where people can **think like whole humans**
+
+--
+
+The computer of the future is not a **product**, but a **place**
+
+---
+
+# Dynamic Land
+
+Programming conflates 2 things
+
+--
+
+Engineering 👉 communicate intent to Computers
+
+--
+
+Authoring 👉 communicate intent to Humans
+
+---
+
+background-image: url(img/dynamicland/senses.png)
+
+---
+
+<video src="img/dynamicland/site.webm" controls autoplay="false" style="width:100%"></video>
+
+---
+
+background-image: url(img/dynamicland/dl-010.png)
+
+---
+
+background-image: url(img/dynamicland/dl-006.png)
+
+---
+
+background-image: url(img/dynamicland/dl-005.jpg)
+
+---
+
+background-image: url(img/dynamicland/dl-020.png)
+
+---
+
+background-image: url(img/dynamicland/dl-021.png)
+
+---
+
+background-image: url(img/dynamicland/dl-007.png)
+
+---
+
+background-image: url(img/dynamicland/dl-009.png)
+
+---
+
+class: center, middle
+
+# Lasp
+
+> Lasp is about writing correct distributed programs.
+
+> Write a program once and know that it will behave the same whether it is executed on one computer or distributed across many.
+
+https://lasp-lang.readme.io/
+
+---
+
+class: center, middle
+
+# Automerge
+
+> A JSON-like data structure (a CRDT) that can be modified concurrently by different users, and merged again automatically.
+
+https://github.com/automerge/automerge
+
+---
+
+class: center, middle
+
+# Programming by Example/Demonstration
+
+[Your Wish is My Command: Programming by Example ](http://web.media.mit.edu/~lieber/PBE/Your-Wish/)
+
+[Watch What I Do: Programming by Demonstration](http://acypher.com/wwid/)
+
+---
+
+# Unconventional Paradigms
+
+* Chemical Computing
+* Amorphous Computing
+* Bio-insired Computing
+* Autonomic Computing
+* Generative Computing
+
+---
+
+# Chemical Computing
+
+Chemical programming encompassed then the definition of molecules, reaction
+rules, and the topology and dynamics of the reaction space.
+
+This kind of chemical information processing is known to be **robust,
+self-organizing, adaptive, decentralized, asynchronous, fault-tolerant, and
+evolvable**.
+
+Computation emerges out of an orchestrated interplay of many decentralized
+relatively simple components (molecules).
+
+---
+
+# Amorphous Computing
+
+Agents run asynchronously, are interconnected in unknown and possibly time-varying ways, communicate only locally, and are identically programmed.
+
+If we suppose that each cell is a computing element whose program is encoded in
+DNA, then an embryo would be a massively distributed system that runs a single
+program on all its elements and produces a globally coherent result.
+
+The study of amorphous computing seeks to identify and ap- ply the engineering
+principles behind the coordination of such a multitudinous distributed system.
+
+???
+
+An amorphous computing system is a large collection of irregularly placed, lo-
+cally interacting, identically-programmed, asynchronous computing elements [1].
+We assume that these elements (agents) communicate within a fixed radius, which
+is large relative to the size of an element, but small relative to the diame-
+ter of the system. We also assume that most agents do not initially have any
+in- formation to distinguish themselves from other agents; this includes
+information such as position, identity and connectivity. The challenge of
+amorphous comput- ing is to develop computing paradigms that enable us to write
+programs that when executed on each agent produce some pre-specified emergent
+behaviour.
+
+---
+
+# Autonomic Computing
+
+The Autonomic Computing Paradigm has been inspired by the human autonomic
+nervous system. Its overarching goal is to realize computer and software
+systems and applications that can manage themselves in accordance with
+high-level guidance from humans.
+
+A homeostatic system is an open system that maintains its structure and
+functions by means of a multiplicity of dynamic equilibriums that are
+rigorously controlled by interdependent regulation mechanisms.
+
+Such a system reacts to every change in the environment, or to every random
+disturbance, through a series of modifications that are equal in size and
+opposite in direction to those that created the disturbance.
+
+The goal of these modifications is to maintain internal balances.
+
+???
+
+An autonomic computing system requires:
+
+(a) sensor channels to sense the changes in the internal and external environment, and
+
+(b) motor channels to react to and counter the effects of the changes in the environment by changing the system and maintaining equilibrium.
+
+The changes sensed by the sensor channels have to be analyzed to determine if
+any of the essential variables has gone out of their viability limits.
+
+If so, it has to trigger some kind of planning to determine what changes to
+inject into the current behavior of the system such that it returns to the
+equilibrium state within the new environment.
+
+---
+
+# Generative Programming
+
+Generative Programming (GP) is an attempt to manufacture software components in
+an automated way by developing programs that synthesize other programs.
+
+The transition to automated manufacturing in software requires two steps.
+
+First, we need to move our focus from engineering single systems to engineering
+families of systems - this will allow us to come up with the “right”
+implementation components.
+
+Second, we need to automate the assembly of the implementation components using generators.
+
+---
+
+# Robust-first Computing
+
+> Deterministic machines will crash, seize-up, or otherwise misbehave when virtually anything goes wrong inside them; living organisms, by contrast, can suffer grievous injury and yet survive, handle the immediate situation, and get away long enough to heal up and live on.
+
+[Site](http://robust.cs.unm.edu/doku.php), [Resources](http://robust.cs.unm.edu/doku.php?id=introduction:where_can_i_get_more_information)
+
+[T2 Tile Project](https://www.youtube.com/channel/UC1M91QuLZfCzHjBMEKvIc-A)
+
+---
+
+class: center, middle
+
+# The best way to predict the future...
+
+## is to find it in the present and promote it
+
+---
+
+class: center, middle
+
+# Danke
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+[instadeq.com](https://instadeq.com) [@instadeq](https://twitter.com/instadeq)
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({ratio: '16:9'});
+    </script>
+  </body>
+</html>
