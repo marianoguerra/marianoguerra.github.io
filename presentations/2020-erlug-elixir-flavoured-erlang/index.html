@@ -106,6 +106,46 @@ Upwards: Elixir is a Superset of Erlang
 
 ---
 
+# Elixir is a Superset of Erlang
+
+* Rebind Variables
+
+  + ^ Match Operator
+
+* Nested Modules
+
+* Structs
+
+* Protocols
+
+* Macros
+
+---
+
+# Erlang is a Superset of Elixir
+
+* Named Lambda Functions
+
+* Expressions in Bitstrings
+
+* Comprehensions without Generators
+
+* Scoping
+
+---
+
+# Erlang is a Superset of Elixir
+
+* Binary Operators
+
+* Non Short Circuit Boolean Operators
+
+* Constant Expressions in Match Position
+
+* Catch Expression
+
+---
+
 # Erlang Flavoured Elixir
 
 ```elixir
@@ -148,10 +188,13 @@ end
 
 * Lexer
   + `foo1.ex` 👉🏾 Token Stream
+
 * Parser
   + Tokens 👉🏾 AST ex (Macro Expasion)
+
 * Translator
   + AST ex 👉🏾 AST erl (absform)
+
 * 👉🏾 Enters the Erlang Compiler Stack
 
 ---
@@ -160,10 +203,15 @@ end
 
 ```
 erlc +to_pp foo1.erl
+
 erlc +to_exp foo1.erl
+
 erlc +to_core foo1.erl
+
 erlc +to_kernel foo1.erl
+
 erlc +dssa foo1.erl
+
 erlc +to_asm foo1.erl
 ```
 
@@ -365,16 +413,6 @@ such as an AST
 ```
 
 [One-pass Compiler Primer](https://keleshev.com/one-pass-compiler-primer)
-
----
-
-# Elixir is a Superset of Erlang
-
-* Rebind Variables
-* Nested Modules
-* Structs
-* Protocols
-* Macros
 
 ---
 
