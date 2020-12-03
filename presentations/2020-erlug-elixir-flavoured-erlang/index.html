@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Elixir Flavoured Erlang - Erlang User Group Meetup</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'sans'; }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+      .remark-slide-content.reverse{color:white;}
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Elixir Flavoured Erlang
+
+Erlang User Group Meetup
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+<p style="font-size:0.5em">By day I make programming languages that don't look like programming languages at [instadeq.com](https://instadeq.com/)<p>
+
+---
+
+[@steveklabnik](https://twitter.com/steveklabnik/status/943208854141243398)
+
+```
+you: *sobbing* please stop...
+     you cant just say everything is a compiler!
+
+me: *points at documentation tooling* compiler
+```
+
+---
+
+class: center
+
+[@SeaRyanC](https://twitter.com/SeaRyanC/status/1334233376509763585)
+
+!["X is a compiler" alignment chart](img/compiler-chart.png)
+
+---
+
+class: center
+
+![Citation Needed](img/citationneeded.png)
+
+---
+
+# The Sun is a Compiler
+
+* A compiler is something that **takes a representation as input**
+
+  * potentially the output of a previous transformation
+
+* and **transforms it into another representation as output**
+
+  * the output representation is more suitable for some operations this compiler cares about
+
+---
+
+# 🍅 Compilers 🍅 Transpilers
+
+Usually if the output representation is closer to the computer it's called compiler
+
+If it goes sideways it's called transpiler
+
+If it goes in reverse it's called a decompiler (or pretty printer)
+
+---
+
+class: center
+
+# Elixir Flavoured Erlang
+
+Kind of sideways, a little upwards
+
+<video src="img/clinton.mp4" autoplay loop>
+
+---
+
+# Elixir Flavoured Erlang
+
+Sideways: Transpiles Erlang to Elixir
+
+Upwards: Elixir is a Superset of Erlang
+
+[github.com/marianoguerra/efe](https://github.com/marianoguerra/efe)
+
+[github.com/marianoguerra/otp.ex](https://github.com/marianoguerra/otp.ex)
+
+[Blog Post](http://marianoguerra.org/posts/elixir-flavoured-erlang-an-erlang-to-elixir-transpiler/)
+
+---
+
+# Erlang Flavoured Elixir
+
+```elixir
+for f &lt;- :filelib.wildcard('./_build/dev/lib/*/*/*.beam') do
+  result = :beam_lib.chunks(f,[:abstract_code])
+  {:ok,{_,[{:abstract_code,{_,ac}}]}} = result
+  code = :erl_prettypr.format(:erl_syntax.form_list(ac))
+  out_path = :string.replace(f, '.beam', '.erl')
+  :file.write_file(out_path, code)
+end
+```
+
+---
+
+# How does it work: Erlang Specific
+
+* Lexer (Text 👉🏾 Token Stream)
+
+* Pre Processor
+  + pp: includes, macros (Tokens 👉🏾 Tokens 👉🏾 AST)
+  + exp: expands records to tuples (AST 👉🏾 AST)
+
+---
+
+# How does it work: Shared
+
+* Parser (AST/absform)
+  + Elixir/Gleam
+* Core Erlang (Tree)
+  + LFE
+
+
+* Kernel Erlang (Tree)
+* SSA (Graph)
+* Codegen (Seq 👉🏾 Bytes)
+
+---
+
+# And Elixir?
+
+* Lexer
+  + `foo1.ex` 👉🏾 Token Stream
+* Parser
+  + Tokens 👉🏾 AST ex (Macro Expasion)
+* Translator
+  + AST ex 👉🏾 AST erl (absform)
+* 👉🏾 Enters the Erlang Compiler Stack
+
+---
+
+# How to see them
+
+```
+erlc +to_pp foo1.erl
+erlc +to_exp foo1.erl
+erlc +to_core foo1.erl
+erlc +to_kernel foo1.erl
+erlc +dssa foo1.erl
+erlc +to_asm foo1.erl
+```
+
+---
+
+# Input
+
+```erlang
+-module(foo1).
+-export([f1/2, f2/2]).
+-define(OPEN, (A,).
+-define(CLOSE, B)).
+-define(OP, A + B).
+
+f1?OPEN ?CLOSE -&gt; f2(B, A).
+f2?OPEN ?CLOSE -&gt; ?OP * 2.
+```
+
+---
+
+# PP and Exp
+
+```erlang
+{function,8,f1,2,
+    [{clause,8,
+       [{var,8,'A'},{var,8,'B'}],
+       [],
+       [{call,8,{atom,8,f2},[{var,8,'B'},{var,8,'A'}]}]}]}.
+
+{function,9,f2,2,
+    [{clause,9,
+       [{var,9,'A'},{var,9,'B'}],
+       [],
+       [{op,9,'+',
+      {var,9,'A'},
+      {op,9,'*',{var,9,'B'},{integer,9,2}}}]}]}.
+```
+
+---
+
+# Core Erlang
+
+```erlang
+'f1'/2 = fun (_0,_1) -&gt;
+	apply 'f2'/2 (_1, _0)
+
+'f2'/2 = fun (_0,_1) -&gt;
+	let &lt;_2&gt; =
+	    call 'erlang':'*' (_1, 2)
+	in  call 'erlang':'+' (_0, _2)
+
+'module_info'/0 = fun () -&gt;
+	call 'erlang':'get_module_info' ('foo1')
+
+'module_info'/1 = fun (_0) -&gt;
+	call 'erlang':'get_module_info' ('foo1', _0)
+```
+
+---
+
+# Kernel Erlang
+
+``` erlang
+fdef 'f1'/2(_0, _1) =
+  match _0,_1
+    enter (local 'f2'/2)(_1, _0)
+  end &gt;&gt; &lt;&gt;
+
+fdef 'f2'/2(_0, _1) =
+  match _0,_1 do
+      bif (remote 'erlang':'*'/2)(_1, 2) &gt;&gt; &lt;_2&gt;
+    then do
+      bif (remote 'erlang':'+'/2)(_0, _2) &gt;&gt; &lt;_3&gt;
+    then &lt;&lt;_3&gt;&gt;
+  end &gt;&gt; &lt;&gt;
+
+fdef 'module_info'/0() =
+  match 
+    enter (remote 'erlang':'get_module_info'/1)('foo1')
+  end &gt;&gt; &lt;&gt;
+
+fdef 'module_info'/1(_0) =
+  match _0
+    enter (remote 'erlang':'get_module_info'/2)('foo1', _0)
+  end &gt;&gt; &lt;&gt;
+end
+```
+
+---
+
+# SSA
+
+```erlang
+function foo1:f1(_0, _1) {
+0: @ssa_ret:3 = call local literal f2/2, _1, _0
+   ret @ssa_ret:3
+1: @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
+   ret @ssa_ret
+}
+function foo1:f2(_0, _1) {
+0: _2 = bif:'*' _1, literal 2
+   @ssa_bool = succeeded _2
+   br @ssa_bool, label 3, label 1
+3: _3 = bif:'+' _0, _2
+   @ssa_bool:4 = succeeded _3
+   br @ssa_bool:4, label 5, label 1
+5: ret _3
+1: @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
+   ret @ssa_ret
+}
+
+function foo1:module_info() {
+0: @ssa_ret:3 = call remote (literal erlang):(literal get_module_info)/1, literal foo1
+   ret @ssa_ret:3
+1: @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
+   ret @ssa_ret
+}
+
+function foo1:module_info(_0) {
+0: @ssa_ret:3 = call remote (literal erlang):(literal get_module_info)/2, literal foo1, _0
+   ret @ssa_ret:3
+1: @ssa_ret = call remote (literal erlang):(literal error)/1, literal badarg
+   ret @ssa_ret
+}
+```
+
+---
+
+# Codegen
+
+```erlang
+{function, f1, 2, 2}.
+  {label,1}.
+    {line,[{location,"foo1.erl",8}]}.
+    {func_info,{atom,foo1},{atom,f1},2}.
+  {label,2}.
+    {move,{x,1},{x,2}}.
+    {move,{x,0},{x,1}}.
+    {move,{x,2},{x,0}}.
+    {call_only,2,{f,4}}.
+```
+
+---
+
+# Codegen
+
+```erlang
+{function, f2, 2, 4}.
+  {label,3}.
+    {line,[{location,"foo1.erl",9}]}.
+    {func_info,{atom,foo1},{atom,f2},2}.
+  {label,4}.
+    {line,[{location,"foo1.erl",9}]}.
+    {gc_bif,'*',{f,0},2,[{x,1},{integer,2}],{x,1}}.
+    {line,[{location,"foo1.erl",9}]}.
+    {gc_bif,'+',{f,0},2,[{x,0},{x,1}],{x,0}}.
+    return.
+```
+
+---
+
+class: center, middle
+
+Follow [@leostera](https://twitter.com/leostera)
+
+Check [LAM](https://github.com/AbstractMachinesLab/lam) and [Caramel](https://github.com/AbstractMachinesLab/caramel)
+
+---
+
+class: center
+
+A Compiler is Made of Compilers
+
+![Recursion GIF](img/recursion.gif)
+
+---
+
+class: center
+
+[nanopass](http://nanopass.org/)
+
+![nanopass diagram](img/nanopass.png)
+
+???
+
+The Nanopass Framework is an embedded domain-specific language for creating
+compilers that focuses on creating small passes and many intermediate
+representations. Nanopass reduces the boilerplate required to create compilers
+making them easier to understand and maintain.
+
+---
+
+# Turbo Pascal is a Compiler
+
+```
+A one-pass compiler emits assembly right during parsing,
+without creating an intermediate representation,
+such as an AST
+```
+
+[One-pass Compiler Primer](https://keleshev.com/one-pass-compiler-primer)
+
+---
+
+# Elixir is a Superset of Erlang
+
+* Rebind Variables
+* Nested Modules
+* Structs
+* Protocols
+* Macros
+
+---
+
+class: center
+
+![PPrinter Paper](img/pprinter.png)
+
+[The Design of a Pretty-printing Library](https://www.researchgate.net/publication/2819607_The_Design_of_a_Pretty-printing_Library)
+
+---
+
+class: center
+
+![Strictly Pretty Paper](img/strictlypretty.png)
+
+[Strictly Pretty](https://www.researchgate.net/profile/Christian_Lindig/publication/2629249_Strictly_Pretty/links/5c2a0b8d92851c22a350bb79/Strictly-Pretty.pdf)
+
+---
+
+# Abstract Representation
+
+* above
+* beside
+* break
+* follow
+* nest
+* par
+* sep
+* text
+
+---
+
+# Concrete Representation
+
+```elixir
+doc = :prettypr.follow(:prettypr.text('a'),
+                       :prettypr.text('b'))
+
+👉🏾 {:beside, {:sep, [text: [1, 97], text: [0]], 0, true},
+👉🏾           {:text, [1, 98]}}
+
+paper = 80
+ribbon = 56
+
+:prettypr.format(doc, paper, ribbon)
+
+👉🏾 'a b'
+```
+
+[prettypr.erl](http://erlang.org/doc/man/prettypr.html)
+
+---
+
+# The BEAM as a proto-language
+
+A language family is a group of languages related through descent from a common
+ancestral language or parental language, called the proto-language of that
+family
+
+A proto-language is a postulated language from which a number of attested known
+languages are believed to have descended by evolution, forming a language
+family
+
+---
+
+class: center, middle
+
+# Elixir Flavoured Erlang
+
+Erlang User Group Meetup
+
+Mariano Guerra [@warianoguerra](https://twitter.com/warianoguerra)
+
+---
+
+# A Programming Language is
+
+An agreed unambiguous representation between humans and computers
+
+That a human can (confortably?) express
+
+And a computer can (efficiently?) run
+
+---
+
+# English is not a programming language
+
+It can't be unambiguously compiled to a representation a computer can run
+
+---
+
+# Powerpoint is a programming language
+
+
+[On the Turing Completeness of MS PowerPoint](https://www.andrew.cmu.edu/user/twildenh/PowerPointTM/Paper.pdf]
+[Accidentally Turing-Complete](http://beza1e1.tuxen.de/articles/accidentally_turing_complete.html)
+
+---
+
+# Decrement and branch if nonzero is a programming language
+
+
+```
+A one-instruction set computer, is an abstract machine that uses only one
+instruction – obviating the need for a machine language opcode.
+
+With a judicious choice for the single instruction and given infinite
+resources, an OISC is capable of being a universal computer
+```
+
+[One-instruction set computer](https://en.wikipedia.org/wiki/One-instruction_set_computer)
+
+    </textarea>
+    <script src="../remark-202012.js">
+    </script>
+    <script>
+      remark.create({ratio: '16:9'});
+    </script>
+  </body>
+</html>
