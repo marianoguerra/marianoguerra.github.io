@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instadeq - LIVE 2021</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'sans'; }
+      .remark-slide-container, .remark-slide-content{
+          color:white;
+          background-color:#0d4774;
+      }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      .remark-slide-scaler{
+        box-shadow:none;
+      }
+      a,a:visited{color:white;}
+      code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+      .remark-slide-content.reverse{color:white;}
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
+      .slide-video{padding-top:1vh}
+      .slide-video video{height:61vh}
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Instadeq
+
+## A Live Programming Environment
+
+## for End User
+
+## Data Analysis and Visualization
+
+Mariano Guerra - [instadeq.com](https://instadeq.com)
+
+LIVE 2021
+
+🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+---
+
+class: center, middle
+
+![Devices](https://instadeq.com/assets/images/devices-w800.png)
+
+---
+
+background-image: url(img/idq-empty-deck.png)
+
+---
+
+class: center, slide-video
+
+<video controls src="video/idq-csv.mp4">
+
+---
+
+background-image: url(img/idq-xls-1.jpg)
+
+---
+
+background-image: url(img/idq-xls-2.jpg)
+
+---
+
+background-image: url(img/idq-json-1.jpg)
+
+---
+
+background-image: url(img/idq-json-2.jpg)
+
+---
+
+background-image: url(img/idq-json-3.jpg)
+
+---
+
+# Common Tasks
+
+- Parse / Format Dates
+
+- Parse / Format Numbers
+
+---
+
+class: center, slide-video
+
+<video controls src="video/idq-magic-wand.mp4">
+
+---
+
+# Common Tasks
+
+- Value to Color in Dictionary
+
+- Value to Color in Range
+
+---
+
+class: center, slide-video
+
+<video controls src="video/idq-magic-wand-cards.mp4">
+
+---
+
+# Recap
+
+- Notebook: No Navigation
+
+- Logic &amp; Data Visible
+
+- Reuse: Reference
+
+- Extensible: Each Card is a "DSL"
+
+---
+
+background-image: url(img/cards-01-inputs.png)
+
+---
+
+background-image: url(img/cards-02-a-query.png)
+
+---
+
+background-image: url(img/cards-02-feditor-math.png)
+
+---
+
+background-image: url(img/cards-03-feditor-logic.png)
+
+---
+
+background-image: url(img/cards-04-feditor-text.png)
+
+---
+
+background-image: url(img/cards-06-feditor-functions.png)
+
+---
+
+background-image: url(img/cards-07-feditor-records.png)
+
+---
+
+background-image: url(img/cards-08-feditor-lists.png)
+
+---
+
+background-image: url(img/cards-09-feditor-colors.png)
+
+---
+
+background-image: url(img/cards-10-feditor-emoji.png)
+
+---
+
+background-image: url(img/cards-11-feditor-where.png)
+
+---
+
+background-image: url(img/cards-12-feditor-chart-setting.png)
+
+---
+
+background-image: url(img/cards-13-output.png)
+
+---
+
+background-image: url(img/cards-14-output-selected.png)
+
+---
+
+class: center, slide-video
+
+<video controls playsinline src="video/idq-feditor.mp4">
+
+---
+
+# Challenges
+
+- Scroll Back &amp; Forth
+
+- Long Drags
+
+- Small Drop Targets
+
+  - Touch
+
+---
+
+# Challenges
+
+- "See" Deck Relationships
+
+---
+
+background-image: url(img/hex-tech-graph.png)
+
+---
+
+class: center, slide-video
+
+<video autoplay loop muted playsinline controls="false" src="video/observable-visual-dataflow.mp4">
+
+---
+
+# Tool Giveth, User Taketh Away
+
+- The Covid Problem: **100K Rows** Limit
+
+- **90MB Excel** File with **320K Rows**
+
+- "I added a **130MB JSON** file to Instadeq and it only took a few seconds to parse. However, when I attempted to make a chart out of the approximate **3 million data points**..."
+
+---
+
+# Tool Giveth, User Taketh Away
+
+- **8.2GB CSV with 329 columns**
+
+- "Can your tool analyze a **huge JSON** data sets from firebase directly, even if the data is **corrupted**? The JSON data sets size is above **10 GB**"
+
+- **11 Levels Deep JSON** Breaks Layout
+
+---
+
+# Implementation Details
+
+- Reactive DAG
+
+- Notebooks: Decks &amp; Cards
+
+- Data Persistence
+
+  - DAG: Object Graph Serialized and Stored
+
+  - Data: Stored in Channels or Consumed on Demand from Other Systems
+
+---
+
+# Future Work
+
+- More Cards: Pivot, Unpivot, Join, Service, Filter, Time Series
+
+- High Level View
+
+- "The Other Half"
+
+  - From SQL Exploration to "Headless BI / Metric Store"
+
+---
+
+class: center, middle
+
+# Thanks
+
+Mariano Guerra - [instadeq.com](https://instadeq.com)
+
+🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+---
+
+class: center, middle
+
+# Backup
+
+---
+
+# Emergent Use Cases
+
+- Internal Apps: "Backoffice Apps"
+
+  - Log Search by Server, Service, Date Range and Fulltext Search
+
+  - Process Flow Troubleshooting (Covid Appointments)
+
+  - Plan Vaccine Batch Assignment Based on Vaccine Availability by Region
+
+---
+
+# Emergent Use Cases
+
+- Face of Tools
+
+  - Redmine
+  - Mobile App
+  - SSO
+
+- Face of Faceless Systems
+
+  - Big Data
+
+- Throwaway Dashboards for Transient Bugs
+
+---
+
+# How it got here
+
+- 2013 - 2016: Event Fabric
+
+- 2017 - 2019: Instadeq 1
+
+- 2019 - 2021: Instadeq
+
+---
+
+# Event Fabric
+
+- Nodes &amp; Wires
+
+- Block Based logic
+
+- Freeform Dashboard Designer
+
+---
+
+background-image: url(img/ef-dashboard.png)
+
+---
+
+background-image: url(img/ef-layout.png)
+
+---
+
+class: center
+
+background-image: url(img/ef-graph.png)
+
+---
+
+background-image: url(img/ef-blocks.png)
+
+---
+
+background-image: url(img/ef-block-section-1.png)
+
+---
+
+background-image: url(img/ef-block-templates.png)
+
+---
+
+# Event Fabric: Challenges
+
+- Too Freeform
+
+  - Spent Time Organizing Nodes &amp; Charts
+
+    - Autolayout for Dashboards
+
+- White Canvas Problem
+
+  - Templates
+
+---
+
+# Event Fabric: Challenges
+
+- No Reuse
+
+  - Basic Block Copy/Paste
+
+- Modes: Navigation
+
+  - Wanted to Manipulate Charts Directly
+
+- "Mutable" Logic: Blocks Compile to Vanilla JS
+
+- Data Not Visible
+
+  - Popup Data Viewer
+
+---
+
+# Instadeq 1
+
+- Wizzard-like
+
+- Programming By Demonstration
+
+---
+
+background-image: url(img/idq1-dashboard.png)
+
+---
+
+background-image: url(img/idq1-home.png)
+
+---
+
+background-image: url(img/idq1-layout.png)
+
+---
+
+background-image: url(img/idq1-chart.png)
+
+---
+
+background-image: url(img/idq1-data-manipulation.png)
+
+---
+
+background-image: url(img/idq1-feditor.png)
+
+---
+
+# Instadeq 1: Challenges
+
+- Too Much Navigation
+
+- No High Level View
+
+- "Fragile" Logic
+
+  - Reordering/Disabling/Removing Steps Broke Following Steps
+
+- No Logic Reuse: Unified Logic &amp; Chart
+
+  - Clone
+
+---
+
+# Instadeq 1: Challenges
+
+- Only Final Result Visible
+
+  - Disable Step
+
+  - Time Traveling Data/Logic
+
+  - Inline Intermediate Values
+
+- Not So Powerful as Event Fabric
+
+    </textarea>
+    <script src="../remark-20211014.js">
+    </script>
+    <script>
+      remark.create({
+        ratio: '16:9',
+        slideNumberFormat: '' // '%current% / %total%'
+      });
+    </script>
+  </body>
+</html>
