@@ -9,6 +9,14 @@
   </head>
   <body>
     <article>
+      <section id="subscribed" style="display:none;text-align:center;font-size:2rem">
+          Thanks for subscribing!
+      </section>
+
+      <section id="unsubscribed" style="display:none;text-align:center;font-size:2rem">
+          Bye!
+      </section>
+
       <h1>Review Jam</h1>
 
       <section>
@@ -44,6 +52,24 @@
             </ul>
           </li>
         </ul>
+      </section>
+
+      <section>
+        <h2>Stay Updated</h2>
+
+        <p>The newsletter will only be used for Review Jam announcements</p>
+
+        <form
+            action="https://buttondown.email/api/emails/embed-subscribe/reviewjam"
+            method="post"
+            target="popupwindow"
+            onsubmit="window.open('https://buttondown.email/reviewjam', 'popupwindow')"
+            class="embeddable-buttondown-form"
+            style="display:flex;width:100%;font-size:1.5rem"
+            >
+            <input type="email" name="email" id="bd-email" style="flex-grow:2;margin-right:1rem;padding:0.5rem;" placeholder="alice@example.com"/>
+            <input type="submit" value="Subscribe" style="flex-grow:1;padding:0.5rem;" />
+        </form>
       </section>
 
       <section>
@@ -175,9 +201,18 @@
 
       </section>
 
-
-
     </article>
+      <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              if (document.location.search.indexOf('?subscribed=true') !== -1) {
+                  document.getElementById('subscribed').style.display = 'block';
+              }
+
+              if (document.location.search.indexOf('?unsubscribed=true') !== -1) {
+                  document.getElementById('unsubscribed').style.display = 'block';
+              }
+          });
+      </script>
   </body>
 </html>
 
