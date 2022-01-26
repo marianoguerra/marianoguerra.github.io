@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Intro</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'sans'; }
+      .remark-slide-container, .remark-slide-content{
+          color:white;
+          background-color:#0d4774;
+      }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      .remark-slide-scaler{
+        box-shadow:none;
+      }
+      a,a:visited{color:white;}
+      code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+      .remark-slide-content.reverse{color:white;}
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
+      .slide-video{padding-top:1vh}
+      .slide-video video{height:61vh}
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display:none">
+
+class: center, middle
+
+# Web Intro
+
+---
+
+# Tools
+
+- [MDN](https://developer.mozilla.org/en-US/)
+- [HTML](https://htmlreference.io/)
+- [CSS](https://cssreference.io/)
+- [caniuse.com](https://caniuse.com/)
+- [Replit](https://replit.com/)
+- Dev Tools
+  - [Firefox](https://developer.mozilla.org/en-US/docs/Tools)
+  - [Chrome](https://developer.chrome.com/docs/devtools/)
+
+---
+
+# DOM
+
+- [Tags](https://developer.mozilla.org/en-US/docs/Web/API/Element)
+- Attributes
+- Childs
+- Data
+- [Events](https://domevents.dev/)
+- Inspector Panel
+
+---
+
+# DOM API
+
+- Vanilla JS
+  - [getElementById](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById)
+  - [getElementsByClassName](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)
+  - [getElementsByTagName](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName)
+  - [querySelector](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector)
+  - [querySelectorAll](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll)
+- jQuery
+  - [Cheatsheet](https://htmlcheatsheet.com/jquery/)
+
+---
+
+# The Life of a Page
+
+- Network Panel
+
+---
+
+# CSS
+
+- Style Panel
+- Selectors
+  - [Selectors I](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference#selectors)
+  - [Selectors II](https://gist.github.com/magicznyleszek/809a69dd05e1d5f12d01)
+  - [Selector Game I](https://css-speedrun.netlify.app/)
+  - [Selector Game II](https://flukeout.github.io/)
+
+---
+
+# CSS - Shortcuts
+
+- margin: 1em;
+  - all: 1em
+- margin: 1em 2em;
+  - top/bottom: 1em right/left 2em
+- margin: 1em 2em 3em 4em;
+  - 🕒 top: 1em right: 2em bottom: 3em left: 4em
+
+---
+
+# CSS
+
+- [Units](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#lengths)
+  - [Viewport Units Compatibility](https://caniuse.com/viewport-units)
+  - [Units Examples](https://creemosenlaweb.github.io/haciendo-lugar.html)
+- [Colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
+  - [Named](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords)
+  - Hexadecimal
+  - [HSLA](https://mothereffinghsl.com/)
+
+---
+
+# CSS
+
+- [Cascading/Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
+- [Specificity](https://css-tricks.com/specifics-on-css-specificity/)
+- Reuse / Composition [Tailwind](https://tailwindcss.com/)
+  - [Tailwind Cheatsheet](https://tailwindcomponents.com/cheatsheet/)
+- [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
+- Responsive
+  - [Media Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries)
+  - [Cheatsheet](https://gist.github.com/bartholomej/8415655)
+  - [Compatibility](https://caniuse.com/css-media-interaction)
+
+---
+
+# CSS Advanced Layouts
+
+- [Flexbox Cheatsheet](https://flexbox.malven.co/)
+  - [Flexbox Compatibility](https://caniuse.com/flexbox)
+  - [Flexbox Game](https://flexboxfroggy.com/)
+- [Grid Cheatsheet](https://grid.malven.co/)
+  - [Grid Compatibility](https://caniuse.com/?search=grid)
+
+---
+
+# JS
+
+- Debugger Panel
+  - Breakpoints
+  - Conditional Breakpoints
+  - Logpoints
+  - Scopes / Stack
+- [Versions](https://en.wikipedia.org/wiki/ECMAScript#Versions)
+
+---
+
+# JS - Data Types
+
+- [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+  - [NaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)
+- [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null) / [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)
+- [Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+- [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+  - [Interpolation / Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+- [Equality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+  - NaN, null, undefined
+  - [Always Use ===](https://mobile.twitter.com/SupervisedAi/status/1484408714949922816)
+
+---
+
+# JS - Data Types
+
+- [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+- [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+- [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+- [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
+
+---
+
+# JS - Iteration
+
+- [for](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+- [for in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
+- [for of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+- Array
+  - [forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+  - [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+  - [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+  - [every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
+  - [some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+
+---
+
+# JS - Data Types
+
+- Array vs [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) vs [jQuery result](https://api.jquery.com/jQuery/#jQuery-selector-context)
+
+---
+
+# JS - Iteration - Break/Continue
+
+- [break](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break)
+- [continue](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue)
+
+---
+
+# JS Variables
+
+- var
+- let
+- const
+- scoping
+
+---
+
+# JS - Async
+
+- Why: [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
+- callback
+- [deferred](https://api.jquery.com/category/deferred-object/)
+- [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)/[await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+
+---
+
+<video src="./assets/async.mp4" controls></video>
+
+[Source](https://twitter.com/manekinekko/status/855824609299636230)
+
+---
+
+# JS - Functions
+
+- function
+- arrow function
+- first class functions
+- closures
+
+---
+
+# JS - this
+
+- [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- in functions
+- in arrow functions
+- [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+- [call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+- [apply](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+
+---
+
+# JS - Good Practices
+
+- Pretty Printer: [prettier](https://prettier.io/)
+- Linter: [eslint](https://eslint.org/)
+- Bundler: [esbuild](https://esbuild.github.io/) [parcel](https://parceljs.org/) [rollup](https://www.rollupjs.org/guide/en/) [webpack](https://webpack.js.org/)
+- Unit Tests: [qunit](https://qunitjs.com/) [jest](https://jestjs.io/) [mocha](https://mochajs.org/) [jasmine](https://jasmine.github.io/)
+- [Pollyfills](https://polyfill.io/)
+- Semantic Names
+
+---
+
+# JS - Utilities
+
+- [JQuery](https://jquery.com/)
+- [Underscore](https://underscorejs.org/) [lodash](https://lodash.com/)
+- [Voca](https://vocajs.com/)
+- [date-fns](https://date-fns.org/)
+
+---
+
+# Patterns
+
+- Events: [throttle, debounce](https://replit.com/@MarianoGuerra2/ThrottleDebounce)
+
+---
+
+    </textarea>
+    <script src="./remark-20211014.js">
+    </script>
+    <script>
+      remark.create({
+        ratio: '16:9',
+        slideNumberFormat: '' // '%current% / %total%'
+      });
+    </script>
+  </body>
+</html>
