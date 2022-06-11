@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Seeing Like a Linguist</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'sans'; }
+      .remark-slide-container, .remark-slide-content{
+          color:white;
+          background-color:#0d4774;
+      }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      .remark-slide-scaler{
+        box-shadow:none;
+      }
+      a,a:visited{color:white;}
+      code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+      .remark-slide-content.reverse{color:white;}
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
+      .slide-video{padding-top:1vh}
+      .slide-video video{height:61vh}
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display:none">
+
+class: center, middle
+
+# Seeing Like a Linguist
+
+Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+---
+
+class: center, middle
+
+# What am I Doing Here?
+
+---
+
+Presenting a document
+
+--
+
+In a desktop web browser
+
+--
+
+Javascript translates markdown to an HTML page
+
+---
+
+Created it in a console
+
+--
+
+Emulating a terminal
+
+--
+
+
+Running a shell
+
+--
+
+To run vi
+
+--
+
+And other command line applications
+
+---
+
+class: center, middle
+
+# Why?
+
+---
+
+background-image: url(img/illustration-of-the-turk.webp)
+
+???
+
+This is the Turk, or mechanical Turk.
+
+It was supposed to be a machine that could play chess.
+
+In 1819, Babbage played the Turk twice and lost both matches.
+
+While Babbage suspected it was an hoax, it got him thinking about "computers"
+
+OOO
+
+https://spectrum.ieee.org/untold-history-of-ai-charles-babbage-and-the-turk
+
+One man who was given the opportunity to see the machine up close was Charles
+Babbage, the famed British engineer and mathematician. In 1819, Babbage played
+the Turk twice and lost both matches. According to Tom Standage, who has
+written an extensive history of the Turk, Babbage suspected that the automaton
+was not “intelligent" but merely an elaborate hoax, concealing a person who
+was, somehow, controlling the Turk's moves from the inside.
+
+While Babbage suspected such trickery, he didn't take the time to write an
+exposé, as some of his contemporaries did. But his encounter with the Turk
+seems to have percolated in his mind in the years following.
+
+Very shortly after, he began work on a design for an automatic mechanical
+calculator called the Difference Engine, which he wanted to use to generate
+error-free tables of logarithms.
+
+As Babbage's collaborator Sir David Brewster later wrote of the Turk: “Those
+automatic toys which once amused the vulgar, are now employed in extending the
+power and promoting the civilization of our species."
+
+Babbage's encounter with the Turk at the very beginning of computing's history
+serves as a reminder that hype and innovation sometimes go hand in hand.
+
+---
+
+background-image: url(img/Torres4.jpg)
+
+???
+
+In fact, the first real machine that could play chess, El Ajedrecista, was
+created here in Spain in 1910 by Leonardo Torres y Quevedo, it could play a
+restricted set but it could beat humans on that subset.
+
+OOO
+
+https://history-computer.com/leonardo-torres-chess-machine/
+
+In the beginning of 1910, Leonardo Torres y Quevedo commenced his work to make
+a chess-playing automaton, to prove his theory that machines could do many
+things ‘popularly classed as thought.’ Torres designed the first automaton
+machine that had the unique ability to play chess. This was the first automaton
+of its kind in the world. Leonardo called it El Ajedrecista, a Spanish name
+translated ‘The Chess Player’. Although it did not play the whole game (from
+start to finish), El Ajedrecista could make several moves, calculate well, and
+‘mate’ with its opponent.
+
+---
+
+background-image: url(img/Jacquard-cards-2.jpg)
+
+???
+
+This is a Jacquard loom being driven by punched cards.
+
+Jacquard was another person that got Babbage thinking.
+
+He suggested that punch cards might be used to govern the operation of computing
+devices, although he did not transform this idea into a practical product.
+
+By the late nineteenth century, conductors on railway cards routinely used very
+simple punch cards to record the destination of passengers on trains.
+
+OOO
+
+The Englishman Charles Babbage greatly admired Jacquard’s invention. He
+suggested that punch cards might be used to govern the operation of computing
+devices, although he did not transform this idea into a practical product. By
+the late nineteenth century, conductors on railway cards routinely used very
+simple punch cards to record the destination of passengers on trains.
+
+https://www.si.edu/spotlight/punch-cards
+
+---
+
+background-image: url(img/HollerithMachine.jpeg)
+
+???
+
+
+In the late 1880s, American engineer Herman Hollerith saw a railroad punch card
+when he was trying to figure out new ways of compiling statistical information
+for the U.S. Census.
+
+The 1880 census took a full 7 years to tabulate. Policymakers worried that the
+1890 census wouldn’t even be counted by 1900, making reapportionment of
+congressional seats—as required by the Constitution—impossible.
+
+Hollerith tabulating equipment was used in the 1890 U.S. Census
+
+https://www.si.edu/object/cdc-88157-punch-card:nmah_690489
+
+
+https://www.smithsonianmag.com/smithsonian-institution/herman-holleriths-tabulating-machine-2504989/
+
+---
+
+background-image: url(img/Harvard_Mark_I_patch.jpg)
+
+???
+
+A Patch in Punched Cards in the Harvard Mark I computer
+
+https://en.wikipedia.org/wiki/Patch_(computing)#History
+
+https://www.si.edu/spotlight/punch-cards/punch-cards-data-processing
+
+---
+
+class: center
+
+Tabulating Machine Company
+
+👇
+
+International Business Machines
+
+???
+
+IBM cards had eighty columns of rectangular holes while those of Remington Rand
+had ninety columns of circular holes. Tabulating machines were widely used in
+both government and commerce, with cards designed to meet the needs of
+customers. For example, checks issued by the U.S. government often came on
+punch cards.
+
+---
+
+> “I think there is a world market for maybe five computers.”
+
+> -- Thomas Watson, president of IBM, 1943
+
+???
+
+When IBM and Remington Rand began selling electronic computers in the years
+following World War II, punch cards became the preferred method of entering
+data and programs onto them.
+
+Image: https://en.wikipedia.org/wiki/Punched_card_input/output#/media/File:IBM_650_at_Texas_A&M.jpg
+
+---
+
+background-image: url(img/IBM_650.jpeg)
+
+???
+
+From punched cards to do I/O it evolved to use teleprinters, which come from
+Telegraphs and morse code.
+
+To imagine why a teletype would be useful with a computer, recall those two
+remotely linked typewriters from the last example and replace one of them with
+an interactive computer system. Instead of communicating with a remote
+teleprinter, you’re sending and receiving human-readable text to and from a
+computer. The computer could be in the same room, in another part of a
+building, or even halfway across the world when linked by a telephone network.
+
+https://www.howtogeek.com/727213/what-are-teletypes-and-why-were-they-used-with-computers/
+
+Because of its low price and ASCII-compatibility, the Model 33 was widely used
+with early minicomputers
+
+https://en.wikipedia.org/wiki/Teletype_Model_33
+
+---
+
+background-image: url(img/asr-331.jpg)
+
+???
+
+In 1971, Ray Tomlinson chose the "@" symbol on his Teletype Model 33 ASR
+
+http://shadycharacters.co.uk/2011/07/the-symbol-part-1-of-2/
+
+---
+
+background-image: url(img/hammond-both.jpg)
+
+???
+
+@: at the rate of
+
+If looks like a keyboard?
+
+
+https://shadycharacters.co.uk/2011/08/the-symbol-part-2-of-2/
+
+---
+
+background-image: url(img/Printing_Telegraph.jpeg)
+
+???
+
+Shift Key
+
+https://en.wikipedia.org/wiki/Printing_telegraph
+
+---
+
+background-image: url(img/uppercase.jpeg)
+
+???
+
+Upper Case, Lower Case
+
+https://twitter.com/mrmrs_/status/866067646357352448
+
+---
+
+# Carriage Return / Line Feed
+
+UNIX: \n
+
+Apple: \r
+
+MS-DOS and Windows: \r\n
+
+???
+
+[Vim Book](http://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf)
+
+Page 120:
+
+Back in the early days, the old Teletype machines took two character times to
+do a newline. If you sent a character to the machine while it was moving the
+carriage back to the first position, it tried to print it on-the-fly, leaving a
+smudge in the middle of the page.
+
+The solution was to make the newline two characters: <Return> to move the
+carriage to column 1, and <Line Feed> to move the paper up.
+
+When computers came out, storage was expensive. Some people decided that they
+did not need two characters for end-of-line.
+
+The UNIX people decided they could use <Line Feed> only for end-of-line.
+
+The Apple people standardized on <Return>.
+
+The MS-DOS (and Microsoft Windows) folks decided to keep the old <Return> <Line Feed>.
+
+---
+
+background-image: url(img/sds940.JPG)
+
+???
+
+Someone siting at a Console, next to a terminal
+
+NLS
+
+OOO
+
+https://en.wikipedia.org/wiki/SDS_940
+
+The SDS machines also included a paper tape punch and reader, line printer, and
+a real-time clock. They bootstrapped from paper tape.
+
+The influential Stanford Research Institute "oN-Line System" (NLS) was
+demonstrated on the system. This machine was later used to run Community
+Memory, the first bulletin board system.
+
+---
+
+QED ("quick editor") is a line-oriented computer text editor designed for teleprinter usage
+
+Thompson's versions of qed were notable as the first to implement regular expressions
+
+---
+
+When Thompson was creating unix he created ed, a subset of qed
+
+---
+
+George Coulouris created em (ed for mortals)
+
+???
+
+take advantage of video terminals
+
+While visiting Berkeley he showed em to Bill Joy
+
+OOO
+
+George Coulouris of Queen Mary College, London, which had installed Unix in
+1973, developed an improved version called em in 1975 that could take advantage
+of video terminals.
+
+While visiting Berkeley, Coulouris presented his program to Bill Joy, who
+modified it to be less demanding on the processor; Joy's version became ex and
+got included in the Berkeley Software Distribution.
+
+---
+
+Bill Joy crated ex (extended ed)
+
+Then a full-screen visual interface: vi
+
+???
+
+ex got a full-screen visual interface
+becoming the vi text editor
+
+---
+
+background-image: url(img/adm3.jpeg)
+
+???
+
+Why vi keys for navigation?
+
+https://catonmat.net/why-vim-uses-hjkl-as-arrow-keys
+
+---
+
+background-image: url(img/hjkl.jpg)
+
+???
+
+https://catonmat.net/why-vim-uses-hjkl-as-arrow-keys
+
+---
+
+background-image: url(img/dennis-ritchie-unix.webp)
+
+???
+
+Dennis Ritchie (standing) with Ken Thompson at work in 1972.
+
+https://www.theguardian.com/technology/2011/oct/16/john-naughton-dennis-ritchie-unix
+
+---
+
+sed (substitution comand of ed s/a/b)
+
+grep g/re/p (ed: globally search for a regular expression and print matching lines)
+
+---
+
+background-image: url(img/shell.png)
+
+???
+
+Command Line interface
+
+The SHELL: A Global Tool for Calling and Chaining Procedures in the System
+
+https://people.csail.mit.edu/saltzer/Multics/Multics-Documents/MDN/MDN-4.pdf
+
+---
+
+background-image: url(img/vt100.png)
+
+???
+
+Teleprinters: noisy, slow, used lot of paper.
+
+Teletypes, glass teleprinters, faster, quieter, save money on paper
+
+80 coulmns
+
+one of the first terminals to support ANSI escape codes for cursor control and
+other tasks
+
+became the de facto standard for hardware video terminals and later terminal
+emulators
+
+OOO
+
+Teletypes did have some significant drawbacks as computer terminals. They were
+very noisy due to the mechanical action of the impact printhead rapidly hitting
+the paper. They were also slow, often limited to about 10 characters per
+second. And finally, you had to use a lot of paper.
+
+In the 1960s, companies such as IBM began experimenting with computer terminals
+that used CRT displays instead of paper for output. These early “glass
+teletypes” sought to provide faster interaction speeds and save money on paper
+waste.
+
+https://www.howtogeek.com/727213/what-are-teletypes-and-why-were-they-used-with-computers/
+
+It was one of the first terminals to support ANSI escape codes for cursor
+control and other tasks, and added a number of extended codes for special
+features like controlling the status lights on the keyboard. This led to rapid
+uptake of the ANSI standard, which became the de facto standard for hardware
+video terminals and later terminal emulators.
+
+---
+
+background-image: url(img/warp.png)
+
+???
+
+a terminal of the 21 century emulating a vt100 that simulates a teleprinter
+
+---
+
+background-image: url(img/xerox-ibm.jpeg)
+
+???
+
+Image around 1959
+
+https://topshouts.in/a-misinterpretation-from-ibm-consultants-and-the-rise-of-xerox/
+
+Xerox buys SDS, gets into computers
+
+---
+
+background-image: url(img/xerox.webp)
+
+???
+
+https://www.wired.com/story/the-1970s-conference-that-predicted-the-future-of-work/
+
+Working remotely with a team back in Palo Alto, the presenters showed how a
+computer could **edit documents**, **draw bar charts**, toggle between software
+programs, and pull up **documents and drawings** from stored memory. They
+**highlighted text on screen**, remotely collaborated with others on far-away
+Altos, **completed expense forms electronically, forwarded them for processing,
+typed in foreign characters, sent emails, and printed documents**.
+
+That day Jobs and his engineers sat in awe as Goldberg and the Alto team demoed
+the intricacies of the mouse-driven GUI, Smalltalk, as well as the Ethernet
+technology they had developed to network their Altos together. Jobs was so
+blown away by the details of the GUI, the rest passed over him like a fog. “It
+was one of those apocalyptic moments,” Jobs said. “I remember within ten
+minutes of seeing the graphical user interface stuff, just knowing that every
+computer would work this way someday. It was obvious.”
+
+A second important fact about the 1979 demo to Steve, was that he missed most
+of what we showed him. More than 15 years later he admits this in this
+interview: How Steve Jobs got the ideas of GUI from XEROX where he says that we
+showed him three things but he was so blinded by the first one (the GUI) that
+he missed both networking and real object-oriented systems programming.
+
+the PARC visit by apple, Jobs was show 3 things OOP, GUIs and Networks, only
+saw one: GUIS -> macintosh
+
+Later on NeXT did the 3, helped someone on CERN
+
+---
+
+background-image: url(img/xerox-star.jpg)
+
+???
+
+1981
+
+Office of the future: edit documents, drawings, draw charts, complete expenses, print
+documents.
+
+Desktop, files, folders
+
+https://interface-experience.org/objects/xerox-star-8010-information-system/
+
+---
+
+background-image: url(img/Macintosh_128k.png)
+
+---
+
+background-image: url(img/next-cube.jpg)
+
+???
+
+https://www.sciencemuseum.org.uk/objects-and-stories/world-wide-web-global-information-space
+
+---
+
+background-image: url(img/tim-berners-lee-browser.gif)
+
+???
+
+https://arstechnica.com/information-technology/2013/04/first-website-ever-goes-back-online-on-the-open-webs-20th-birthday/
+
+---
+
+background-image: url(img/mosaic.png)
+
+???
+
+Mosaic was developed at the National Center for Supercomputing Applications
+(NCSA) at the University of Illinois at Urbana–Champaign beginning in late 1992
+
+---
+
+background-image: url(img/netscape.png)
+
+---
+
+# "Netscape plus Java kills Windows"
+
+???
+
+https://dl.acm.org/doi/pdf/10.1145/3386327
+
+"Netscape plus Java kills Windows" On May 23, 1995, at Sun’s public announcement of Java, Netscape announced its intent to license Sun’s Java technology for use in the browser.
+
+Bill Joy -> Sun
+
+Sun: "The Network is the Computer"
+
+Java the language of the internet
+.NET as response
+
+---
+
+# XMLHttpRequest
+
+JSON didn't exist yet
+
+???
+
+https://en.wikipedia.org/wiki/XMLHttpRequest
+
+The concept behind the XMLHttpRequest object was originally created by the
+developers of Outlook Web Access (by Microsoft) for Microsoft Exchange Server
+2000
+
+The Mozilla project developed and implemented an interface called
+nsIXMLHttpRequest into the Gecko layout engine
+
+---
+
+# Google Chrome
+
+A better web experience kills Microsoft
+
+???
+
+---
+
+# And Here We Are
+
+---
+
+# Does it Make Sense?
+
+---
+
+> “The records must be put in such shape that a machine could read them.
+
+> This is most readily done by punching holes in cards.”
+
+> --  Herman Hollerith, Inventor of the Hollerith Machine, April 1889
+
+???
+
+Clearly Seein Like a Computer
+
+---
+
+# Why Do We Code This Way?
+
+---
+
+background-image: url(img/cloudnative.jpeg)
+
+---
+
+> Nice dev tooling won't push the envelope for cloud app development when the
+core problem is programming models that leave developers unequipped to manage
+concurrency, state, fault tolerance, and scalability.
+
+> There's more to Developer Experience than tooling.
+
+> -- [@reubenbond](https://twitter.com/reubenbond/status/1524093567710351361)
+
+???
+
+Check Orleans
+
+Let's make Orleans on the BEAM finally happen
+
+---
+
+Glamorous Toolkit
+
+The Moldable Development Environment
+
+- Multi-language notebook
+
+--
+
+- Fancy code editor
+
+--
+
+- Software analysis platform
+
+--
+
+- Visualization engine
+
+--
+
+- Knowledge management system
+
+
+--
+
+All programmable
+
+---
+
+# Unison: A new approach to
+
+- Distributed programming
+
+--
+
+- Refactoring
+
+--
+
+- Durable storage
+
+--
+
+- Storing code
+
+--
+
+- Dependencies
+
+???
+
+Supports algebraic effects ('abilities'), replace monads
+
+Programs are not text
+
+Content-Addressed Code
+
+Names are metadata
+
+Codebase is append only
+
+---
+
+# Distributed programming
+
+- No more writing encoders and decoders at every network boundary
+
+--
+
+- Say where you want computations to run and it happens
+
+--
+
+- Dependencies are deployed on the fly
+
+---
+
+# Refactoring
+
+Your codebase is always live and typechecks, even in the middle of a refactoring.
+
+
+--
+
+Unison has structured refactoring sessions, not a big misleading list of type errors.
+
+---
+
+# Durable storage
+
+No more writing translation code between your values and the storage layer.
+
+
+--
+
+Directly store values and unpersist them later without fear of dependency conflicts or version mismatches.
+
+---
+
+# Storing code
+
+Other tools try to recover structure from text; Unison stores code in a database.
+
+
+--
+
+This eliminates builds, provides for instant nonbreaking renames, type-based search, and lots more.
+
+---
+
+# Dependencies
+
+Many dependency conflicts arise from definitions competing for the same names.
+
+--
+
+Since Unison references code by hash instead of by name, an entire class of
+conflicts can be eliminated.
+
+---
+
+# There a free conference, go!
+
+[unison-lang.org/unison-forall-2022/](https://www.unison-lang.org/unison-forall-2022/)
+
+- [Spark-like distributed datasets in under 100 lines of Unison](https://www.unison-lang.org/articles/distributed-datasets/)
+- [First class documentation with live examples](https://www.unison-lang.org/blog/march_2020-update/)
+- [Every service could be a library](https://twitter.com/pchiusano/status/1530036232515948554?t=r7BPtfDScj6aN7g_RgFHkA&s=09)
+- [unison.cloud](https://www.unison.cloud/)
+
+---
+
+# Darklang
+
+Dark is a new way of building serverless backends.
+
+Just code your backend, with no infra, framework or deployment nightmares.
+
+[darklang.com](https://darklang.com/)
+
+---
+
+# Hazel
+
+Hazel is a live functional programming environment that is able to typecheck,
+manipulate, and even run incomplete programs, i.e. programs with holes.
+
+There are no meaningless editor states.
+
+---
+
+# Racket, the Language-Oriented Programming Language
+
+[racket-lang.org](https://racket-lang.org/)
+
+---
+
+    "An operating system is a collection of things that don't fit into a language. There shouldn't be one."
+
+    -- [Design Principles Behind Smalltalk](https://www.cs.virginia.edu/~evans/cs655/readings/smalltalk.html) - Daniel H. H. Ingalls
+
+---
+
+**MirageOS** is a library operating system that constructs unikernels for secure,
+high-performance network applications across a variety of cloud computing and
+mobile platforms.
+
+"tree shake the operating system"
+
+[mirageos.org](https://mirageos.org/)
+
+---
+
+# T2 Tile
+
+The T2 Tile project is an attempt to build the world's first indefinitely
+scalable computational stack
+
+[t2tile.com](https://t2tile.com)
+
+---
+
+- [Have you ever programmed on your phone?](https://twitter.com/rsnous/status/1531390382298304512?t=LFiK4GWlm80SPD2YZmhATQ&s=09)
+
+--
+
+- Made your devices collaborate?
+
+--
+
+- Are we going to emulate a VT100 in VR too?
+
+---
+
+class: center, middle
+
+# Thanks
+
+Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+---
+
+    </textarea>
+    <script src="./remark-20211014.js">
+    </script>
+    <script>
+      remark.create({
+        ratio: '16:9',
+        slideNumberFormat: '' // '%current% / %total%'
+      });
+    </script>
+  </body>
+</html>
