@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebAssembly Demystified</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'sans'; }
+      .remark-slide-container, .remark-slide-content{
+          color:white;
+          background-color:#0d4774;
+      }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      .remark-slide-scaler{
+        box-shadow:none;
+      }
+      a,a:visited{color:white;}
+      code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+      .remark-slide-content.reverse{color:white;}
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
+      .slide-video{padding-top:1vh}
+      .slide-video video{height:61vh}
+      a{text-decoration-color:#ffffff44;text-underline-offset:5px}
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display:none">
+
+class: center, middle
+
+# WebAssembly Demystified
+
+Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+---
+
+class: center, middle
+
+![Smallest Wasm Compiler](code-1.png)
+
+---
+
+class: center
+
+![Smallest Wasm Function](code-2.png)
+
+---
+
+class: center, middle
+
+# 🤨
+
+---
+
+# Past
+
+- 2011-2015 [NaCL](https://en.wikipedia.org/wiki/Google_Native_Client)
+
+- 2013-2017 [asm.js](https://en.wikipedia.org/wiki/Asm.js)
+
+---
+
+# Past: Wasm 1.0
+
+MVP
+
+---
+
+background-image: url(wasm-matrix.png)
+
+???
+
+As of 2022-10-09 my browser is firefox nightly
+
+https://webassembly.org/roadmap/
+
+---
+
+# Wasm 1.1
+
+- [Fixed-width SIMD](https://github.com/webassembly/simd)
+
+- [Multi-value](https://github.com/WebAssembly/multi-value)
+
+- [JavaScript BigInt to WebAssembly i64 integration](https://github.com/WebAssembly/JS-BigInt-integration)
+
+- [Reference Types](https://github.com/WebAssembly/reference-types)
+
+---
+
+# Wasm 1.1 (Cont.)
+
+- [Bulk memory operations](https://github.com/WebAssembly/bulk-memory-operations)
+
+- [Import/Export of Mutable Globals](https://github.com/WebAssembly/mutable-global)
+
+- [Non-trapping float-to-int conversions](https://github.com/WebAssembly/nontrapping-float-to-int-conversions)
+
+- [Sign-extension operators](https://github.com/WebAssembly/sign-extension-ops)
+
+
+---
+
+# Wasm 2.0 Phase 3
+
+Implementation Phase (CG + WG)
+
+- [Tail call](https://github.com/WebAssembly/tail-call)
+
+- [Multiple memories](https://github.com/WebAssembly/multi-memory)
+
+- [Memory64](https://github.com/WebAssembly/memory64)
+
+- [Exception handling](https://github.com/WebAssembly/exception-handling)
+
+---
+
+# Wasm 2.0 Phase 3 (Cont.)
+
+ Implementation Phase (CG + WG)
+
+- [Web Content Security Policy](https://github.com/WebAssembly/content-security-policy)
+
+- [Branch Hinting](https://github.com/WebAssembly/branch-hinting)
+
+- [Extended Constant Expressions](https://github.com/WebAssembly/extended-const)
+
+- [Relaxed SIMD](https://github.com/WebAssembly/relaxed-simd)
+
+- [Custom Annotation Syntax in the Text Format](https://github.com/WebAssembly/annotations)
+
+---
+
+# Wasm 2.0 Phase 2
+
+Proposed Spec Text Available (CG + WG)
+
+- [Threads](https://github.com/webassembly/threads)
+
+- [Garbage collection](https://github.com/WebAssembly/gc)
+
+- [JS Promise Integration](https://github.com/WebAssembly/js-promise-integration)
+
+---
+
+# Wasm 2.0 Phase 2 (Cont.)
+
+Proposed Spec Text Available (CG + WG)
+
+- [ECMAScript module integration](https://github.com/WebAssembly/esm-integration)
+
+- [Type Reflection for WebAssembly JavaScript API](https://github.com/WebAssembly/js-types)
+
+- [Typed Function References](https://github.com/WebAssembly/function-references)
+
+- [Relaxed dead code validation](https://github.com/WebAssembly/relaxed-dead-code-validation)
+
+- [Numeric Values in WAT Data Segments](https://github.com/WebAssembly/wat-numeric-values)
+
+- [Instrument and Tracing Technology](https://github.com/WebAssembly/instrument-tracing)
+
+---
+
+# Code!
+
+---
+
+# Sections
+
+- Custom
+
+- Type
+
+- Import
+
+- Function
+
+- Table
+
+- Memory
+
+---
+
+# Sections (Cont.)
+
+- Global
+
+- Export
+
+- Start
+
+- Element
+
+- Code
+
+- Data
+
+---
+
+# What's Missing?
+
+- Strings
+
+- Collections
+
+  - List / Arrays / Vectors / Tuples
+
+  - Objects / Structs
+
+---
+
+# Component Model
+
+- ABI and WIT
+
+- [Playground](https://bytecodealliance.github.io/wit-bindgen/)
+
+- [WIT MVP](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md)
+
+- [WIT Cache Example](https://github.com/radu-matei/wasm-components-example/blob/main/cache.wit)
+
+---
+
+# WASI
+
+Defined in terms of WIT
+
+- [I/O](https://github.com/WebAssembly/wasi-io/blob/main/standard/io/witx/io_streams.witx)
+
+- [Filesystem](https://github.com/WebAssembly/wasi-filesystem)
+
+- ["Classic" Command-Line](https://github.com/WebAssembly/wasi-classic-command/tree/main/standard/classic-command)
+
+- [Clocks](https://github.com/WebAssembly/wasi-clocks)
+
+---
+
+# WASI (Cont.)
+
+- [Random](https://github.com/WebAssembly/wasi-random)
+
+- [Handle Index](https://github.com/WebAssembly/wasi-handle-index/tree/main/standard/wasi-handle-index)
+
+- [Poll](https://github.com/WebAssembly/wasi-poll)
+
+- [Machine Learning (wasi-nn)](https://github.com/WebAssembly/wasi-nn)
+
+???
+
+https://wasi.dev/
+https://github.com/bytecodealliance/wasmtime/blob/main/docs/WASI-overview.md
+https://github.com/WebAssembly/wasi-io/blob/main/docs/Proposals.md
+https://github.com/WebAssembly/wasi-clocks/blob/main/wasi-clocks.wit.md
+https://github.com/WebAssembly/wasi-filesystem/blob/main/wasi-filesystem.wit.md
+https://github.com/WebAssembly/wasi-random/blob/main/wasi-random.wit.md
+https://github.com/WebAssembly/wasi-poll/blob/main/wasi-poll.wit.md
+https://github.com/WebAssembly/wasi-nn/blob/main/wasi-nn.wit.md
+
+---
+
+# Vision
+
+VScode and other IDEs will have integrated support for components that expose
+their interfaces through the component model’s .wit definitions.
+
+--
+
+People will get full syntax highlighting and type checking when they create
+a component that relies upon another component.
+
+---
+
+# Vision
+
+There will be dependency visualization tools showing the chain of required
+components.
+
+--
+
+We will have public repositories, artifactory, and other repository vendors
+will all natively support storing, querying, and annotating WebAssembly
+modules.
+
+???
+
+https://wasmcloud.com/blog/road_to_ubiquity/
+
+---
+
+class: center, middle
+
+# Thanks
+
+Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+    </textarea>
+    <script src="../remark-20211014.js">
+    </script>
+    <script>
+      remark.create({
+        ratio: '16:9',
+        slideNumberFormat: '' // '%current% / %total%'
+      });
+    </script>
+  </body>
+</html>
