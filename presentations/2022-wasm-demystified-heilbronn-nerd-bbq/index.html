@@ -42,6 +42,52 @@ Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
 
 ---
 
+a memory-safe, sandboxed execution environment
+
+--
+
+designed to be encoded in a size- and load-time-efficient binary instruction format
+
+--
+
+for a stack-based virtual machine
+
+--
+
+designed as a portable compilation target
+
+--
+
+aims to execute at native speed
+
+---
+
+# Compared to x86 and ARM
+
+- Stack Machine vs Registers
+
+- Structured Instructions vs Jumps
+
+- Hardvard Architecture vs Von Neumann Architecture
+
+---
+
+background-color: white
+background-image: url(Von_Neumann_Architecture.svg)
+
+---
+
+background-color: white
+background-image: url(Harvard_Architecture.svg)
+
+---
+
+class: center, middle
+
+# Instructions
+
+---
+
 class: center, middle
 
 ![Smallest Wasm Compiler](code-1.png)
@@ -300,6 +346,16 @@ class: center, middle
 # Thanks
 
 Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+---
+
+The core implementation idea behind wasm sandboxing is that you can compile
+C/C++ into wasm code, and then you can compile that wasm code into native code
+for the machine your program actually runs on
+
+???
+
+https://hacks.mozilla.org/2020/02/securing-firefox-with-webassembly/
 
     </textarea>
     <script src="../remark-20211014.js">
