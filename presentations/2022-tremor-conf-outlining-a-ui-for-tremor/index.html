@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Outlining a UI for Tremor</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'sans'; }
+      .remark-slide-container, .remark-slide-content{
+          color:white;
+          background-color:#0d4774;
+      }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      .remark-slide-scaler{
+        box-shadow:none;
+      }
+      a,a:visited{color:white;}
+      code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+        text-align: center;
+      }
+      h1, h2, h3, p, li { line-height: 1.5em; }
+      .remark-slide-content.reverse{color:white;}
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
+      .slide-video{padding-top:1vh}
+      .slide-video video{height:61vh}
+      a{text-decoration-color:#ffffff44;text-underline-offset:5px}
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display:none">
+
+class: center, middle
+
+# Outlining a UI for Tremor
+
+Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+---
+
+# About
+
+- Tremor User
+
+--
+
+- [Future of Coding](https://futureofcoding.org/)
+
+--
+
+- [Instadeq](https://instadeq.com/)
+
+--
+
+- [GlooData](https://gloodata.com/)
+
+---
+
+class: center, middle
+
+# Disclaimer
+
+---
+
+# UI? What For?
+
+- Monitoring
+
+- Troubleshooting
+
+- Developing
+
+---
+
+class: center, middle
+
+# Community, Resources, Skills and Collaboration
+
+---
+
+class: center, middle
+
+![Tools for Conviviality](convivial-book.jpg)
+
+---
+
+Convivial tools give each user the greatest opportunity to enrich the
+environment with the fruits of his or her vision
+
+--
+
+Convivial tools encourage users to be actively engaged and to generate creative
+extensions to the artifacts given to them
+
+--
+
+For Example Emacs
+
+---
+
+The goal of making tools modifiable by the user does not imply transferring the
+responsibility of good tool design to the user
+
+--
+
+Convivial tools will remove from the maintainers the impossible task of
+anticipating all possible uses of a tool and all People’s needs
+
+--
+
+Most systems belong to one of the extremes of the spectrum of conviviality
+
+---
+
+# General purpose programming languages
+
+--
+
+- Powerful
+
+--
+
+- But hard to learn
+
+--
+
+- Often too far away from the conceptual structure of the problem
+
+--
+
+- Takes too long to get a task done or a problem solved
+
+
+---
+
+class: center, middle
+
+# Beware the Turing tar-pit
+
+# in which everything is possible
+
+# but nothing of interest is easy
+
+---
+
+# Turn-key systems
+
+--
+
+- Easy to use
+
+--
+
+- No special training required
+
+--
+
+- Can't be modified by the user
+
+---
+
+class: center, middle
+
+# Beware the over-specialized system
+
+# where operations are easy
+
+# but little of interest is possible
+
+---
+
+class: center, middle
+
+# Properties of a Live System
+
+From liveprog.org
+
+---
+
+# Live
+
+
+Live programming systems give the programmer immediate feedback on the output
+of a program as it is being edited
+
+--
+
+Replacing the edit-compile-debug cycle with a fluid programming experience
+
+---
+
+# Structure
+
+“Structure-aware” programming environments understand and preserve that
+structure
+
+--
+
+Allow operations at the level of the structure, rather than at the level of raw
+text
+
+---
+
+# Tangible
+
+In the traditional view of programs, execution takes place behind the scenes,
+and leaves little record of what happened
+
+--
+
+We are interested in programming systems that make execution transparent,
+tangible and explorable
+
+---
+
+# Concrete
+
+People find it easier to start with concrete examples and generalise afterwards
+
+---
+
+background-image: url(design-emergence.webp)
+
+---
+
+background-image: url(long-tail.webp)
+
+???
+
+https://rhizomerd.substack.com/p/when-to-design-for-emergence
+
+---
+
+# Monitoring (System Level)
+
+- Tremor in Tremor
+
+---
+
+# Troubleshooting
+
+- Erlang's Observer
+
+- eBPF/dtrace-style dynamic probes
+
+---
+
+background-image: url(observer-remote.png)
+
+---
+
+# Developing
+
+- REPL: libtremor or Transient Pipelines
+
+- Record Sample Traces
+
+- eBPF/dtrace-style probes
+
+---
+
+class: center, middle
+
+# Standing on The Shoulders of Giants
+
+Headless UI / Tool Server
+
+---
+
+class: center, middle
+
+# Glamorous Toolkit
+
+## Moldable Development in SmallTalk
+
+gtoolkit.com
+
+---
+
+background-image: url(lepiter-jenkins.png)
+
+---
+
+class: center, middle
+
+# Livebook
+
+## Interactive &amp; collaborative code notebooks in Elixir
+
+livebook.dev
+
+---
+
+background-image: url(livebook.png)
+
+---
+
+class: center, middle
+
+# Nushell
+
+## A new type of shell
+
+nushell.sh
+
+---
+
+background-image: url(ls-example.png)
+
+---
+
+background-image: url(fetch-example.png)
+
+---
+
+# Low Code / No Code
+
+- Node and Wire
+
+- Block Editor
+
+- Structured Editor
+
+- Or ...
+
+---
+
+class: center, middle
+
+# Thanks
+
+Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+---
+
+- [Tools for Conviviality](https://ia801707.us.archive.org/29/items/illich-conviviality/Illich_Conviviality.pdf)
+- [Constrained Design Processes: Steps Towards Convivial Computing](https://core.ac.uk/download/pdf/54846379.pdf)
+- [When to Design for Emergence](rhizomerd.substack.com/p/when-to-design-for-emergence)
+- gtoolkit.com
+- livebook.dev
+- nushell.sh
+- futureofcoding.org
+- instadeq.com
+- gloodata.com
+
+    </textarea>
+    <script src="../remark-20211014.js">
+    </script>
+    <script>
+      remark.create({
+        ratio: '16:9',
+        slideNumberFormat: '' // '%current% / %total%'
+      });
+    </script>
+  </body>
+</html>
