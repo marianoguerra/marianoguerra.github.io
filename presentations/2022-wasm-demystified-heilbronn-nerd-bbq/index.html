@@ -22,7 +22,9 @@
       code{font-size: 0.8em !important;}
       h1, h2, h3 {
         font-weight: normal;
+        text-align: center;
       }
+      h1, h2, h3, p, li { line-height: 1.5em; }
       .remark-slide-content.reverse{color:white;}
       .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
       .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
@@ -42,43 +44,46 @@ Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
 
 ---
 
-a memory-safe, sandboxed execution environment
+class: center, middle
 
---
+# I'm Writing a Book!
 
-designed to be encoded in a size- and load-time-efficient binary instruction format
+## [WasmFromTheGroundUp.github.io](https://wasmfromthegroundup.github.io/)
 
---
-
-for a stack-based virtual machine
-
---
-
-designed as a portable compilation target
-
---
-
-aims to execute at native speed
+With [Patrick Dubroy](https://twitter.com/dubroy/) from [ohm.js](https://ohmjs.org/)
 
 ---
 
-# Compared to x86 and ARM
+Memory-safe, sandboxed execution environment
+
+--
+
+Designed to be encoded in a size- and load-time-efficient binary instruction format
+
+--
+
+For a stack-based virtual machine
+
+--
+
+Designed as a portable compilation target
+
+--
+
+Aims to execute at native speed
+
+---
+
+# Wasm vs to x86 and ARM
 
 - Stack Machine vs Registers
-
+  - pop a, pop b, add
+  - add r1 r2
 - Structured Instructions vs Jumps
-
+  - goto / jump considered harmful
 - Hardvard Architecture vs Von Neumann Architecture
-
----
-
-background-color: white
-background-image: url(Von_Neumann_Architecture.svg)
-
----
-
-background-color: white
-background-image: url(Harvard_Architecture.svg)
+  - Data | Code vs Data + Code
+  - JIT and Exploits
 
 ---
 
@@ -94,9 +99,7 @@ class: center, middle
 
 ---
 
-class: center
-
-![Smallest Wasm Function](code-2.png)
+background-image: url(code-2.png)
 
 ---
 
@@ -206,6 +209,12 @@ Proposed Spec Text Available (CG + WG)
 - [Type Reflection for WebAssembly JavaScript API](https://github.com/WebAssembly/js-types)
 
 - [Typed Function References](https://github.com/WebAssembly/function-references)
+
+---
+
+# Wasm 2.0 Phase 2 (Cont.)
+
+Proposed Spec Text Available (CG + WG)
 
 - [Relaxed dead code validation](https://github.com/WebAssembly/relaxed-dead-code-validation)
 
@@ -344,6 +353,8 @@ https://wasmcloud.com/blog/road_to_ubiquity/
 class: center, middle
 
 # Thanks
+
+## [WasmFromTheGroundUp.github.io](https://wasmfromthegroundup.github.io/)
 
 Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
 
