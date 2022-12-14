@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UTN - SSL - Instadeq</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'sans'; }
+      .remark-slide-container, .remark-slide-content{
+          color:white;
+          background-color:#0d4774;
+      }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      .remark-slide-scaler{
+        box-shadow:none;
+      }
+      a,a:visited{color:white;}
+      code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+        text-align: center;
+      }
+      h1, h2, h3, p, li { line-height: 1.5em; }
+      .remark-slide-content.reverse{color:white;}
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
+      .slide-video{padding-top:1vh}
+      .slide-video video{height:61vh}
+      a{text-decoration-color:#ffffff44;text-underline-offset:5px}
+    </style>
+  </head>
+  <body>
+    <textarea id="source" style="display:none">
+
+class: center, middle
+
+# Y esto para que sirve?
+
+Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+---
+
+class: center, middle
+
+# [FutureOfCoding.org](https://futureofcoding.org/)
+
+[Future of Coding Weekly](https://tinyletter.com/marianoguerra/)
+
+---
+
+class: center, middle
+
+# Libro sobre compiladores
+
+## [WasmFromTheGroundUp.com](http://wasmfromthegroundup.com/)
+
+Con [Patrick Dubroy](https://twitter.com/dubroy/) de [ohm.js](https://ohmjs.org/)
+
+---
+
+class: middle
+
+Socio: Javier Dall' Amore
+
+- Gnandoo
+  - 🇩🇪 2013 - 2021
+
+- [Instadeq Inc](https://instadeq.com/)
+  - 🇺🇸 2021 - ?
+
+---
+
+class: center, middle
+
+[Instadeq: A Live Programming Environment for End User Data Analysis and Visualization](http://liveprog.org/live-2021/Instadeq-A-Live-Programming-Environment-for-End-User-Data-Analysis-and-Visualization/)
+
+[Seventh Workshop on Live Programming (LIVE 2021)](http://liveprog.org/live-2021/#proceedings)
+
+---
+
+class: center, middle
+
+![Devices](https://instadeq.com/assets/images/devices-w800.png)
+
+---
+
+background-image: url(../2021-live/img/idq-empty-deck.png)
+
+---
+
+background-image: url(../2021-live/img/idq-sources.png)
+
+---
+
+background-image: url(../2021-live/img/idq-data-manipulation.png)
+
+---
+
+background-image: url(../2021-live/img/idq-visual.png)
+
+---
+
+background-image: url(../2021-live/img/idq-event-cards.png)
+
+---
+
+class: center, slide-video
+
+<video controls src="../2021-live/video/idq-csv.mp4">
+
+---
+
+background-image: url(../2021-live/img/idq-xls-1.jpg)
+
+---
+
+background-image: url(../2021-live/img/idq-xls-2.jpg)
+
+---
+
+background-image: url(../2021-live/img/idq-json-1.jpg)
+
+---
+
+background-image: url(../2021-live/img/idq-json-2.jpg)
+
+---
+
+background-image: url(../2021-live/img/idq-json-3.jpg)
+
+---
+
+class: center, slide-video
+
+<video controls src="../2021-live/video/idq-magic-wand.mp4">
+
+---
+
+class: center, slide-video
+
+<video controls src="../2021-live/video/idq-magic-wand-cards.mp4">
+
+---
+
+background-image: url(../2021-live/img/cards-01-inputs.png)
+
+---
+
+background-image: url(../2021-live/img/cards-02-a-query.png)
+
+---
+
+background-image: url(../2021-live/img/cards-02-feditor-math.png)
+
+---
+
+background-image: url(../2021-live/img/cards-03-feditor-logic.png)
+
+---
+
+background-image: url(../2021-live/img/cards-04-feditor-text.png)
+
+---
+
+background-image: url(../2021-live/img/cards-06-feditor-functions.png)
+
+---
+
+background-image: url(../2021-live/img/cards-07-feditor-records.png)
+
+---
+
+background-image: url(../2021-live/img/cards-08-feditor-lists.png)
+
+---
+
+background-image: url(../2021-live/img/cards-09-feditor-colors.png)
+
+---
+
+background-image: url(../2021-live/img/cards-10-feditor-emoji.png)
+
+---
+
+background-image: url(../2021-live/img/cards-11-feditor-where.png)
+
+---
+
+background-image: url(../2021-live/img/cards-12-feditor-chart-setting.png)
+
+---
+
+background-image: url(../2021-live/img/cards-13-output.png)
+
+---
+
+background-image: url(../2021-live/img/cards-14-output-selected.png)
+
+---
+
+class: center, slide-video
+
+<video controls playsinline src="../2021-live/video/idq-feditor.mp4">
+
+---
+
+class: center, middle
+
+# Historia
+
+---
+
+class: center, middle
+
+# Event Fabric: 2013 - 2016
+
+---
+
+background-image: url(../2021-live/img/ef-dashboard.png)
+
+---
+
+background-image: url(../2021-live/img/ef-layout.png)
+
+---
+
+class: center
+
+background-image: url(../2021-live/img/ef-graph.png)
+
+---
+
+background-image: url(../2021-live/img/ef-blocks.png)
+
+---
+
+background-image: url(../2021-live/img/ef-block-section-1.png)
+
+---
+
+background-image: url(../2021-live/img/ef-block-templates.png)
+
+---
+
+class: center, middle
+
+# Instadeq 1: 2017 - 2019
+
+---
+
+background-image: url(../2021-live/img/idq1-dashboard.png)
+
+---
+
+background-image: url(../2021-live/img/idq1-home.png)
+
+---
+
+background-image: url(../2021-live/img/idq1-layout.png)
+
+---
+
+background-image: url(../2021-live/img/idq1-chart.png)
+
+---
+
+background-image: url(../2021-live/img/idq1-data-manipulation.png)
+
+---
+
+background-image: url(../2021-live/img/idq1-feditor.png)
+
+---
+
+class: center, middle
+
+# Instadeq: 2019 - 2021
+
+---
+
+class: center, middle
+
+# 2022 - ????: GlooData
+
+---
+
+background-image: url(./img/GlooData-0.png)
+
+---
+
+background-image: url(./img/GlooData-1.png)
+
+---
+
+background-image: url(./img/GlooData-2.png)
+
+---
+
+background-image: url(./img/GlooData-3.png)
+
+---
+
+background-image: url(./img/GlooData-4.png)
+
+---
+
+background-image: url(./img/GlooData-5.png)
+
+---
+
+background-image: url(./img/GlooData-6.png)
+
+---
+
+background-image: url(./img/GlooData-7.png)
+
+---
+
+class: center, middle
+
+# Visual
+
+---
+
+[Sonic Blocks](https://github.com/marianoguerra/sonic-blocks)
+
+![sonic blocks](img/sonic-blocks-screenshot.png)
+
+---
+
+[Band Blocks](https://github.com/marianoguerra/band-blocks)
+
+![band blocks](img/BandBlocks.webp)
+
+---
+
+# Erlang
+
+- [Efene](http://efene.org/)
+- [Interfix](https://github.com/marianoguerra/interfix)
+- [OTL: One true language](https://github.com/marianoguerra/otl)
+- [Elixir Flavoured Erlang](https://github.com/marianoguerra/efe)
+  - [OTP.ex](https://github.com/marianoguerra/otp.ex)
+- [Elixir Flavoured Lisp Flavoured Erlang](https://github.com/marianoguerra/efe#eflfe-elixir-flavoured-lisp-flavoured-erlang)
+- [DTU is a data format that, unlike YAML, allows to define pretty decent programming language](https://github.com/spawnfest/dtu)
+
+---
+
+class: center, middle
+
+[Language Interoperability Working Group](https://erlef.org/wg/language-interop)
+
+[Erlang Ecosystem Foundation](https://erlef.org)
+
+---
+
+# Otros Lenguajes
+
+- [HTML Is A Programming Language](https://github.com/marianoguerra/hiapl)
+- [BEAMoji](https://github.com/spawnfest/beamoji/blob/%E2%93%82%EF%B8%8F/JUDGES.md)
+- [Forth implemented in C, JS, WebAssembly and compiled from C to asm.js and WebAssembly](https://marianoguerra.github.io/ricardo-forth/)
+- [plang: scheme like language implemented with PyPy](https://github.com/marianoguerra/plang)
+- [squim: a scheme/kernel language implemented in JS](https://github.com/marianoguerra/squim)
+
+---
+
+# Parsers
+
+- [Firestore Query Parser](https://github.com/instadeq/firestore-query-parser-js)
+- [transito: edn parser](https://github.com/marianoguerra/transito)
+- [erldn: erlang edn parser](https://github.com/marianoguerra/erldn)
+- [qrly: jquery-like selectors for HTML/XML in Erlang](https://github.com/marianoguerra/qrly)
+- [legojs: build HTML with CSS-like selectors in JS](https://github.com/marianoguerra/legojs)
+- [emel: build HTML with CSS-like selectors in Erlang](https://github.com/marianoguerra/emel)
+- [fnt: jquery-templates in Erlang](https://github.com/marianoguerra/fnt---efene-templates)
+
+???
+
+DSLs
+
+---
+
+# Presentaciones
+
+- [Efene a programming language for the erlang VM - London Erlang Factory 2010](http://www.erlang-factory.com/conference/London2010/speakers/MarianoGuerra)
+- [Efene Programming Language - Brussels Erlang Factory Lite 2012](http://www.erlang-factory.com/conference/Brussels/speakers/MarianoGuerra)
+- [Hagamos un lenguaje de programación con pypy por Mariano Guerra - PyConAr 2013](https://www.youtube.com/watch?v=_YcT01M9ZTI)
+
+---
+
+# Presentaciones
+
+- How BEAM Languages are Made
+  - [Basel Erlang Meetup 2016](http://marianoguerra.org/talks/erlang-basel-meetup/#/efene-how-beams-are-made)
+  - [Karlsruhe Elixir Meetup 2016](http://marianoguerra.org/talks/elixir-karlsruhe-meetup/#/how-beams-are-made)
+  - [BEAM Buenos Aires Meetup 2016](http://marianoguerra.org/talks/beamba-buenos-aires-meetup/)
+- [Video: Implementing Languages on the BEAM - Code BEAM SF 2018](https://www.youtube.com/watch?v=lkAbwmn5Rv8)
+- [Un Paseo por el Laberinto de las Representaciones - ElixirConfLA Medellin 2019](https://www.youtube.com/watch?v=PrSdwC8H84E) ([Slides](https://marianoguerra.github.io/presentations/2019-medellin-elixir-conf-la-laberinto-representaciones/#1))
+
+---
+
+# Presentaciones
+
+- [Programming by any other name - Bob 2020 - Berlin](https://www.youtube.com/watch?v=dZC__eDU60M&list=PLHvf3gk-RdgWClskb81nBwwCCv7sRZqDm&index=16&t=0s) ([Slides](https://marianoguerra.github.io/presentations/2020-berlin-bobkonf-programming-by-any-other-name/#1))
+- [BEAM Language Ecosystem: Past, Present and Future - Code BEAM Brasil 2020](https://www.codebeambr.com/video/10) ([Slides](https://marianoguerra.github.io/presentations/2020-codebeam-brazil/BEAM%20Language%20Ecosystem%20Past%2C%20Present%20and%20Future.pdf))
+- Elixir Flavoured Erlang - Erlang User Group Meetup ([Slides](https://marianoguerra.github.io/presentations/2020-erlug-elixir-flavoured-erlang/))
+- The Platform of the System - Code BEAM Brasil 2021 ([Slides](https://marianoguerra.github.io/presentations/2021-codebeam-brasil/The%20Platform%20of%20The%20System%20-%20Code%20BEAM%20Brasil%202021.pdf))
+
+---
+
+# Presentaciones
+
+- [Seeing Like a Linguist - Code BEAM Coruña 2022](https://www.youtube.com/watch?v=-huejXtJJT4) ([Slides](http://marianoguerra.github.io/presentations/2022-codebeam-galicia/))
+- [Fireside chat on BEAM Languages with Erlang co inventor Robert Virding & Mariano Guerra - Code BEAM America 2021](https://www.youtube.com/watch?v=-o_UFjCyum4)
+- [WebAssembly Demysteified - Heilbronn Nerd BBQ October 2022](http://marianoguerra.github.io/presentations/2022-wasm-demystified-heilbronn-nerd-bbq/)
+- [Outlining a UI for Tremor - Tremor Con 2022](http://marianoguerra.github.io/presentations/2022-tremor-conf-outlining-a-ui-for-tremor/)
+
+---
+
+class: center, middle
+
+# Donde mas?
+
+---
+
+class: middle
+
+- No-Code
+  - [Zapier](https://zapier.com/)
+- Low-Code
+  - [Retool](https://retool.com/)
+- [Algorave](https://algorave.com/)
+
+---
+
+class: middle
+
+- Notebooks
+  - [Jupyter](https://jupyter.org/), [Livebook](https://livebook.dev/), [Observable](https://observablehq.com/), [Hex](https://hex.tech/), [Clerk](https://clerk.vision/)
+- Moldable Development
+  - [Glamorous Toolkit](https://gtoolkit.com/)
+- Programacion Colaborativa
+  - [Replit](https://replit.com/)
+
+---
+
+class: middle
+
+- [Github Copilot](https://github.com/features/copilot)
+- [ChatGPT](https://openai.com/blog/chatgpt/)
+- [Future of Coding](https://futureofcoding.org/catalog/)
+  - [Unison](https://www.unison-lang.org/), [Dark](https://darklang.com/), [Hazel](https://hazel.org/), [Enzo](https://enso.org/), [Tylr](https://www.youtube.com/watch?v=rlUC8glDACE)
+
+---
+
+class: middle
+
+- Infrastructure as Code
+  - [pulumi.com](https://www.pulumi.com/)
+- Forma Specifications
+  - [TLA+](https://www.learntla.com/)
+  - [Alloy](http://alloytools.org/)
+- State Machines
+  - [Stately.ai](https://stately.ai/)
+
+---
+
+class: middle
+
+# Lenguajes de Configuracion
+
+- [dhall-lang.org](https://dhall-lang.org/)
+- [cuelang.org](https://cuelang.org/)
+- [nickel-lang.org](https://nickel-lang.org/)
+- [jsonnet.org](https://jsonnet.org/)
+- [finitio.io](https://www.finitio.io/)
+
+---
+
+class: middle
+
+# Lenguajes de Consulta
+
+- [Malloy](https://www.malloydata.dev/)
+- [DataFun](http://www.rntz.net/datafun/)
+- [JQ](https://stedolan.github.io/jq/)
+- [Ultorg](https://www.ultorg.com/)
+
+---
+
+class: middle
+
+# Tecnicas y Herramientas
+
+- PEGs: Parsing Expression Grammars
+- [Tree Sitter](https://tree-sitter.github.io/tree-sitter/)
+- [Language Server Protocol](https://microsoft.github.io/language-server-protocol/)
+
+---
+
+class: middle
+
+# HCI: Human Computer Interaction
+
+- [Bret Victor Talks](https://www.programmingtalks.org/speaker/bret-victor)
+- [Ink &amp; Switch](https://www.inkandswitch.com/)
+
+---
+
+class: center, middle
+
+# Gracias
+
+Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+    </textarea>
+    <script src="../remark-20211014.js">
+    </script>
+    <script>
+      remark.create({
+        ratio: '16:9',
+        slideNumberFormat: '' // '%current% / %total%'
+      });
+    </script>
+  </body>
+</html>
