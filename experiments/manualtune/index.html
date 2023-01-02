@@ -2,13 +2,13 @@
 <html>
  <head>
   <meta charset=utf-8>
+  <meta name=viewport content="width=device-width,minimum-scale=1.0,initial-scale=1,maximum-scale=1.0,user-scalable=no">
   <title>Manual Tune</title>
 <style>*{box-sizing:border-box}button{min-width:5rem}</style>
  </head>
  <body>
-  <div style="margin: 40vh auto;width: fit-content;text-align: center">
+  <div style="margin: 30vh auto;width: fit-content;text-align: center">
    <p id="note" style="font-size: 3rem"></p>
-   <p id="diff" style="margin: 1em 0"></p>
    <div style="display:none">
        <span id="freqTarget"></span>
        <span id="curFreq"></span>
@@ -20,11 +20,13 @@
      <button id="play">Play</button>
    </div>
 
-   <div style="display:flex;gap:1em;margin-top:1em">
+   <div style="display:flex;gap:1em;margin-top:2em">
      <button id="next">Next</button>
      <button id="help">Help</button>
      <button id="done">Guess</button>
    </div>
+
+   <p id="diff" style="margin: 1em 0"></p>
 
   </div>
 
