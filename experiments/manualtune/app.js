@@ -29,8 +29,7 @@ class Game {
     this.curFreq = 0;
     this.noteName = "?";
     this.freqTarget = 0;
-    this.synth = new Tone.AMSynth().toDestination();
-    this.helpSynth = new Tone.AMSynth().toDestination();
+    this.synth = new Tone.Synth().toDestination();
     this.nextIndex(5);
   }
   getGuessDistance() {
