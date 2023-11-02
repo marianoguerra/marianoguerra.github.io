@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>🤖 LLMs Demistified</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'sans'; }
+      .remark-slide-container, .remark-slide-content{
+          color:white;
+          background-color:#0d4774;
+      }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      .remark-slide-scaler{
+        box-shadow:none;
+      }
+      a,a:visited{color:white;}
+      code{font-size: 0.8em !important;font-family:monospace}
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+      .remark-slide-content.reverse{color:white;}
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
+      .slide-video{padding-top:1vh}
+      .slide-video video{height:61vh}
+      .slide-table{padding:1em 0}
+      .no-padding{padding:0}
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# LLMs Demystified
+
+---
+
+# tl;dr
+
+- An LLM model is a binary file
+- An LLM is a function 
+  - `fn (prompt: str, seed: int) -> str`
+- They guess the next word (token)
+
+---
+
+# An LLM model is a binary file
+
+```sh
+ls -lh ./.cache/gpt4all/mistral-7b-openorca.Q4_0.gguf
+
+-rw-r--r--@ 1 mariano  staff   3.8G Oct 27 15:30 ./.cache/gpt4all/mistral-7b-openorca.Q4_0.gguf
+```
+
+---
+
+# An LLM is a function
+
+```sh
+pip3 install llm llm-gpt4all
+```
+
+```python
+import llm
+model = llm.get_model('mistral-7b-openorca')
+response = model.prompt('the capital of france is')
+print(response)
+```
+
+⏳
+
+```
+The capital of France is Paris.
+``` 
+
+- https://llm.datasette.io/en/stable/
+
+---
+
+
+# They guess the next word (token)
+
+```sh
+pip install openplayground
+openplayground run
+```
+
+- [http://localhost:5432/](http://localhost:5432/)
+- [https://github.com/nat/openplayground](https://github.com/nat/openplayground)
+
+---
+
+background-image: url(./openplayground.png)
+
+---
+
+class: center, middle
+
+# Tokenization
+
+[https://platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
+
+---
+
+# OpenAI Status
+
+- [GPT 3.5-turbo](https://openai.com/blog/chatgpt)
+- [GPT 4](https://openai.com/gpt-4)
+- [Multimodality](https://openai.com/blog/chatgpt-can-now-see-hear-and-speak)
+- [Fine Tuning](https://platform.openai.com/docs/guides/fine-tuning/)
+- [DALL-E 3](https://openai.com/dall-e-3)
+
+---
+
+# Competition
+
+- [Google: Bard](bard.google.com/)
+- [Anthropic: Claude](https://www.anthropic.com/index/claude-2)
+- [Mistral.ai: Mistral](https://mistral.ai/)
+- [Meta: Llama 1/2](https://ai.meta.com/llama/)
+  - "Open Source"
+- [UAE: Falcon](https://falconllm.tii.ae/)
+
+---
+
+# Models for Code
+
+- [GitHub: CoPilot](https://github.com/features/copilot)
+- [OpenAI: Code Interpreter](https://openai.com/blog/chatgpt-plugins#code-interpreter)
+- [CodeLlama](https://github.com/facebookresearch/codellama)
+- [WizardCoder](https://huggingface.co/WizardLM/WizardCoder-15B-V1.0)
+- [Replit: Replit Code](https://blog.replit.com/replit-code-v1_5)
+- [StarCoder](https://huggingface.co/blog/starcoder)
+
+---
+
+# Multimodal
+
+Chat:
+
+- ChatGPT
+- Bard
+
+Image:
+
+- DALL-E 3
+- Midjourney
+
+Video:
+
+- [Runway](https://runwayml.com/)
+
+---
+
+# Open Problems
+
+- [Interpretability](https://twitter.com/AnthropicAI/status/1709986949711200722)
+  - "It's much easier to tell if something is safe if you can understand how it works"
+- Hallucinations
+  - Papers, Libraries, Functions, Products
+- Factual Knoledge (RAG)
+- Formal Reasoning / "Math" (ReAct)
+- Planning (Chain / Tree of Thought)
+- Attribution
+- "Common Sense"
+
+---
+
+# Concepts
+
+- Context Windows
+- Parameters
+- Embeddings
+- Quantization
+- Vector Databases
+
+---
+
+# Parameters
+
+Parameters are the weights the model learned during training, used to predict the next token in the sequence.
+
+"Large" can refer either to the number of parameters in the model, or sometimes the number of words in the dataset.
+
+???
+
+https://developers.google.com/machine-learning/resources/intro-llms
+
+---
+
+# Embeddings
+
+Embeddings are based around one trick: take a piece of content—in this case a blog entry—and turn that piece of content into an array of floating point numbers.
+
+The key thing about that array is that it will always be the same length, no matter how long the content is. The length is defined by the embedding model you are using—an array might be 300, or 1,000, or 1,536 numbers long.
+
+The best way to think about this array of numbers is to imagine it as co-ordinates in a very weird multi-dimensional space.
+
+???
+
+https://simonwillison.net/2023/Oct/23/embeddings/
+
+---
+
+class: center, middle
+
+![compass](./compass.webp)
+
+---
+
+# Vector Stores
+
+Local:
+
+- [Chroma](https://www.trychroma.com/)
+- [Milvus](https://milvus.io/)
+
+Cloud:
+
+- [Pinecone](https://www.pinecone.io/)
+
+[More here](https://docs.llamaindex.ai/en/stable/module_guides/storing/vector_stores.html#vector-store-options-feature-support)
+
+---
+
+# Tools
+
+- [Hugging Face](https://huggingface.co/)
+- [llama.cpp](https://github.com/ggerganov/llama.cpp) / [whisper.cpp](https://github.com/ggerganov/whisper.cpp) / [ggml](https://github.com/ggerganov/ggml)
+- [llm](https://llm.datasette.io/en/stable/)
+- [aichat](https://github.com/sigoden/aichat)
+- [Whisper](https://github.com/openai/whisper)
+- [LangChain](https://www.langchain.com/)
+  - [Re-implementing LangChain in 100 lines of code](https://blog.scottlogic.com/2023/05/04/langchain-mini.html)
+- [LlamaIndex](https://www.llamaindex.ai/)
+- [Microsoft Semantic Kernel](https://github.com/microsoft/semantic-kernel)
+
+---
+
+background-image: url(./ULMFiT.png)
+
+---
+
+# Training
+
+- LM pre-training: all content
+- LM fine-tuning: documents for the use case
+- Classifier fine tunning: RLHF (Reinforce Learning with Human Feedback)
+
+Analogy:
+
+- Having general education (Natural Language)
+- Then specializing in programming (Programming)
+- Then in python (Python)
+
+---
+
+class: center, middle
+
+![shoggoth](./shoggothhh_header.jpg)
+
+---
+
+# Techniques
+
+- Chain of Thought
+- Tree of Thought
+- RAG
+- ReAct (Reason + Act)
+- Prompt Engineering
+- Prompt Injection
+- Toolformer, Function Calls, Chat GPT Plugins
+
+---
+
+class: center, middle
+
+# ReAct (Reason + Act)
+
+Aside from the Apple Remote, what other devices can control the program Apple Remote was originally designed to interact with?
+
+---
+
+class: center
+
+# ReAct (Reason + Act)
+
+![ReAct](./react-1.png)
+
+---
+
+background-image: url(./react-2.webp)
+
+---
+
+# Patterns
+
+- Evals: To measure performance
+- RAG: To add recent, external knowledge
+  - Retrieval-Augmented Generation (RAG) fetches relevant data from outside the foundation model and enhances the input with this data, providing richer context to improve output.
+- Fine-tuning: To get better at specific tasks
+- Caching: To reduce latency & cost
+- Guardrails: To ensure output quality
+- Defensive UX: To anticipate & manage errors gracefully
+- Collect user feedback: To build our data flywheel
+  - midjourney
+
+???
+
+https://eugeneyan.com/writing/llm-patterns/
+
+---
+
+background-image: url(./rag.webp)
+
+???
+
+https://towardsdatascience.com/rag-vs-finetuning-which-is-the-best-tool-to-boost-your-llm-application-94654b1eaba7
+
+---
+
+background-image: url(./mj.jpg)
+
+---
+
+class: center, middle
+
+# Thanks
+
+    </textarea>
+    <script src="./remark.js">
+    </script>
+    <script>
+      remark.create({
+        ratio: '16:9',
+        slideNumberFormat: '' // '%current% / %total%'
+      });
+    </script>
+  </body>
+</html>
