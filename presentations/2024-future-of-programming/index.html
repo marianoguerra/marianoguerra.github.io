@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Future of Programming</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: 'sans'; }
+      .remark-slide-container, .remark-slide-content{
+          color:white;
+          background-color:#0d4774;
+      }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      .remark-slide-scaler{
+        box-shadow:none;
+      }
+      a,a:visited{color:white;}
+      code{font-size: 0.8em !important;font-family:monospace}
+      h1, h2, h3 {
+        font-weight: normal;
+      }
+      .remark-slide-content.reverse{color:white;}
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
+      .slide-video{padding-top:1vh}
+      .slide-video video{height:61vh}
+      .slide-table{padding:1em 0}
+      .no-padding{padding:0}
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Future of Programming
+
+Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+---
+
+class: center, middle
+
+# [futureofcoding.org](https://futureofcoding.org/)
+
+---
+
+class: center, middle
+
+# [Whole Code Catalog](https://futureofcoding.org/catalog/)
+
+The goal of the Whole Code Catalog is to provide inspiration for the tools you will one day create.
+
+---
+
+class: center, middle
+
+# From Present to Future
+
+---
+
+# [MoonBit](https://www.moonbitlang.com/) (alpha)
+
+MoonBit is an end-to-end programming language toolchain for cloud and edge computing using WebAssembly.
+
+
+- Generate significantly smaller WASM output than any existing solutions.
+- Much faster runtime performance.
+- State of the art compile-time performance.
+- Simple but practical, data-oriented language design.
+
+---
+
+# WebAssembly & Component Model
+
+- Define a portable, load- and run-time-efficient binary format for separately-compiled components built from WebAssembly core modules that enable portable, cross-language composition.
+
+- Support the definition of portable, virtualizable, statically-analyzable, capability-safe, language-agnostic interfaces
+
+🎥 [What is a Component (and Why)? - Luke Wagner](https://www.youtube.com/watch?v=tAACYA1Mwv4)
+
+📘 [The WebAssembly Component Model](https://component-model.bytecodealliance.org/)
+
+---
+
+class: center, middle
+
+# [Moldable Development](https://gtoolkit.com/) 
+
+It empowers you to make systems explainable through experiences tailored for each problem.
+
+---
+
+class: center, middle
+
+# [unison-lang.org](https://www.unison-lang.org/) - [unison.cloud](https://www.unison.cloud/)
+
+A new approach to Distributed programming
+
+Deploy with a function call. Call services as easily as local functions. Access storage as easily as in-memory data structures.
+
+---
+
+# Unison, a new approach to:
+
+- Distributed programming: Say where you want computations to run and it happens — Dependencies are deployed on the fly. 
+
+- Refactoring: Your codebase is always live and typechecks, even in the middle of a refactoring.
+
+---
+
+# Unison, a new approach to:
+
+- Durable storage: Directly store values and unpersist them later without fear of dependency conflicts or version mismatches.
+
+- Storing code: Unison stores code in a database. This eliminates builds, provides for instant nonbreaking renames, type-based search, and lots more.
+
+- Dependencies: Since Unison references code by hash instead of by name, an entire class of conflicts can be eliminated.
+
+---
+
+class: center, middle
+
+[Electric Clojure](https://github.com/hyperfiddle/electric)
+
+A reactive DSL for full-stack web development, with compiler-managed frontend/backend network sync
+
+![Electric Explainer](./img/electric-explainer-5.png)
+
+---
+
+# Rama
+
+[Rama](https://redplanetlabs.com/) is **a new programming platform** that **reduces the cost of building scalable backends by 100x**. Rama integrates and generalizes every aspect of **data ingestion, processing, indexing, and querying**.
+
+[How we reduced the cost of building Twitter at Twitter-scale by 100x](https://blog.redplanetlabs.com/2023/08/15/how-we-reduced-the-cost-of-building-twitter-at-twitter-scale-by-100x/)
+
+---
+
+# [Croquet](https://croquet.io/): Multiplayer Platform for Web and Unity
+
+Croquet removes the complexity of traditional client/server systems and eliminates netcode, enabling synchronized simulations and gameplay that have simply not been possible.
+
+Your project is multiuser from the first line of code and operations costs drop dramatically.
+
+---
+
+class: center, middle
+
+# Croquet OS
+
+A synchronization system for multiuser Metaverse experiences. It allows multiple users to work or play together within a single shared distributed environment, and it guarantees that this distributed environment will remain bit-identical for every user. 
+
+
+---
+
+# Verse Programming Language
+
+[Verse](https://dev.epicgames.com/documentation/en-us/uefn/verse-language-reference)’s primary design goals:
+
+- **Simple** enough to learn as a first-time programmer.
+- **General** enough for writing any kind of code and data.
+- **Productive** in the context of building, iterating, and shipping a project in a team setting, and integrating code and content.
+
+🎥 [Beyond functional programming: a taste of Verse](https://www.youtube.com/watch?v=OJv8rFap0Nw)
+
+---
+
+# Verse design goals (cont.)
+
+- **Statically verified** to catch as many categories of runtime problems as possible at compile time.
+- **Performant** for writing real-time, open-world, multiplayer games.
+- **Complete** so that every feature of the language supports programmer abstraction over that feature.
+- **Timeless** — built for the needs of today, and for foreseeable future needs, without being rooted in the past artifacts of other languages.
+
+---
+
+# Verse Programming Language
+
+- Strongly typed
+- Multi-paradigm
+- Failure is control flow
+- Ability to do speculative execution
+- Concurrency at the language level
+
+---
+
+class: center, middle
+
+# [Hazel](https://hazel.org/)
+
+A live functional programming environment that is able to typecheck, manipulate, and even run incomplete programs, i.e. programs with holes. **There are no meaningless editor states**.
+
+---
+
+class: center, middle
+
+# [folk.computer](https://folk.computer/)
+
+A research & art project, centered around designing new physical computing interfaces.
+
+![folk computer demo](./img/folkcomputer.gif)
+
+---
+
+# folk.computer's aims:
+
+- To endow physical objects with computational properties (e.g. position, state, and actions).
+- To allow users to script programs which target and are activated by those objects.
+- To combine those programs into interfaces which exercise the body.
+- To pull the computer out of screens, into human-scale rooms.
+- To make that room a space of social gathering.
+
+---
+
+class: center, middle
+
+# Dynamic Land - [dynamicland.org](https://dynamicland.org/)
+
+Dynamicland is a **communal computer**
+
+Designed for **agency, not apps**
+
+Where people can **think like whole humans**
+
+The computer of the future is not a **product**, but a **place**
+
+🎥 [The Humane Representation of Thought](https://vimeo.com/115154289)
+
+---
+
+class: center, middle
+
+# Dynamic Land
+
+Programming conflates 2 things
+
+Engineering 👉 communicate intent to Computers
+
+Authoring 👉 communicate intent to Humans
+
+---
+
+background-image: url(img/dynamicland/senses.png)
+
+---
+
+background-image: url(img/dynamicland/dl-010.png)
+
+---
+
+background-image: url(img/dynamicland/dl-006.png)
+
+---
+
+background-image: url(img/dynamicland/dl-005.jpg)
+
+---
+
+background-image: url(img/dynamicland/dl-020.png)
+
+---
+
+background-image: url(img/dynamicland/dl-021.png)
+
+---
+
+background-image: url(img/dynamicland/dl-007.png)
+
+---
+
+background-image: url(img/dynamicland/dl-009.png)
+
+---
+
+class: center, middle
+
+# T2 Tile - [t2tile.com](https://t2tile.com/)
+
+Working for bigger and safer computing using living systems principles. 
+
+The T2 Tile project is an attempt to build the world's first indefinitely scalable computational stack.
+
+---
+
+background-image: url(./img/t2tile.webp)
+
+---
+
+# T2 Tile
+
+First, we suspend the idea that we must be bound to an architecture based on correct and efficient deterministic hardware and software.
+
+ Instead, much like the physical world around us, we look to robustness as a foundational requirement, building living systems as vessels for digital computation that is **firstly robust, then as correct as possible, and finally, as efficient as necessary**.
+
+???
+
+https://www.youtube.com/channel/UC1M91QuLZfCzHjBMEKvIc-A
+
+First, we suspend the idea that we must be bound to an architecture based on correct and efficient deterministic hardware and software. Instead, much like the physical world around us, we look to robustness as a foundational requirement, building living systems as vessels for digital computation that is firstly robust, then as correct as possible, and finally, as efficient as necessary.
+
+---
+
+class: center, middle
+
+# Local First
+
+📝 [You own your data, in spite of the cloud](https://www.inkandswitch.com/local-first/)
+
+🎙️ [localfirst.fm: A podcast about local-first software development](https://www.localfirst.fm/)
+
+---
+
+class: center, middle
+
+# [Collapse OS](http://collapseos.org/)
+
+Bootstrap post-collapse technology
+
+Winter is coming and Collapse OS aims to soften the blow. It is a Forth operating system and a collection of tools and documentation with a single purpose: preserve the ability to program microcontrollers through civilizational collapse. 
+
+???
+
+---
+
+class: center, middle
+
+# [PermaComputing](https://permacomputing.net/)
+
+In a time where computing epitomizes industrial waste, **permacomputing encourages the maximizing of hardware lifespans, minimizing energy use and focusing on the use of already available computational resources**. 
+
+---
+
+class: center, middle
+
+# Thanks
+
+Mariano Guerra - 🐦 [@warianoguerra](https://twitter.com/warianoguerra)
+
+    </textarea>
+    <script src="./remark.js">
+    </script>
+    <script>
+      remark.create({
+        ratio: '16:9',
+        slideNumberFormat: '' // '%current% / %total%'
+      });
+    </script>
+  </body>
+</html>
