@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A Tour Through Latent Space</title>
+    <meta charset="utf-8">
+    <style>
+      *{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+      .remark-slide-container, .remark-slide-content{
+          color:white;
+          background-color:rgb(23, 21, 27);
+      }
+      .remark-slide-content{
+          font-size: 2em;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+      }
+      .remark-slide-scaler{
+        box-shadow:none;
+      }
+      a,a:visited{color:white;}
+      code{font-size: 0.8em !important;}
+      h1, h2, h3 {
+        font-weight: normal;
+        text-align: center;
+      }
+      .remark-slide-content.reverse{color:white;}
+      .reverse-text h1{color: #fefefe; background-color: #111; padding: 0.2em;}
+      .remark-code, .remark-code *{ font-family: 'monospace'; white-space:pre}
+      .slide-video{padding-top:1vh}
+      .slide-video video{height:61vh}
+      .slide-table{padding:1em 0}
+      .no-padding{padding:0}
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class: middle, center
+
+# A Tour Through Latent Space
+
+LLMs, Hypermedia, and Interactive Data Applications
+
+---
+
+class: middle
+
+💻 [gloodata.com](https://gloodata.com)
+
+
+📰 [futureofcoding.org/#newsletter](https://futureofcoding.org/#newsletter)
+
+
+📘 [wasmgroundup.com](https://wasmgroundup.com/)
+
+🐦 [x.com/warianoguerra](https://x.com/warianoguerra)
+
+
+🐘 [hachyderm.io/@marianoguerra](https://hachyderm.io/@marianoguerra)
+
+
+🦋 [@marianoguerra.bsky.social](https://bsky.app/profile/marianoguerra.bsky.social)
+
+
+
+---
+
+class: center, middle
+
+# The Opportunity Window
+
+![XKCD 1425](./img/tasks.png)
+
+---
+
+class: center, middle
+
+# Babbage, Jobs @ Xerox PARC & Hype
+
+???
+
+Babbage himself failed to build a complete calculating engine and his designs remained a historical curiosity for over 150 years. Finally, in 2002, the first full-size Babbage Engine (Difference Engine No. 2), built faithfully to the original designs, was completed at the Science Museum in London, the culmination of a seventeen year project. The Engine consists of 8,000 parts, weighs 5 tons and measures eleven feet long and seven feet high. It works as Babbage intended, and brings to a close an anguished chapter in the prehistory of computing.
+
+[computerhistory.org/babbage/overview/](https://www.computerhistory.org/babbage/overview/)
+
+---
+
+class: center, middle
+
+# Part 1
+
+The Proof is in the Demos
+
+---
+
+class: center, middle
+
+# 🛗 [Gloodata](https://gloodata.com/)
+
+Build Low-Code AI-Native Interactive Data Applications
+
+---
+
+class: center, middle
+
+# Demo
+
+---
+
+class: middle
+
+# Low-Code
+
+- No UI / LLM code required
+- Extensions in your language, tools and workflows
+	- A single HTTP endpoint required
+
+---
+
+class: center, middle
+
+# Interactive
+
+Navigation / "Drill Down" / Hypermedia
+
+Tool Parameters
+
+---
+
+class: middle
+
+# Data Applications
+
+- Unstructured / Structured Data
+- Databases
+- APIs
+- Microservices
+- Multimedia Files
+- Data Lake
+
+---
+
+class: middle
+
+# AI-Native
+
+---
+
+class: center, middle
+
+#  Chat UX
+
+# 👇
+
+#  Browser UX
+
+From ask to search
+
+No fixed UI
+
+Mixed input/output modes
+
+---
+
+class: center, middle
+
+# Text In / Out
+
+# 👇
+
+# Text In / Interactive UI Out
+
+
+Plus Navigation
+
+---
+
+class: center, middle
+
+# Text
+
+# 👇
+
+# Hypermedia
+
+
+Support structured data and multimedia
+
+---
+
+class: center, middle
+
+# ↕️ Sequence / ♾️ Canvas 
+
+# 👇
+
+# Tiled Window Manager
+
+
+Avoid scrolling or manually positioninig things
+
+---
+
+class: center, middle
+
+# "AOT" Click / Drill Down Targets
+
+# 👇
+
+# "JIT" Intents
+
+
+From one to one conections to links as queries
+
+---
+
+class: center, middle
+
+# Part 2
+
+How it relates to Smalltalk
+
+---
+
+class: center, middle
+
+# HCAI
+
+Human Computer AI/Agent Interaction
+
+---
+
+class: center, middle
+
+[Apple's Knowledge Navigator concept video (1987)](https://www.youtube.com/watch?v=-jiBLQyUi38)
+
+Mixed Initiative User Interfaces 2.0
+
+---
+
+class: center, middle
+
+# Human ↔️ Computer
+
+HCI
+
+---
+
+class: center, middle
+
+# Human ↔️ AI
+
+Natural Language: Text, Audio
+
+Video, Images
+
+---
+
+class: center, middle
+
+# AI ➡️ Computer
+
+APIs
+
+⌨️🖱️🖥️ [Computer Use](https://www.anthropic.com/news/developing-computer-use)
+
+---
+
+class: center, middle
+
+# AI ⬅️ Computer
+
+Schemas, Prompts, Metadata, Multimedia
+
+Metaobject Protocol 2.0
+
+---
+
+class: center, middle
+
+# "Agents"
+
+![Agent Venn Diagram](./img/venn-agent.jpg)
+
+---
+
+class: center, middle
+
+# "Agents"
+
+![Agent Quote](./img/agent-quote.jpg)
+
+---
+
+class: middle
+
+# "Agents"
+
+- Live (State, Memory, Context)
+- "Headless"
+- Capabilities
+  - [Newspeak](https://newspeaklanguage.org/)
+  - [Telescript Mobile Agents](http://www.datarover.com/Telescript/Whitepapers/wp4/whitepaper-4.html)
+- Sandboxing
+  - Every extensible platform will expand until it can mine bitcoin
+- Transaction / Rollback
+  - Try and recover from errors and bad strategies
+- Virtualizing IO
+- Human in the Loop
+
+---
+
+class: center, middle
+
+# Generative / Non-Deterministic
+
+# Prescriptive / Deterministic
+
+# Spectrum
+
+Documentation, Learning, Debugging, Trust
+
+---
+
+class: center, middle
+
+# Part 3
+
+LLM Concepts
+
+---
+
+class: middle
+
+- "NLP 2.0": Summarize, Improve, Translate, Explain
+- Multimedia: Audio, Image, Video I/O
+- Structured Data
+
+---
+
+class: center, middle
+
+# Trainning
+
+---
+
+class: center, middle
+
+# Fine Tunning
+
+---
+
+class: center, middle
+
+# Context Window
+
+Context Caching
+
+---
+
+class: center, middle
+
+# Function / Tool Use
+
+📝 [ReAct: Synergizing Reasoning and Acting in Language Models](https://react-lm.github.io/)
+
+[Blocks World](https://en.wikipedia.org/wiki/Blocks_world) 2.0
+
+---
+
+class: center, middle
+
+# Structured Output
+
+---
+
+class: center, middle
+
+# RAG: Retrieval-Augmented Generation
+
+Expert Systems 2.0
+
+---
+
+# Vector Search / Embeddings
+
+💻 [github.com/marianoguerra/webvectors](https://github.com/marianoguerra/webvectors/)
+
+
+📺 [Visualizing Vector Embeddings in 3D with transformers.js and t-SNE/UMAP](https://www.youtube.com/watch?v=R7x5zefEUnc)
+
+
+📝 [How does cosine similarity work?](https://tomhazledine.com/cosine-similarity/)
+
+
+📝 [Alternatives to cosine similarity](https://tomhazledine.com/cosine-similarity-alternatives/)
+
+---
+
+class: center, middle
+
+# [Chain](https://www.promptingguide.ai/techniques/cot) / [Tree](https://www.promptingguide.ai/techniques/tot) of Thought
+
+---
+
+class: center, middle
+
+# Prompt Injection
+
+---
+
+class: center, middle
+
+# Evals / Guardrails
+
+[LLM Evaluation: Model-Based, Labeling & User Feedback](https://langfuse.com/docs/scores/overview)
+
+
+[How to implement LLM guardrails](https://cookbook.openai.com/examples/how_to_use_guardrails)
+
+---
+
+class: middle
+
+# Thanks
+
+💻 [gloodata.com](https://gloodata.com)
+
+
+📰 [futureofcoding.org/#newsletter](https://futureofcoding.org/#newsletter)
+
+
+📘 [wasmgroundup.com](https://wasmgroundup.com/)
+
+
+🐦 [x.com/warianoguerra](https://x.com/warianoguerra)
+
+
+🐘 [hachyderm.io/@marianoguerra](https://hachyderm.io/@marianoguerra)
+
+
+🦋 [@marianoguerra.bsky.social](https://bsky.app/profile/marianoguerra.bsky.social)
+
+    </textarea>
+    <script src="../remark-20241030.js">
+    </script>
+    <script>
+      remark.create({
+        ratio: '16:9',
+        slideNumberFormat: '' // '%current% / %total%'
+      });
+    </script>
+  </body>
+</html>
