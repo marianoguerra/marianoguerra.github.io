@@ -2,11 +2,13 @@
   --font-mono: "Fira Code", "Source Code Pro", "Courier New", Courier, monospace;
   --font-sans: "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 
+  --color-text: #0F172A;
   --color-text-reverse: #F8FAFC;
   --color-text-number: blue;
   --color-text-string: #353835;
   --color-quotes: #505350;
 
+  --color-bg: #F8FAFC;
   --color-bg-reverse: #020617;
 
   --color-border: #334155;
@@ -56,6 +58,11 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+body{
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 code {
@@ -207,7 +214,6 @@ code {
   align-items: center;
   justify-content: center;
   font-size: 7em;
-  font-family: var(--font-mono);
 }
 
 .large-image {
