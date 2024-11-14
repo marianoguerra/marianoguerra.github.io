@@ -1,0 +1,217 @@
+:root {
+  --font-mono: "Fira Code", "Source Code Pro", "Courier New", Courier, monospace;
+  --font-sans: "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  --color-text-reverse: #F8FAFC;
+  --color-text-number: blue;
+  --color-text-string: #353835;
+  --color-quotes: #505350;
+
+  --color-bg-reverse: #020617;
+
+  --color-border: #334155;
+  --color-border-secondary: #94A3B8;
+
+  --size-border: 1px;
+  --size-1: .25rem;
+  --size-2: .5rem;
+  --size-3: .75rem;
+  --size-4: 1rem;
+
+  --border-radius: 3px;
+}
+
+/* https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/ */
+
+@font-face {
+  font-family: 'FontWithASyntaxHighlighter';
+  src:
+    url('./FontWithASyntaxHighlighter-Regular.woff2') format('woff2');
+}
+
+@font-palette-values --myCustomPalette {
+  font-family: 'FontWithASyntaxHighlighter';
+  override-colors: 0 red,
+  /* keywords, {} */
+  1 lightblue,
+  /* comments */
+  2 yellow,
+  /* literals */
+  3 purple,
+  /* numbers */
+  4 green,
+  /* functions, [] */
+  5 orange,
+  /* js others */
+  6 black,
+  /* not in use */
+  7 hotpink,
+  /* inside quotes, css properties, few chars */
+  8 lime
+  /* few chars */
+  ;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+code {
+  white-space: pre;
+  color: var(--color-text-reverse);
+  background-color: var(--color-bg-reverse);
+  border: 1px solid var(--color-bg-reverse);
+  padding: var(--size-3);
+  font-family: "FontWithASyntaxHighlighter", monospace;
+  border-radius: var(--border-radius);
+}
+
+.slides {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: var(--size-3);
+  width: calc(100vw - (var(--size-3) * 2));
+  height: calc(100vh - (var(--size-3) * 2));
+  margin: var(--size-3);
+}
+
+.slide {
+  display: grid;
+  align-content: center;
+  justify-content: stretch;
+}
+
+.slide-controls {
+  display: flex;
+  justify-content: space-evenly;
+  gap: var(--size-3);
+}
+
+.slide-controls button {
+  aspect-ratio: 1;
+  width: 3em;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  font-family: var(--font-mono);
+  cursor: pointer;
+}
+
+.code-chains {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--size-3);
+}
+
+.chain-link,
+.chain-name {
+  display: flex;
+  justify-content: center;
+}
+
+.chain-name {
+  font-style: italic;
+}
+
+.scope-chains {
+  display: inline-flex;
+  justify-content: flex-start;
+  gap: var(--size-3);
+}
+
+.scope-chains>* {
+  flex: 1;
+}
+
+.scope-chain {
+  padding: var(--size-2) var(--size-3);
+  border: var(--size-border) solid var(--color-border-secondary);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1);
+  min-width: 16em;
+}
+
+.scope {
+  display: inline-grid;
+  padding: var(--size-2) var(--size-3);
+  border: var(--size-border) solid var(--color-border);
+  border-radius: var(--border-radius);
+  grid-template-rows: auto auto 1fr;
+  gap: var(--size-1);
+}
+
+.scope>.bindings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1);
+}
+
+.bind {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--size-1);
+}
+
+.scope-name {
+  border-bottom: var(--size-border) solid var(--color-border-secondary);
+  padding-bottom: var(--size-2);
+  margin-bottom: var(--size-2);
+  text-align: center;
+  font-weight: bold;
+}
+
+.bind-key,
+.val {
+  display: inline-flex;
+}
+
+.bind-key {
+  font-family: var(--font-mono);
+}
+
+.val {
+  justify-content: flex-end;
+  font-family: var(--font-mono);
+}
+
+.val:is(.val-num, .val-str, .val-fn) {
+  font-weight: bold;
+}
+
+.val-num {
+  color: var(--color-text-number);
+}
+
+.val-str {
+  quotes: "❝" "❞";
+  font-family: var(--font-mono);
+  color: var(--color-text-string);
+}
+
+.val-str:before {
+  content: open-quote;
+  color: var(--color-quotes);
+}
+
+.val-str:after {
+  content: close-quote;
+  color: var(--color-quotes);
+}
+
+.large-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7em;
+  font-family: var(--font-mono);
+}
+
+.large-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
