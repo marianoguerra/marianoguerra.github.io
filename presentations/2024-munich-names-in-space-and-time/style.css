@@ -88,6 +88,8 @@ code {
   display: grid;
   align-content: center;
   justify-content: stretch;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
 
 .slide-controls {
@@ -99,7 +101,7 @@ code {
 .slide-controls button {
   aspect-ratio: 1;
   width: 3em;
-  background: none;
+  background-color: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
   font-family: var(--font-mono);
@@ -220,4 +222,15 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.large-grid {
+  --col-count: 3;
+  display: grid;
+  grid-template-columns: repeat(var(--col-count), 1fr);
+  gap: var(--size-3);
+  margin: var(--size-3);
+  align-content: space-evenly;
+  justify-items: center;
+  font-size: 3em;
 }

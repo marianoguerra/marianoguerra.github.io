@@ -9,6 +9,8 @@ function main() {
     render = (vdom) => patch(rootNode, vdom);
 
   const root = new Slides([
+    t("Names in Space & Time"),
+    grid("Scope", "Namespace", "Environment", "Bindings", "Symbol Table", "Call Stack", "Stack Frames", "Identifier", "Name", "Label", "Variable"),
     cc([sc("Empty Program", "Module")], ``),
     cc([sc("Empty Program", "Module")], `// ?\nparseInt("42", 10);`),
     cc(
@@ -79,7 +81,7 @@ f0();
     cc(
       [
         sc("Static", "Prelude", { parseInt }).enter("Module"),
-        sc("Local", "f1", { parseInt: Number.parseInt }).enter("{}"),
+        sc("Local", "f1", { parseInt: Number.parseInt }).enter("<block>"),
       ],
       `
 function f1() {
@@ -140,7 +142,7 @@ function f1() {
     t("Class Path"),
     t("LD_PRELOAD"),
     t("Docker Layers"),
-    t("￼"),
+    t("🎈"),
     cc(
       [
         sc("Class", "Object").enter("C1"),
@@ -496,8 +498,8 @@ class Slides {
       div("slide", this.slides[this.currentSlide].toDOM()),
       div(
         "slide-controls",
-        button({ "data-action": "slide:prev" }, "<"),
-        button({ "data-action": "slide:next" }, ">"),
+        button({ "data-action": "slide:prev" }, "⬅️"),
+        button({ "data-action": "slide:next" }, "➡️"),
       ),
     );
   }
@@ -533,6 +535,18 @@ class LargeImage {
 }
 
 const limg = (src, alt) => new LargeImage(src, alt);
+
+class Grid {
+  constructor(items) {
+    this.items = items;
+  }
+
+  toDOM() {
+    return div({class: "large-grid", style: `--col-count: ${Math.max(1, Math.trunc(Math.sqrt(this.items.length)))}`}, ...this.items.map(v => span(null, v)));
+  }
+}
+
+const grid = (...items) => new Grid(items);
 
 class CodeChains {
   constructor(chains, code) {
