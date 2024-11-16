@@ -10,6 +10,7 @@ function main() {
 
   const root = new Slides([
     t("Names in Space & Time"),
+    limg("./qrcode.png"),
     grid("Scope", "Namespace", "Environment", "Bindings", "Symbol Table", "Call Stack", "Stack Frames", "Activation Record", "Identifier", "Name", "Label", "Variable"),
     cc([sc("Empty Program", "Module")], ``),
     cc([sc("Empty Program", "Module")], `// ?\nparseInt("42", 10);`),
