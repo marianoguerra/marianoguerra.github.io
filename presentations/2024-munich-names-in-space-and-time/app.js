@@ -10,7 +10,7 @@ function main() {
 
   const root = new Slides([
     t("Names in Space & Time"),
-    grid("Scope", "Namespace", "Environment", "Bindings", "Symbol Table", "Call Stack", "Stack Frames", "Identifier", "Name", "Label", "Variable"),
+    grid("Scope", "Namespace", "Environment", "Bindings", "Symbol Table", "Call Stack", "Stack Frames", "Activation Record", "Identifier", "Name", "Label", "Variable"),
     cc([sc("Empty Program", "Module")], ``),
     cc([sc("Empty Program", "Module")], `// ?\nparseInt("42", 10);`),
     cc(
@@ -34,29 +34,16 @@ parseInt("42", 10);
         sc("Static", "Prelude", { parseInt: Number.parseInt }).enter("Module", {
           parseInt: Number.parseInt,
         }),
-        sc("Local", "f1"),
+        sc("Local", "f1", {a: 0}),
       ],
       `
 const parseInt = Number.parseInt;
 
-function f1() {
+function f1(a) {
   return parseInt("42", 10);
 }
 
-f1();
-`,
-    ),
-    cc(
-      [
-        sc("Static", "Prelude", { parseInt }).enter("Module"),
-        sc("Local", "f1"),
-      ],
-      `
-function f1() {
-  return parseInt("42", 10);
-}
-
-f1();
+f1(0);
 `,
     ),
     cc(
@@ -81,41 +68,72 @@ f0();
     cc(
       [
         sc("Static", "Prelude", { parseInt }).enter("Module"),
-        sc("Local", "f1", { parseInt: Number.parseInt }).enter("<block>"),
+        ScopeChain.withTail("Dynamic", sc("f0", "function", {a: 0}).enter("if", { b: "42" })),
+        sc("Local", "f1", {a: "42"}),
+      ],
+      `
+function f0(a) {
+  if (a === 0) {
+    const b = "42";
+    return f1(b);
+  }
+}
+
+function f1(a) {
+    return parseInt(a, 10);
+}
+
+f0(0);
+`,
+    ),
+    cc(
+      [
+        sc("Static", "Prelude", { parseInt }).enter("Module"),
+        sc("Local", "f1", { parseInt: Number.parseInt })
+        .enter("if")
+        .enter("for", {i: 0})
+        .enter("<block>"),
       ],
       `
 function f1() {
   const parseInt = Number.parseInt;
 
-  {
-    return parseInt("42", 10);
+  if (true) {
+    for(let i = 0; i < 1; i++) {
+      {
+        return parseInt("42", 10);
+      }
+    }
   }
 }
 
 f1();
 `,
     ),
-    t("🪝"),
-    cc(
-      [],
+
+cc(
+      [
+        sc("Static", "Prelude", { parseInt }).enter("Module"),
+        sc("Local", "f1", { i: 0, parseInt: Number.parseInt })
+        .enter("if")
+        .enter("for")
+        .enter("<block>"),
+      ],
       `
-defmodule Outer do
-  def outer_function do
-    IO.puts("Hello from Outer")
-  end
+function f1() {
+  const parseInt = Number.parseInt;
 
-  defmodule Inner do
-    def inner_function do
-      outer_function() # ⛔
-    end
-  end
-end
+  if (true) {
+    for(var i = 0; i < 1; i++) {
+      {
+        return parseInt("42", 10);
+      }
+    }
+  }
+}
 
-Outer.Inner.inner_function() # ⛔
-
-# Elixir.Outer.beam
-# Elixir.Outer.Inner.beam
-      `,
+f1();
+`,
     ),
     cc(
       [
@@ -124,13 +142,13 @@ Outer.Inner.inner_function() # ⛔
         }),
         sc("Static", "Prelude", { parseInt }).enter("Module", {
           parseInt,
-          cpuUsage() {},
+          cpu: f,
+          f1: f
         }),
-        sc("Local", "f1"),
       ],
       `
 import { parseInt } from "numbers";
-import { cpuUsage } from "process";
+import { cpuUsage as cpu } from "process";
 
 function f1() {
   return parseInt("42", 10);
@@ -141,12 +159,13 @@ function f1() {
     t("$PATH"),
     t("Class Path"),
     t("LD_PRELOAD"),
-    t("Docker Layers"),
+    t("🐳 Image Layers"),
+    t("Types"),
     t("🎈"),
     cc(
       [
-        sc("Class", "Object").enter("C1"),
-        sc("Prototype", "Object", { toString: f })
+        sc("Class (Static)", "Object (Prelude)").enter("C1"),
+        sc("Prototype (Dynamic)", "Object (Prelude)", { toString: f })
           .enter("C1")
           .enter("Instance"),
       ],
@@ -186,42 +205,7 @@ console.log(C2.toString());
 console.log((new C2()).toString());
 `,
     ),
-
-    cc(
-      [],
-      `
-class D1 {
-  constructor() {
-    this.d1 = "here";
-  }
-
-  d2() {
-    return "I'm in the prototype";
-  }
-}
-
-class D2 extends D1 {
-  constructor() {
-    super();
-    this.d1 = "here override";
-    this.d2 = "here too";
-  }
-
-  get() {
-    return {d1: this.d1, d2: this.d2, parentD1: super.d1, parentD2: super.d2};
-  }
-}
-
-console.log(new D2().get());
-
-{
-  d1: "here override",
-  d2: "here too",
-  parentD1: undefined,
-  parentD2: [Function: d2]
-}
-      `,
-    ),
+    
     cc(
       [
         sc("Prototype", "Object")
@@ -283,6 +267,138 @@ const myParseInt = fixBase(10);
 myParseInt("42");
 `,
     ),
+        t("Dynamic Lookup"),
+    cc(
+      [
+        sc("Static", "Prelude", { parseInt }).enter("Module"),
+        sc("Dynamic", "f0", { parseInt: Number.parseInt }),
+        sc("Local", "f1"),
+      ],
+      `
+function f0() {
+  const parseInt = Number.parseInt;
+  return f1();
+}
+
+function f1() {
+  return parseInt("42", 10);
+}
+
+f0();
+`,
+    ),
+    t("Effects?"),
+    cc(
+      [
+        sc("Static", "Prelude", { parseInt }).enter("Module", {
+          log: f,
+          dlog: f,
+        }),
+        sc("Dynamic", "f0", { a: 0, parseInt: Number.parseInt }),
+        sc("Effect", "f0", { log: f }),
+        sc("Local", "f1"),
+      ],
+      `
+import {log as dlog} from "superlog";
+
+const log = console.log.bind(console);
+
+function f0(a) {
+  log!("in f0");
+  if (a === 0) {
+    with dlog as log {
+      return f1();
+    }
+  } else {
+    return f1();
+  }
+}
+
+function f1() {
+  log!("in f0");
+  return parseInt("42", 10);
+}
+
+f0(0);
+`,
+    ),
+    cc(
+      [
+        sc("Static", "Prelude", { parseInt }).enter("Module", {
+          log: f,
+          dlog: f,
+        }),
+        sc("Dynamic", "f0", { a: 1, parseInt: Number.parseInt }),
+        sc("Effect", "f0"),
+        sc("Local", "f1"),
+      ],
+      `
+import {log as dlog} from "superlog";
+
+const log = console.log.bind(console);
+
+function f0(a) {
+  log!("in f0");
+  if (a === 0) {
+    with dlog as log {
+      return f1();
+    }
+  } else {
+    return f1();
+  }
+}
+
+function f1() {
+  log!("in f0");
+  return parseInt("42", 10);
+}
+
+f0(1);
+`,
+    )    ,
+    t("React Context"),
+    t("Prop Drilling"),
+    t("Theme"),
+    t("Session"),
+    t("Settings"),
+    t("Feature Flags"),
+    t("Distributed Tracing"),
+    t("*Ctx"),
+    t("💡"),
+    t("First Class Scope Chains"),
+    t("Attach Custom Metadata"),
+    t("Query on Scope Chains"),
+    t("Diff Scope Chain Traces"),
+    t("💡"),
+    t("UI"),
+    limg("./ui.jpg", "Bluesky UI Example"),
+    t("Remove in a List Item"),
+    t("💡"),
+    t("Minsky's Frames"),
+    t("In Prolog / Datalog"),
+    t("🪝"),
+    cc(
+      [],
+      `
+defmodule Outer do
+  def outer_function do
+    IO.puts("Hello from Outer")
+  end
+
+  defmodule Inner do
+    def inner_function do
+      outer_function() # ⛔
+    end
+  end
+end
+
+Outer.Inner.inner_function() # ⛔
+
+# Elixir.Outer.beam
+# Elixir.Outer.Inner.beam
+      `,
+    ),
+    limg("./macros.jpg", "Here me out, I have a theory about macros"),
     cc(
       [],
       `
@@ -338,74 +454,43 @@ myParseInt("42");
   ((#f obj 'rotate) obj 90))
 `,
     ),
-    t("Dynamic Lookup"),
+    t("Why?"),
     cc(
-      [
-        sc("Static", "Prelude", { parseInt }).enter("Module"),
-        sc("Dynamic", "f0", { parseInt: Number.parseInt }),
-        sc("Local", "f1"),
-      ],
+      [],
       `
-function f0() {
-  const parseInt = Number.parseInt;
-  return f1();
+class D1 {
+  constructor() {
+    this.d1 = "here";
+  }
+
+  d2() {
+    return "I'm in the prototype";
+  }
 }
 
-function f1() {
-  return parseInt("42", 10);
+class D2 extends D1 {
+  constructor() {
+    super();
+    this.d1 = "here override";
+    this.d2 = "here too";
+  }
+
+  get() {
+    return {d1: this.d1, d2: this.d2, parentD1: super.d1, parentD2: super.d2, protoD2: this.constructor.prototype.d2};
+  }
 }
 
-f0();
-`,
-    ),
-    t("Effects?"),
-    cc(
-      [
-        sc("Static", "Prelude", { parseInt }).enter("Module", {
-          log: f,
-          dlog: f,
-        }),
-        sc("Dynamic", "f0", { parseInt: Number.parseInt }),
-        sc("Effect", "f0", { log: f }),
-        sc("Local", "f1"),
-      ],
-      `
-import {log as dlog} from "superlog";
+console.log(new D2().get());
 
-const log = console.log.bind(console);
-
-function f0() {
-  log!("in f0");
-  with dlog as log;
-  const parseInt = Number.parseInt;
-  return f1();
+{
+  d1: "here override",
+  d2: "here too",
+  parentD1: undefined,
+  parentD2: [Function: d2],
+  protoD2: [Function: d2]
 }
-
-function f1() {
-  log!("in f0");
-  return parseInt("42", 10);
-}
-
-f0();
-`,
-    ),
-    t("React Context"),
-    t("Prop Drilling"),
-    t("Ctx"),
-    t("Theme"),
-    t("Session"),
-    t("Settings"),
-    t("Feature Flags"),
-    t("Distributed Tracing"),
-    t("💡"),
-    t("UI"),
-    limg("./ui.jpg", "Bluesky UI Example"),
-    t("First Class Scope Chains"),
-    t("Attach Custom Metadata"),
-    t("JQuery on Scope Chains"),
-    t("Minsky's Frames"),
-    t("Ser / Estar"),
-  ]);
+      `,
+    )  ]);
 
   function handleClick(e) {
     const { action } = e.target?.dataset;
@@ -461,7 +546,8 @@ f0();
 }
 
 const cc = (...args) => new CodeChains(...args),
-  sc = (...args) => new ScopeChain(...args);
+  sc = (...args) => new ScopeChain(...args),
+  scs = (...args) => new ScopeChains(...args);
 
 function setSlideParam(v) {
   const url = new URL(window.location);
@@ -575,11 +661,17 @@ class ScopeChain {
     this.tail = Scope.root(rootScopeName, rootBindings);
   }
 
+  static withTail(name, tail) {
+    const v = new this(name);
+    v.tail = tail;
+    return v;
+  }
+
   toDOM() {
     return div(
       "scope-chain",
       div("chain-name", this.name),
-      ...this.tail.chainToDOM(),
+      ...(this.tail.chainToDOM?.() ?? [this.tail.toDOM()]),
     );
   }
 
