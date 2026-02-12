@@ -1786,6 +1786,14 @@
       {
         "label": "Announcement Post",
         "url": "https://marianoguerra.leaflet.pub/3meoabixqi22i"
+      },
+      {
+        "label": "Component Gallery",
+        "url": "https://marianoguerra.github.io/margaui/playground/#button"
+      },
+      {
+        "label": "Live Component Editor",
+        "url": "https://marianoguerra.github.io/margaui/editor/?component=button&file=active-buttons.html&theme=dark&dark="
       }
     ],
     "lang": "en",
