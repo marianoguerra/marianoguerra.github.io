@@ -1776,6 +1776,26 @@
     "currentlyActive": false
   },
   {
+    "title": "MargaUI",
+    "description": "No-build Tailwind 4 CSS component library. DaisyUI port that can run in the browser",
+    "categories": [
+      "Web"
+    ],
+    "url": "https://github.com/marianoguerra/margaui",
+    "altUrls": [
+      {
+        "label": "Announcement Post",
+        "url": "https://marianoguerra.leaflet.pub/3meoabixqi22i"
+      }
+    ],
+    "lang": "en",
+    "startYear": 2025,
+    "endYear": null,
+    "featured": false,
+    "role": "Creator",
+    "currentlyActive": true
+  },
+  {
     "title": "Emesene Instant Messenger",
     "description": "Multiplatform desktop GTK application for the MSN, XMPP and QQ Networks",
     "categories": [
