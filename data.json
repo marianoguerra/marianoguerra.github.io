@@ -2,12 +2,7 @@
   {
     "title": "GlooEye",
     "description": "Live outline-based data integration environment with domain-specific AI agents",
-    "categories": [
-      "End User Programming",
-      "AI",
-      "Web",
-      "Rust"
-    ],
+    "categories": ["End User Programming", "AI", "Web", "Rust"],
     "url": "https://www.youtube.com/watch?v=eqfmDztQv6I",
     "altUrls": [
       {
@@ -29,13 +24,7 @@
   {
     "title": "Gloodata",
     "description": "Low-Code platform for AI-native interactive data applications",
-    "categories": [
-      "End User Programming",
-      "AI",
-      "Startup",
-      "Web",
-      "Rust"
-    ],
+    "categories": ["End User Programming", "AI", "Startup", "Web", "Rust"],
     "url": "https://gloodata.com",
     "altUrls": [
       {
@@ -65,10 +54,7 @@
   {
     "title": "WebAssembly from the Ground Up",
     "description": "A Book to learn WebAssembly by building a simple compiler in JavaScript and ohm.js",
-    "categories": [
-      "WebAssembly",
-      "Education"
-    ],
+    "categories": ["WebAssembly", "Education"],
     "url": "https://wasmgroundup.com/",
     "lang": "en",
     "startYear": 2022,
@@ -80,10 +66,7 @@
   {
     "title": "WebAssembly Technical Posts",
     "description": "Exploring WebAssembly with different approaches",
-    "categories": [
-      "WebAssembly",
-      "Education"
-    ],
+    "categories": ["WebAssembly", "Education"],
     "url": "https://wasmgroundup.com/blog/",
     "lang": "en",
     "startYear": 2025,
@@ -95,9 +78,7 @@
   {
     "title": "Future of Coding Newsletter",
     "description": "Weekly Newsletter about the Future of Coding / Feeling of Computing",
-    "categories": [
-      "Future of Coding"
-    ],
+    "categories": ["Future of Coding"],
     "url": "https://newsletter.futureofcoding.org/join/",
     "lang": "en",
     "startYear": 2019,
@@ -109,11 +90,7 @@
   {
     "title": "Instadeq",
     "description": "Live programming environment for end user data analysis and visualization",
-    "categories": [
-      "End User Programming",
-      "Startup",
-      "Web"
-    ],
+    "categories": ["End User Programming", "Startup", "Web"],
     "url": "https://instadeq.com",
     "altUrls": [
       {
@@ -183,11 +160,7 @@
   {
     "title": "Event Fabric",
     "description": "Live visual environment to build dashboards from streaming data with nodes & wires and Blockly for logic",
-    "categories": [
-      "End User Programming",
-      "Startup",
-      "Web"
-    ],
+    "categories": ["End User Programming", "Startup", "Web"],
     "url": "https://event-fabric.com/",
     "altUrls": [
       {
@@ -201,6 +174,18 @@
     "featured": true,
     "role": "Founder",
     "currentlyActive": false
+  },
+  {
+    "title": "Tutuca",
+    "description": "Zero-dependency complete frontend framework (this site is built with it)",
+    "categories": ["Web"],
+    "url": "https://marianoguerra.github.io/tutuca/",
+    "lang": "en",
+    "startYear": 2026,
+    "endYear": null,
+    "featured": true,
+    "role": "Creator",
+    "currentlyActive": true
   },
   {
     "title": "VibeCard",
@@ -232,11 +217,7 @@
   {
     "title": "Bootstrapping OOP",
     "description": "Exploring and implementing a minimal, bootstrappable true Object Oriented language in Wasm-GC, PyPy, and JavaScript",
-    "categories": [
-      "Programming Languages",
-      "WebAssembly",
-      "Python"
-    ],
+    "categories": ["Programming Languages", "WebAssembly", "Python"],
     "url": "https://marianoguerra.org/posts/bootstrapping-oop-part-3-who-parses-the-parser/",
     "altUrls": [
       {
@@ -270,10 +251,7 @@
   {
     "title": "Don't strip the meaning away from your runtime",
     "description": "Exploring how to extend programming languages with domain-specific problem descriptions",
-    "categories": [
-      "Programming Languages",
-      "Web"
-    ],
+    "categories": ["Programming Languages", "Web"],
     "url": "https://marianoguerra.org/msite/human-server-protocol/",
     "lang": "en",
     "startYear": 2023,
@@ -285,10 +263,7 @@
   {
     "title": "Data The Ultimate",
     "description": "A data format that, unlike YAML, can express a complete programming language",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "https://github.com/spawnfest/dtu",
     "lang": "en",
     "startYear": 2022,
@@ -300,9 +275,7 @@
   {
     "title": "YouTube Notes",
     "description": "Take notes from Youtube Videos without leaving your keyboard",
-    "categories": [
-      "Web"
-    ],
+    "categories": ["Web"],
     "url": "https://instadeq.com/youtube-notes/",
     "lang": "en",
     "startYear": 2022,
@@ -314,9 +287,7 @@
   {
     "title": "Review Jam / Advent of Future of Code",
     "description": "One task per day to be solved with a Future of Coding Project",
-    "categories": [
-      "Future of Coding"
-    ],
+    "categories": ["Future of Coding"],
     "url": "https://marianoguerra.github.io/review-jam/",
     "lang": "en",
     "startYear": 2021,
@@ -328,10 +299,7 @@
   {
     "title": "Creemos en la Red",
     "description": "Teach web development to underrepresented groups in Argentina",
-    "categories": [
-      "Web",
-      "Education"
-    ],
+    "categories": ["Web", "Education"],
     "url": "https://github.com/CreemosEnLaRed/CreemosEnLaRed.github.io",
     "altUrls": [
       {
@@ -357,10 +325,7 @@
   {
     "title": "BEAMoji",
     "description": "Transpiler from Erlang to an Erlang dialect that uses emojis for identifiers",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "https://github.com/spawnfest/beamoji/blob/%E2%93%82%EF%B8%8F/JUDGES.md",
     "lang": "en",
     "startYear": 2021,
@@ -372,10 +337,7 @@
   {
     "title": "Elixir Flavoured Lisp Flavoured Erlang",
     "description": "Transpiler from Lisp Flavoured Erlang to Elixir",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "https://github.com/marianoguerra/efe#eflfe-elixir-flavoured-lisp-flavoured-erlang",
     "lang": "en",
     "startYear": 2021,
@@ -387,10 +349,7 @@
   {
     "title": "Elixir Flavoured Erlang",
     "description": "Transpiler from Erlang to Elixir",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "https://github.com/marianoguerra/efe",
     "altUrls": [
       {
@@ -408,10 +367,7 @@
   {
     "title": "Efene Programming Language",
     "description": "Erlang dialect inspired by Python and JavaScript",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "https://github.com/efene/efene",
     "lang": "en",
     "startYear": 2010,
@@ -423,10 +379,7 @@
   {
     "title": "Creemos en la Web",
     "description": "Teach web development to underrepresented groups in Córdoba, Argentina",
-    "categories": [
-      "Web",
-      "Education"
-    ],
+    "categories": ["Web", "Education"],
     "url": "https://creemosenlaweb.github.io/",
     "lang": "es",
     "startYear": 2018,
@@ -438,10 +391,7 @@
   {
     "title": "Riak Core Lite",
     "description": "Framework for building dynamo-style distributed systems",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "https://riak-core-lite.github.io/",
     "lang": "en",
     "startYear": 2021,
@@ -453,10 +403,7 @@
   {
     "title": "Ameo",
     "description": "Redis GET, SET, DEL, PUBLISH and SUBSCRIBE commands on top of Riak Core",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "https://github.com/marianoguerra-atik/ameo",
     "altUrls": [
       {
@@ -474,10 +421,7 @@
   {
     "title": "tanodb",
     "description": "Distributed in-memory key-value store on top of Riak Core, example for the Little Riak Core Book",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "https://github.com/marianoguerra/tanodb",
     "lang": "en",
     "startYear": 2015,
@@ -489,11 +433,7 @@
   {
     "title": "Riak Core on Partisan on Elixir Tutorial",
     "description": "Tutorial on how to build a distributed key-value store in Elixir using Riak Core on top of Partisan",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir",
-      "Education"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir", "Education"],
     "url": "https://marianoguerra.org/posts/riak-core-on-partisan-on-elixir-tutorial-introduction/",
     "altUrls": [
       {
@@ -527,11 +467,7 @@
   {
     "title": "Riak Core Tutorial",
     "description": "Tutorial on how to build a distributed key-value store in Erlang using Riak Core",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir",
-      "Education"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir", "Education"],
     "url": "https://marianoguerra.github.io/riak-core-tutorial/",
     "lang": "en",
     "startYear": 2018,
@@ -543,11 +479,7 @@
   {
     "title": "Little Riak Core Book",
     "description": "Book describing Riak Core and how to build a distributed key-value store in Erlang with it",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir",
-      "Education"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir", "Education"],
     "url": "https://marianoguerra.github.io/little-riak-core-book/",
     "altUrls": [
       {
@@ -565,9 +497,7 @@
   {
     "title": "Founders in Germany",
     "description": "English resources for international founders in Germany",
-    "categories": [
-      "Startup"
-    ],
+    "categories": ["Startup"],
     "url": "http://marianoguerra.github.io/founders-in-germany/",
     "lang": "en",
     "startYear": 2018,
@@ -579,10 +509,7 @@
   {
     "title": "Interfix Programming Language",
     "description": "Language for the Erlang VM with experimental syntax",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "https://github.com/marianoguerra/interfix",
     "lang": "en",
     "startYear": 2019,
@@ -594,9 +521,7 @@
   {
     "title": "json.human.js",
     "description": "Render JSON in a human readable way",
-    "categories": [
-      "Web"
-    ],
+    "categories": ["Web"],
     "url": "https://github.com/marianoguerra/json.human.js",
     "lang": "en",
     "startYear": 2018,
@@ -608,10 +533,7 @@
   {
     "title": "rst2html5",
     "description": "Generate HTML5 from ReStructuredText",
-    "categories": [
-      "Web",
-      "Python"
-    ],
+    "categories": ["Web", "Python"],
     "url": "https://github.com/marianoguerra/rst2html5",
     "lang": "en",
     "startYear": 2017,
@@ -623,9 +545,7 @@
   {
     "title": "Names in Space and Time",
     "description": "Talk at Munich Homebrew Systems Club",
-    "categories": [
-      "Programming Languages"
-    ],
+    "categories": ["Programming Languages"],
     "url": "https://marianoguerra.github.io/presentations/2024-munich-names-in-space-and-time/",
     "lang": "en",
     "startYear": 2024,
@@ -637,10 +557,7 @@
   {
     "title": "A Tour Through Latent Space: LLMs, Hypermedia, and Interactive Data Applications",
     "description": "Talk at UK Smalltalk Meetup",
-    "categories": [
-      "Future of Coding",
-      "AI"
-    ],
+    "categories": ["Future of Coding", "AI"],
     "url": "https://www.youtube.com/watch?v=k6J016ol1P0",
     "altUrls": [
       {
@@ -658,11 +575,7 @@
   {
     "title": "LLMs beyond text: natural language meets interactive hypermedia",
     "description": "Talk at GenAI Builders Berlin",
-    "categories": [
-      "Future of Coding",
-      "End User Programming",
-      "AI"
-    ],
+    "categories": ["Future of Coding", "End User Programming", "AI"],
     "url": "https://www.youtube.com/watch?v=qWlTxQAcFQQ",
     "lang": "en",
     "startYear": 2024,
@@ -674,10 +587,7 @@
   {
     "title": "Outlining a UI for Tremor",
     "description": "Talk at Tremor Con 2022",
-    "categories": [
-      "End User Programming",
-      "Web"
-    ],
+    "categories": ["End User Programming", "Web"],
     "url": "http://marianoguerra.github.io/presentations/2022-tremor-conf-outlining-a-ui-for-tremor/",
     "lang": "en",
     "startYear": 2022,
@@ -689,9 +599,7 @@
   {
     "title": "WebAssembly Demystified",
     "description": "Talk at Heilbronn Nerd BBQ",
-    "categories": [
-      "WebAssembly"
-    ],
+    "categories": ["WebAssembly"],
     "url": "http://marianoguerra.github.io/presentations/2022-wasm-demystified-heilbronn-nerd-bbq/",
     "lang": "en",
     "startYear": 2022,
@@ -703,10 +611,7 @@
   {
     "title": "Fireside chat on BEAM Languages with Erlang Co-Inventor Robert Virding & Mariano Guerra",
     "description": "Fireside chat at Code BEAM America 2021",
-    "categories": [
-      "Erlang / Elixir",
-      "Programming Languages"
-    ],
+    "categories": ["Erlang / Elixir", "Programming Languages"],
     "url": "https://www.youtube.com/watch?v=-o_UFjCyum4",
     "lang": "en",
     "startYear": 2021,
@@ -718,10 +623,7 @@
   {
     "title": "Seeing Like a Linguist",
     "description": "Talk at Code BEAM Coruña 2022",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "https://www.youtube.com/watch?v=-huejXtJJT4",
     "altUrls": [
       {
@@ -739,9 +641,7 @@
   {
     "title": "Instadeq: A Live Programming Environment for End User Data Analysis and Visualization",
     "description": "Presentation for the accepted submission at LIVE 2021",
-    "categories": [
-      "End User Programming"
-    ],
+    "categories": ["End User Programming"],
     "url": "https://www.youtube.com/watch?v=mTEkYqnGICE",
     "altUrls": [
       {
@@ -763,10 +663,7 @@
   {
     "title": "The Platform of the System",
     "description": "Talk at Code BEAM Brasil 2021",
-    "categories": [
-      "Erlang / Elixir",
-      "Programming Languages"
-    ],
+    "categories": ["Erlang / Elixir", "Programming Languages"],
     "url": "https://marianoguerra.github.io/presentations/2021-codebeam-brasil/The%20Platform%20of%20The%20System%20-%20Code%20BEAM%20Brasil%202021.pdf",
     "lang": "en",
     "startYear": 2021,
@@ -778,10 +675,7 @@
   {
     "title": "BEAM Language Ecosystem: Past, Present and Future",
     "description": "Talk at Code BEAM Brasil 2020",
-    "categories": [
-      "Erlang / Elixir",
-      "Programming Languages"
-    ],
+    "categories": ["Erlang / Elixir", "Programming Languages"],
     "url": "https://marianoguerra.github.io/presentations/2020-codebeam-brazil/BEAM%20Language%20Ecosystem%20Past,%20Present%20and%20Future.pdf",
     "lang": "en",
     "startYear": 2020,
@@ -793,10 +687,7 @@
   {
     "title": "Programming by any other name",
     "description": "Talk at Bob 2020 - Berlin",
-    "categories": [
-      "Future of Coding",
-      "Programming Languages"
-    ],
+    "categories": ["Future of Coding", "Programming Languages"],
     "url": "https://www.youtube.com/watch?v=dZC__eDU60M&list=PLHvf3gk-RdgWClskb81nBwwCCv7sRZqDm&index=16&t=0s",
     "altUrls": [
       {
@@ -814,10 +705,7 @@
   {
     "title": "Un Paseo por el Laberinto de las Representaciones",
     "description": "Talk at ElixirConf Latin America Medellin 2019. Translation: A Walk Through the Labyrinth of Representations",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "https://www.youtube.com/watch?v=PrSdwC8H84E",
     "altUrls": [
       {
@@ -835,10 +723,7 @@
   {
     "title": "Implementing Languages on the BEAM",
     "description": "Talk at Code BEAM San Francisco 2018",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "https://www.youtube.com/watch?v=lkAbwmn5Rv8",
     "lang": "en",
     "startYear": 2018,
@@ -850,10 +735,7 @@
   {
     "title": "A Tour Through the Distributed System Zoo",
     "description": "Talk at Code BEAM San Francisco 2018",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "https://www.youtube.com/watch?v=L7OTjuCIZc0",
     "altUrls": [
       {
@@ -875,10 +757,7 @@
   {
     "title": "Building distributed applications: Riak Core vs partisan",
     "description": "Talk at London Riak Meetup 2018",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "https://www.youtube.com/watch?v=BKqR3EJAV78",
     "altUrls": [
       {
@@ -896,10 +775,7 @@
   {
     "title": "Sistemas Distribuidos: ¿Para Qué?",
     "description": "Talk at Erlang Factory Light Buenos Aires 2017. Translation: Distributed Systems: What for?",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "https://www.youtube.com/watch?v=j3pk3qQRaxA",
     "lang": "es",
     "startYear": 2017,
@@ -911,9 +787,7 @@
   {
     "title": "The BEAM community and efene",
     "description": "Talk at Erlang Users Conference Stockholm 2017",
-    "categories": [
-      "Erlang / Elixir"
-    ],
+    "categories": ["Erlang / Elixir"],
     "url": "https://marianoguerra.github.io/presentations/2017-euc-efene-and-the-beam-community/",
     "lang": "en",
     "startYear": 2017,
@@ -925,10 +799,7 @@
   {
     "title": "Gossip protocols, Epidemic Broadcast and Eventual Consistency in practice",
     "description": "Talk at Erlang Factory Lite Berlin 2016",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "https://marianoguerra.github.io/presentations/berlin-efl-2016/",
     "lang": "en",
     "startYear": 2016,
@@ -940,10 +811,7 @@
   {
     "title": "How BEAM Languages are Made",
     "description": "Talk at multiple meetups in 2016 (Basel, Karlsruhe, Buenos Aires)",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "http://marianoguerra.org/talks/erlang-basel-meetup/#/efene-how-beams-are-made",
     "altUrls": [
       {
@@ -965,10 +833,7 @@
   {
     "title": "From 0 to a Working Distributed System With Riak Core",
     "description": "Talk at Ricon San Francisco 2015",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "https://www.youtube.com/watch?v=eiVqDnA0k0U&list=PL9Jh2HsAWHxIc7Tt2M6xez_TOP21GBH6M&index=21",
     "lang": "en",
     "startYear": 2015,
@@ -980,10 +845,7 @@
   {
     "title": "Riak Core in Small Bites",
     "description": "Talk at Berlin Erlang Factory Lite 2014",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "http://www.erlang-factory.com/berlin2014/mariano-guerra",
     "lang": "en",
     "startYear": 2014,
@@ -995,10 +857,7 @@
   {
     "title": "Hagamos un lenguaje de programación con pypy por Mariano Guerra",
     "description": "Talk at PyCon Argentina 2013",
-    "categories": [
-      "Programming Languages",
-      "Python"
-    ],
+    "categories": ["Programming Languages", "Python"],
     "url": "https://www.youtube.com/watch?v=_YcT01M9ZTI",
     "lang": "es",
     "startYear": 2013,
@@ -1010,10 +869,7 @@
   {
     "title": "Efene Programming Language",
     "description": "Talk at Brussels Erlang Factory Lite 2012",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "http://www.erlang-factory.com/conference/Brussels/speakers/MarianoGuerra",
     "lang": "en",
     "startYear": 2012,
@@ -1025,10 +881,7 @@
   {
     "title": "Efene a programming language for the Erlang VM",
     "description": "Talk at London Erlang Factory 2010",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "http://www.erlang-factory.com/conference/London2010/speakers/MarianoGuerra",
     "lang": "en",
     "startYear": 2010,
@@ -1040,9 +893,7 @@
   {
     "title": "WebAssembly from the Ground Up with Patrick Dubroy and Mariano Guerra",
     "description": "Podcast Guest at Chrome for Developers",
-    "categories": [
-      "WebAssembly"
-    ],
+    "categories": ["WebAssembly"],
     "url": "https://www.youtube.com/watch?v=dRdDhybw6NI&list=PLNYkxOF6rcIA46I-YCX3ASF4SRb548z8s&index=2",
     "lang": "en",
     "startYear": 2025,
@@ -1054,9 +905,7 @@
   {
     "title": "NoCode, LowCode y LowLevelCode",
     "description": "Podcast Guest at Codeadores",
-    "categories": [
-      "End User Programming"
-    ],
+    "categories": ["End User Programming"],
     "url": "https://castbox.fm/channel/id6317729?country=es",
     "lang": "es",
     "startYear": 2024,
@@ -1068,9 +917,7 @@
   {
     "title": "My NoCode Story: #053: NoCode Dashboards w/Mariano Guerra",
     "description": "Podcast Guest at My NoCode Story",
-    "categories": [
-      "End User Programming"
-    ],
+    "categories": ["End User Programming"],
     "url": "https://anchor.fm/mynocodestory/episodes/053-NoCode-Dashboards-wMariano-Guerra-e1h829l",
     "lang": "en",
     "startYear": 2022,
@@ -1082,9 +929,7 @@
   {
     "title": "\"Aha! Moment\" Demo Video with Instadeq",
     "description": "Podcast Guest at No Code Ops",
-    "categories": [
-      "End User Programming"
-    ],
+    "categories": ["End User Programming"],
     "url": "https://www.youtube.com/watch?v=r1MhSIKIwBs",
     "lang": "en",
     "startYear": 2021,
@@ -1096,10 +941,7 @@
   {
     "title": "Episode 86: EMx 085: Riak Core and Partisan with Mariano Guerra",
     "description": "Podcast Guest at Elixir Mix 2019",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "https://podcasts.apple.com/us/podcast/episode-86-emx-085-riak-core-and-partisan-with/id1379029137?i=1000461789813",
     "lang": "en",
     "startYear": 2019,
@@ -1111,10 +953,7 @@
   {
     "title": "Efene with Mariano Guerra",
     "description": "Podcast Guest at Python Podcast Episode 47",
-    "categories": [
-      "Erlang / Elixir",
-      "Programming Languages"
-    ],
+    "categories": ["Erlang / Elixir", "Programming Languages"],
     "url": "https://www.pythonpodcast.com/episode-47-efene-with-mariano-guerra/",
     "lang": "en",
     "startYear": 2016,
@@ -1126,10 +965,7 @@
   {
     "title": "Mariano Guerra on the Efene and Erlang VM as Language Platform",
     "description": "Interview at InfoQ discussing Efene and the Erlang VM as a language platform",
-    "categories": [
-      "Erlang / Elixir",
-      "Programming Languages"
-    ],
+    "categories": ["Erlang / Elixir", "Programming Languages"],
     "url": "https://www.infoq.com/interviews/guerra-efene-erlang/",
     "lang": "en",
     "startYear": 2010,
@@ -1141,10 +977,7 @@
   {
     "title": "Firestore Query Parser",
     "description": "Firestore Query Parser in JavaScript",
-    "categories": [
-      "Programming Languages",
-      "Web"
-    ],
+    "categories": ["Programming Languages", "Web"],
     "url": "https://github.com/instadeq/firestore-query-parser-js",
     "altUrls": [
       {
@@ -1166,10 +999,7 @@
   {
     "title": "HTML Is A Programming Language",
     "description": "Experiment exploring how to turn HTML into a full programming language",
-    "categories": [
-      "Programming Languages",
-      "Web"
-    ],
+    "categories": ["Programming Languages", "Web"],
     "url": "https://github.com/marianoguerra/hiapl",
     "altUrls": [
       {
@@ -1187,10 +1017,7 @@
   {
     "title": "OTP.ex",
     "description": "Erlang/OTP transpiled to Elixir using Elixir Flavoured Erlang",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir"],
     "url": "https://github.com/marianoguerra/otp.ex",
     "lang": "en",
     "startYear": 2021,
@@ -1202,11 +1029,7 @@
   {
     "title": "OTL: One true language",
     "description": "Simple BEAM language compiler built step by step for teaching",
-    "categories": [
-      "Programming Languages",
-      "Erlang / Elixir",
-      "Education"
-    ],
+    "categories": ["Programming Languages", "Erlang / Elixir", "Education"],
     "url": "https://github.com/marianoguerra/otl",
     "lang": "en",
     "startYear": 2016,
@@ -1218,10 +1041,7 @@
   {
     "title": "Forth implemented in C, JavaScript, and WebAssembly",
     "description": "Forth interpreter and compiler targeting C, JavaScript, asm.js, and WebAssembly",
-    "categories": [
-      "Programming Languages",
-      "WebAssembly"
-    ],
+    "categories": ["Programming Languages", "WebAssembly"],
     "url": "https://marianoguerra.github.io/ricardo-forth/",
     "lang": "en",
     "startYear": 2016,
@@ -1233,11 +1053,7 @@
   {
     "title": "Sonic Blocks",
     "description": "Make music with Blockly and Sonic Pi",
-    "categories": [
-      "End User Programming",
-      "Web",
-      "Education"
-    ],
+    "categories": ["End User Programming", "Web", "Education"],
     "url": "https://github.com/marianoguerra/sonic-blocks",
     "altUrls": [
       {
@@ -1255,11 +1071,7 @@
   {
     "title": "Band Blocks",
     "description": "Make music with Blockly and band.js",
-    "categories": [
-      "End User Programming",
-      "Web",
-      "Education"
-    ],
+    "categories": ["End User Programming", "Web", "Education"],
     "url": "https://github.com/marianoguerra/band-blocks",
     "altUrls": [
       {
@@ -1281,9 +1093,7 @@
   {
     "title": "plang",
     "description": "Scheme-like language implemented with PyPy",
-    "categories": [
-      "Programming Languages"
-    ],
+    "categories": ["Programming Languages"],
     "url": "https://github.com/marianoguerra/plang",
     "lang": "en",
     "startYear": 2014,
@@ -1295,10 +1105,7 @@
   {
     "title": "squim",
     "description": "A Scheme-like language implemented in JavaScript",
-    "categories": [
-      "Programming Languages",
-      "Web"
-    ],
+    "categories": ["Programming Languages", "Web"],
     "url": "https://github.com/marianoguerra/squim",
     "lang": "en",
     "startYear": 2012,
@@ -1310,9 +1117,7 @@
   {
     "title": "Instadeq A Live Programming Environment for End User Data Analysis and Visualization",
     "description": "SPLASH's LIVE 2021 Accepted Submission",
-    "categories": [
-      "End User Programming"
-    ],
+    "categories": ["End User Programming"],
     "url": "https://2021.splashcon.org/details/live-2021-papers/10/Instadeq-A-Live-Programming-Environment-for-End-User-Data-Analysis-and-Visualization",
     "lang": "en",
     "startYear": 2021,
@@ -1324,9 +1129,7 @@
   {
     "title": "ACM SIGPLAN International Workshop on Erlang 2021",
     "description": "Program Committee Member",
-    "categories": [
-      "Erlang / Elixir"
-    ],
+    "categories": ["Erlang / Elixir"],
     "url": "https://erlang2021.hotcrp.com/users/pc",
     "lang": "en",
     "startYear": 2021,
@@ -1338,10 +1141,7 @@
   {
     "title": "Google Summer of Code 2020 Mentor",
     "description": "Mentor for a reference implementation of a Riak Core Lite-based distributed application",
-    "categories": [
-      "Erlang / Elixir",
-      "Education"
-    ],
+    "categories": ["Erlang / Elixir", "Education"],
     "url": "https://summerofcode.withgoogle.com/archive/2020/projects/5834795419959296",
     "lang": "en",
     "startYear": 2020,
@@ -1365,10 +1165,7 @@
   {
     "title": "Homebrew Systems Club - Munich",
     "description": "Meetup for people interested in the future of computing and programming",
-    "categories": [
-      "Future of Coding",
-      "Programming Languages"
-    ],
+    "categories": ["Future of Coding", "Programming Languages"],
     "url": "https://lu.ma/je6q8qzq",
     "lang": "en",
     "startYear": 2024,
@@ -1380,9 +1177,7 @@
   {
     "title": "GenAI Builders - Berlin",
     "description": "Meetup for builders working with generative AI in Berlin",
-    "categories": [
-      "AI"
-    ],
+    "categories": ["AI"],
     "url": "https://lu.ma/rvsr4xiy",
     "lang": "en",
     "startYear": 2024,
@@ -1394,9 +1189,7 @@
   {
     "title": "Future of Coding Meetup - Berlin",
     "description": "Berlin meetup for the Future of Coding community",
-    "categories": [
-      "Future of Coding"
-    ],
+    "categories": ["Future of Coding"],
     "url": "https://hachyderm.io/@marianoguerra/112540551931190487",
     "lang": "en",
     "startYear": 2024,
@@ -1408,9 +1201,7 @@
   {
     "title": "Foreign Startups & Entrepreneurs Meetup",
     "description": "Stuttgart meetup to help foreign entrepreneurs",
-    "categories": [
-      "Startup"
-    ],
+    "categories": ["Startup"],
     "url": "https://www.meetup.com/Foreign-Startup-Enterprenuers-near-Stuttgart-Meetup/",
     "lang": "en",
     "startYear": 2014,
@@ -1422,10 +1213,7 @@
   {
     "title": "NoCode History",
     "description": "Blog series on the history of projects that influenced NoCode",
-    "categories": [
-      "Future of Coding",
-      "End User Programming"
-    ],
+    "categories": ["Future of Coding", "End User Programming"],
     "url": "https://instadeq.com/blog/categories/cat_nocodehistory/",
     "altUrls": [
       {
@@ -1467,10 +1255,7 @@
   {
     "title": "transito",
     "description": "Python edn parser using rply",
-    "categories": [
-      "Programming Languages",
-      "Python"
-    ],
+    "categories": ["Programming Languages", "Python"],
     "url": "https://github.com/marianoguerra/transito",
     "lang": "en",
     "startYear": 2016,
@@ -1482,9 +1267,7 @@
   {
     "title": "erldn",
     "description": "Erlang edn parser",
-    "categories": [
-      "Erlang / Elixir"
-    ],
+    "categories": ["Erlang / Elixir"],
     "url": "https://github.com/marianoguerra/erldn",
     "lang": "en",
     "startYear": 2018,
@@ -1496,10 +1279,7 @@
   {
     "title": "qrly",
     "description": "JQuery-like selectors for HTML/XML in Erlang",
-    "categories": [
-      "Erlang / Elixir",
-      "Web"
-    ],
+    "categories": ["Erlang / Elixir", "Web"],
     "url": "https://github.com/marianoguerra/qrly",
     "lang": "en",
     "startYear": 2014,
@@ -1511,9 +1291,7 @@
   {
     "title": "legojs",
     "description": "Build HTML with CSS-like selectors in JavaScript",
-    "categories": [
-      "Web"
-    ],
+    "categories": ["Web"],
     "url": "https://github.com/marianoguerra/legojs",
     "lang": "en",
     "startYear": 2012,
@@ -1525,10 +1303,7 @@
   {
     "title": "emel",
     "description": "Build HTML with CSS-like selectors in Erlang",
-    "categories": [
-      "Erlang / Elixir",
-      "Web"
-    ],
+    "categories": ["Erlang / Elixir", "Web"],
     "url": "https://github.com/marianoguerra/emel",
     "lang": "en",
     "startYear": 2012,
@@ -1540,9 +1315,7 @@
   {
     "title": "fnt: efene templates",
     "description": "Compile JQuery-templates to Erlang",
-    "categories": [
-      "Erlang / Elixir"
-    ],
+    "categories": ["Erlang / Elixir"],
     "url": "https://github.com/marianoguerra/fnt---efene-templates",
     "lang": "en",
     "startYear": 2010,
@@ -1554,9 +1327,7 @@
   {
     "title": "State of the BEAM 2017 Survey",
     "description": "Ran and published results of the state of the BEAM community",
-    "categories": [
-      "Erlang / Elixir"
-    ],
+    "categories": ["Erlang / Elixir"],
     "url": "https://marianoguerra.org/posts/state-of-the-beam-2017-survey-results/",
     "lang": "en",
     "startYear": 2017,
@@ -1568,9 +1339,7 @@
   {
     "title": "Improving Official Erlang Documentation",
     "description": "Contributed CSS and XSLT improvements to the official Erlang/OTP documentation styling and documented the process",
-    "categories": [
-      "Erlang / Elixir"
-    ],
+    "categories": ["Erlang / Elixir"],
     "url": "https://marianoguerra.org/posts/improving-official-erlang-documentation/",
     "altUrls": [
       {
@@ -1592,9 +1361,7 @@
   {
     "title": "Language Interoperability Working Group Chair at the Erlang Ecosystem Foundation",
     "description": "Founding member and working group chair",
-    "categories": [
-      "Erlang / Elixir"
-    ],
+    "categories": ["Erlang / Elixir"],
     "url": "https://erlef.org/wg/language-interop",
     "lang": "en",
     "startYear": 2019,
@@ -1606,10 +1373,7 @@
   {
     "title": "Multi-Paxos with Riak Ensemble",
     "description": "Three-part tutorial series on setting up and using Riak Ensemble for Multi-Paxos consensus in Erlang",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "https://marianoguerra.org/posts/multi-paxos-with-riak_ensemble-part-1/",
     "altUrls": [
       {
@@ -1631,10 +1395,7 @@
   {
     "title": "Playing with Lasp and CRDTs",
     "description": "Posts and rebar3 project template to get started with Lasp and CRDTs in Erlang",
-    "categories": [
-      "Distributed Systems",
-      "Erlang / Elixir"
-    ],
+    "categories": ["Distributed Systems", "Erlang / Elixir"],
     "url": "https://marianoguerra.org/posts/playing-with-lasp-and-crdts/",
     "altUrls": [
       {
@@ -1660,10 +1421,7 @@
   {
     "title": "Papers of the Week",
     "description": "Blog series reviewing academic papers on stream processing, distributed systems, CRDTs, event processing, and programming language design",
-    "categories": [
-      "Distributed Systems",
-      "Programming Languages"
-    ],
+    "categories": ["Distributed Systems", "Programming Languages"],
     "url": "https://marianoguerra.org/categories/papersoftheweek/",
     "lang": "en",
     "startYear": 2016,
@@ -1675,9 +1433,7 @@
   {
     "title": "CouchApp Tutorial Series",
     "description": "Five-part tutorial series on building web applications with CouchApp and Apache CouchDB",
-    "categories": [
-      "Web"
-    ],
+    "categories": ["Web"],
     "url": "https://marianoguerra.org/categories/couchapp/",
     "lang": "en",
     "startYear": 2010,
@@ -1689,9 +1445,7 @@
   {
     "title": "History of Ambitious Computing Projects",
     "description": "Blog series examining why ambitious computing projects succeeded or failed",
-    "categories": [
-      "Future of Coding"
-    ],
+    "categories": ["Future of Coding"],
     "url": "https://marianoguerra.org/posts/history-of-ambitious-computing-projects/",
     "altUrls": [
       {
@@ -1721,10 +1475,7 @@
   {
     "title": "Repiola",
     "description": "Logo-like virtual machine and assembler-like language for drawing on a surface, with desktop (Swing) and mobile (J2ME) frontends",
-    "categories": [
-      "Programming Languages",
-      "End User Programming"
-    ],
+    "categories": ["Programming Languages", "End User Programming"],
     "url": "https://code.google.com/archive/p/repiola/",
     "altUrls": [
       {
@@ -1742,10 +1493,7 @@
   {
     "title": "Travlr.in",
     "description": "Community-driven mapping platform for places and events, a wiki-like service where users could search, create and share locations, businesses and events on a map",
-    "categories": [
-      "Startup",
-      "Web"
-    ],
+    "categories": ["Startup", "Web"],
     "url": "https://marianoguerra.org/posts/200911travlrin/",
     "altUrls": [
       {
@@ -1763,10 +1511,7 @@
   {
     "title": "pynerl",
     "description": "Erlang NIFs to embed a Python interpreter and run Python code from Erlang",
-    "categories": [
-      "Erlang / Elixir",
-      "Python"
-    ],
+    "categories": ["Erlang / Elixir", "Python"],
     "url": "https://github.com/marianoguerra/pynerl",
     "lang": "en",
     "startYear": 2012,
@@ -1778,9 +1523,7 @@
   {
     "title": "MargaUI",
     "description": "No-build Tailwind 4 CSS component library. DaisyUI port that can run in the browser",
-    "categories": [
-      "Web"
-    ],
+    "categories": ["Web"],
     "url": "https://github.com/marianoguerra/margaui",
     "altUrls": [
       {
@@ -1806,9 +1549,7 @@
   {
     "title": "Emesene Instant Messenger",
     "description": "Multiplatform desktop GTK application for the MSN, XMPP and QQ Networks",
-    "categories": [
-      "Python"
-    ],
+    "categories": ["Python"],
     "url": "https://github.com/emesene/emesene",
     "altUrls": [
       {
