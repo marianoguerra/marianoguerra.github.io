@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOMParser select child difference</title>
+  </head>
+  <body>
+    <h1>Bug Reproduction</h1>
+    <p>
+      check the console, firefox logs a select node and undefined, chrome logs a
+      select node and an x node
+    </p>
+    <script>
+      const html = `<select><x></x></select>`;
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const select = doc.body.childNodes[0];
+      console.log(select, select.children[0]);
+    </script>
+  </body>
+</html>
